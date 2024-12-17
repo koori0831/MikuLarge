@@ -3,6 +3,7 @@ using UnityEngine;
 public class Ghost : Enemy
 {
     [SerializeField] private EntityFSMSO _ghostFSM;
+    private DamageCast damgeCast;
 
     public EntityState CurrentState => _stateMachine.currentState;
 
@@ -11,6 +12,7 @@ public class Ghost : Enemy
         base.AfterInitialize();
         _stateMachine = new StateMachine(_ghostFSM, this);
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
+        damgeCast = GetCompo<DamageCast>();
     }
 
     private void HandleAnimationEnd()
