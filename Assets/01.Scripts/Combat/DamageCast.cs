@@ -40,5 +40,10 @@ public class DamageCast : MonoBehaviour,IEntityComponent
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, _castSize);
     }
+
+    public void Initialize(Entity entity)
+    {
+        _owner = entity;
+    }
 #endif
 }

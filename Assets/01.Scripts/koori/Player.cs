@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void ApplyDamage(float damage, Vector2 direction, Vector2 knockBack, Entity dealer)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       
     }
 }

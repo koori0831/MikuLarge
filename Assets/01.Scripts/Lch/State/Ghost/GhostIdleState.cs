@@ -18,6 +18,7 @@ public class GhostIdleState : EntityState
     public override void Update()
     {
         base.Update();
+        Debug.Log(_ghost.CheckPlayerInRadius());
         if (_ghost.CheckPlayerInRadius())
         {
             _ghost.ChangeState(StateName.Wake);
