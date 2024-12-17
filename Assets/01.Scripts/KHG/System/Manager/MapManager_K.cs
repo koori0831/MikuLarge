@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapManager : MonoBehaviour
+public class MapManager_K : MonoBehaviour
 {
     [Header("Setting")]
-    [SerializeField] private Vector3 _mapScale;
-    [SerializeField] private int _targetMapAmount;
+    public Vector3 _mapScale;
+    public int _targetMapAmount;
     [Header("Map")]
     [SerializeField] private List<GameObject> _maps;
     [SerializeField] private GameObject _currentBossMap;
