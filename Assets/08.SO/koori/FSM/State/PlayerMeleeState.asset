@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5428fa6a22a2dd04c9b35ea3c7c827b0, type: 3}
   m_Name: PlayerMeleeState
   m_EditorClassIdentifier: 
-  stateName: 9
+  stateName: 11
   className: PlayerMeleeState
   animParam: {fileID: 11400000, guid: 0cdb7321c4899bc4b9be9f01b4c40839, type: 2}
