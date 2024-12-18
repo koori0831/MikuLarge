@@ -5,8 +5,6 @@ public class Player : Entity
     [Header("FSM")]
     [SerializeField] private EntityFSMSO _playerFSM;
 
-    [Header("Data channel")]
-
     [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
     public float jumpPower = 12f;
     public int jumpCount = 2;
@@ -33,13 +31,8 @@ public class Player : Entity
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
 
         _atkCompo = GetCompo<PlayerAttackCompo>();
-        PlayerInput.AttackEvent += HandleAttackKeyEvent;
+        PlayerInput.MeleeEvent += HandleAttackKeyEvent;
         PlayerInput.DashEvent += HandleDashEvent;
-    }
-
-    private void HandleExpAdd(int exp)
-    {
-
     }
 
     private void OnDestroy()
@@ -47,7 +40,7 @@ public class Player : Entity
         _mover.OnGroundStatusChange -= HandleGroundStatusChange;
         PlayerInput.JumpEvent -= HandleJumpEvent;
         GetCompo<EntityAnimator>(true).OnAnimationEnd -= HandleAnimationEnd;
-        PlayerInput.AttackEvent -= HandleAttackKeyEvent;
+        PlayerInput.MeleeEvent -= HandleAttackKeyEvent;
         PlayerInput.DashEvent -= HandleDashEvent;
     }
 
@@ -90,13 +83,14 @@ public class Player : Entity
     private void HandleAnimationEnd()
     {
         _stateMachine.currentState.AnimationEndTrigger();
+        _stateMachine.ChageState(StateName.Idle);
     }
 
     private void HandleAttackKeyEvent()
     {
         if (_atkCompo.AttemptAttack())
         {
-            ChangeState(StateName.Attack);
+            ChangeState(StateName.Melee);
         }
     }
 
