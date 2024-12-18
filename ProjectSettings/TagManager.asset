@@ -45,5 +45,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 1863295375
+    locked: 0
+  - name: Hands
+    uniqueID: 2269940523
+    locked: 0
   m_RenderingLayers:
   - Default
