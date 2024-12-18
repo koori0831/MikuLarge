@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EntityMover : MonoBehaviour, IEntityComponent
 {
-    [SerializeField] private float _moveSpeed = 5f;
+    [field:SerializeField] public float _moveSpeed = 5f;
     
     [SerializeField] private Transform _groundTrm;
     [SerializeField] private LayerMask _groundMask;

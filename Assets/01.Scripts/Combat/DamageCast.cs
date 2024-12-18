@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DamageCast : MonoBehaviour,IEntityComponent
+public class DamageCast : MonoBehaviour
 {
     [SerializeField] private ContactFilter2D _contactFilter;
     [SerializeField] private int _maxAvailableCount = 4;
@@ -39,11 +39,6 @@ public class DamageCast : MonoBehaviour,IEntityComponent
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, _castSize);
-    }
-
-    public void Initialize(Entity entity)
-    {
-        _owner = entity;
     }
 #endif
 }

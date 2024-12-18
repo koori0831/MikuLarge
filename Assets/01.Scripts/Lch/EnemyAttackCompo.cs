@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class GhostAttackCompo : MonoBehaviour, IEntityComponent
+public class EnemyAttackCompo : MonoBehaviour, IEntityComponent
 {
 
     [SerializeField] private float _cooldown;
     private float _lastAtkTime;
-    private Ghost _ghost;
+    private Entity _enemys;
 
     public void Initialize(Entity entity)
     {
-        _ghost = entity as Ghost;
+        _enemys = entity;
     }
 
     public bool CanAttack() => _lastAtkTime + _cooldown < Time.time;
+
+   
 }
