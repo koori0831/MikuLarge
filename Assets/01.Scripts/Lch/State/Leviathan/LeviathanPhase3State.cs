@@ -17,11 +17,11 @@ public class LeviathanPhase3State : EntityState
         base.Enter();
         _mover.StopImmediately(true);
         _leviathan.AttackCompo.Attack();
-        FacingToPlayer();
     }
 
     public override void Update()
     {
+        FacingToPlayer();
         base.Update();
         if (_isTriggerCall)
         {

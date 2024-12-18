@@ -7,16 +7,17 @@ public class WaterArrow : Entity
     [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
     [SerializeField] private float _damge;
     private Rigidbody2D _rbCompo;
-    private EntityMover _mover;
-    private Leviathan _leviathan;
     private float _lifeTime = 3;
+    private Leviathan _leviathan;
+    private EntityRenderer _renderer;
 
     protected override void Awake()
     {
         base.Awake();
         _target = GameObject.FindWithTag("Player").transform;
         _rbCompo = GetComponent<Rigidbody2D>();
-        _leviathan = GameObject.FindWithTag("Enemy").GetComponent <Leviathan>();
+        _leviathan = GameObject.FindWithTag("Enemy").GetComponent<Leviathan>();
+        _renderer = _leviathan.GetCompo<EntityRenderer>();
     }
 
     private void Start()
@@ -26,6 +27,9 @@ public class WaterArrow : Entity
     }
     private void Update()
     {
+
+        FacingToPlayer();
+
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0)
         {
@@ -47,5 +51,13 @@ public class WaterArrow : Entity
             }
             Destroy(gameObject);
         }
+
+        Destroy(gameObject);
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _leviathan.target.transform.position.x - transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 }

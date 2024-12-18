@@ -12,6 +12,7 @@ public class Dark : Entity
     private Asmodeus _asmodeus;
     private Vector2 _targetDir;
     private float _lifeTime = 3;
+    private EntityRenderer _renderer;
 
     protected override void Awake()
     {
@@ -19,10 +20,14 @@ public class Dark : Entity
         _target = GameObject.FindWithTag("Player").transform;
         _rbCompo = GetComponent<Rigidbody2D>();
         _asmodeus = GameObject.FindWithTag("Enemy").GetComponent<Asmodeus>();
+        _renderer = _asmodeus.GetCompo<EntityRenderer>();
     }
 
     private void Update()
     {
+
+        FacingToPlayer();
+
         _targetDir = _target.position - transform.position;
         _rbCompo.linearVelocity = _targetDir.normalized * _shotSpeed;
         _lifeTime -= Time.deltaTime;
@@ -45,5 +50,13 @@ public class Dark : Entity
             }
             Destroy(gameObject);
         }
+
+        Destroy(gameObject);
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _asmodeus.target.transform.position.x - transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 }

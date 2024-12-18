@@ -3,6 +3,7 @@ using System;
 
 public class Bullet : Entity
 {
+    private Transform _target;
     [SerializeField] private Rigidbody2D _rbCompo;
     [SerializeField] private float _damge;
     [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
@@ -10,6 +11,17 @@ public class Bullet : Entity
     //[SerializeField] private AnimParamSO _triggerParam;
     private float _lifeTime;
     private bool _canExplosion;
+    private EntityRenderer _renderer;
+    private ADEnemy _adEnemy;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _target = GameObject.FindWithTag("Player").transform;
+        _rbCompo = GetComponent<Rigidbody2D>();
+        _adEnemy = GameObject.FindWithTag("Enemy").GetComponent<ADEnemy>();
+        _renderer = _adEnemy.GetCompo<EntityRenderer>();
+    }
 
     public void ThrowBullet(Vector2 velocity, float lifeTime)
     {
@@ -20,6 +32,7 @@ public class Bullet : Entity
 
     private void Update()
     {
+        FacingToPlayer();
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0 && _canExplosion)
         {
@@ -40,6 +53,14 @@ public class Bullet : Entity
             }
             Destroy(gameObject);
         }
+
+        Destroy(gameObject);
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _adEnemy.target.transform.position.x - transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 
     //private void TriggerExplosion()
