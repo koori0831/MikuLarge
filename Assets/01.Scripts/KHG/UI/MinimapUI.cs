@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MinimapUI : MonoBehaviour
 {
-    [SerializeField] private Manager _manager;
+    //[SerializeField] private Manager _manager;
     [SerializeField] private Transform _currentMapIcon;
     [Header("Prefabs")]
     [SerializeField] private GameObject _minimapOutline;
@@ -16,7 +16,7 @@ public class MinimapUI : MonoBehaviour
 
     private void SetMinimap()
     {
-        for(int i = 0; i < _manager.MapManager_K._targetMapAmount; i++)
+        for(int i = 0; i < Manager.manager.MapManager_K._targetMapAmount; i++)
         {
             Instantiate(_minimapOutline, transform);                        
         }

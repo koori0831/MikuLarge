@@ -22,6 +22,15 @@ public class TestPlayer : MonoBehaviour
         }
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.TryGetComponent(out ICollectable collectable))
+        {
+            collectable.Collect();
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && _currentInteractable != null)
