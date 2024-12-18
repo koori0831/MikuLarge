@@ -18,20 +18,6 @@ public class CameraManager_K : MonoBehaviour
 
 
 
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            MoveRight();
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            MoveLeft();
-        }
-    }
-
-
     public void MoveRight()
     {
         if(_currentRoom < Manager.manager.MapManager_K._targetMapAmount)
