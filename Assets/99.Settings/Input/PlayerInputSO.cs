@@ -12,23 +12,25 @@ public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     public event Action ReloadEvent;
     public event Action ChangeWeaponEvent;
     public event Action NailEvent;
+    public event Action MeleeEvent;
+    public event Action SeatEvent;
         
     public Vector2 InputDirection { get; private set; }
 
-    private Controls _controls;
+    public Controls Controls;
     private void OnEnable()
     {
-        if(_controls == null)
+        if(Controls == null)
         {
-            _controls = new Controls();
-            _controls.Player.SetCallbacks(this);
+            Controls = new Controls();
+            Controls.Player.SetCallbacks(this);
         }
-        _controls.Player.Enable();
+        Controls.Player.Enable();
     }
         
     private void OnDisable()
     {
-        _controls.Player.Disable();
+        Controls.Player.Disable();
     }
         
     public void OnMove(InputAction.CallbackContext context)
@@ -76,5 +78,17 @@ public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     {
         if(context.performed)
             NailEvent?.Invoke();
+    }
+
+    public void OnMelee(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+            MeleeEvent?.Invoke();
+    }
+
+    public void OnSeat(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            SeatEvent?.Invoke();
     }
 }
