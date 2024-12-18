@@ -15,7 +15,7 @@ public class Bullet : Entity
     {
         _canExplosion = true;
         _lifeTime = lifeTime;
-        _rbCompo.AddForce(velocity, ForceMode2D.Impulse);
+        _rbCompo.AddForce(velocity,ForceMode2D.Impulse);
     }
 
     private void Update()
@@ -23,8 +23,7 @@ public class Bullet : Entity
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0 && _canExplosion)
         {
-            _canExplosion = false;
-            //TriggerExplosion();
+            Destroy(gameObject);
         }
     }
 
@@ -32,14 +31,14 @@ public class Bullet : Entity
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (TryGetComponent(out IDamageable damageable))
+            if (other.gameObject.TryGetComponent(out IDamageable damageable))
             {
                 Vector2 atkDirection = gameObject.transform.right;
                 Vector2 knockBackForce = _knockBackForce;
                 knockBackForce.x *= atkDirection.x;
-                damageable.ApplyDamage(_damge, atkDirection, knockBackForce, this);
+                damageable.ApplyDamage(_damge, atkDirection, -knockBackForce, this);
             }
-                Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 

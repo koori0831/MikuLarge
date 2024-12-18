@@ -1,11 +1,9 @@
-using System;
 using UnityEngine;
 
-public class Ghost : Enemy
+public class Asmodeus : Enemy
 {
-    [SerializeField] private EntityFSMSO _ghostFSM;
-    private DamageCast _damgeCast;
-    public EnemyAttackCompo AttackCompo;
+    [SerializeField] private EntityFSMSO _asmodeusFSM;
+    public AsmodeusAttackCompo AttackCompo;
 
     private EntityHealth _health;
     public EntityState CurrentState => _stateMachine.currentState;
@@ -15,12 +13,10 @@ public class Ghost : Enemy
         base.AfterInitialize();
 
         _health = GetCompo<EntityHealth>();
-        _stateMachine = new StateMachine(_ghostFSM, this);
-        _damgeCast = GetComponentInChildren<DamageCast>();
-        AttackCompo = GetCompo<EnemyAttackCompo>();
+        _stateMachine = new StateMachine(_asmodeusFSM, this);
+        AttackCompo = GetCompo<AsmodeusAttackCompo>();
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
         GetCompo<EntityAnimator>().OnAttackEvent += HandleAttack;
-        _damgeCast.InitCaster(this);
         _health.OnHit += HandleHit;
         _health.OnDeath += HandleDead;
     }
@@ -44,7 +40,7 @@ public class Ghost : Enemy
 
     public void HandleAttack()
     {
-        _damgeCast.CastDamage();
+        
     }
 
     private void HandleAnimationEnd()
