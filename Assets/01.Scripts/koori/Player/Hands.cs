@@ -10,9 +10,11 @@ public class Hands : MonoBehaviour
 {
     [SerializeField] Sprite _handGun, _handsGun, _melee;
     private SpriteRenderer _handRenderer;
+    private Transform _handTransform, _handsTransform;
 
     private WeaponType _nowWeapon = WeaponType.melee;
     private Player _player;
+    private Gun _currentHandGun, _currentHandsGun;
     private void Awake()
     {
         _player = GetComponentInParent<Player>();
@@ -24,27 +26,34 @@ public class Hands : MonoBehaviour
 
     public void WeaponChange()
     {
-        _nowWeapon = GetNext(_nowWeapon);
-        ImageChange();
+        if (_currentHandGun != null && _currentHandGun != null)
+        {
+            _nowWeapon = GetNext(_nowWeapon);
+            ImageChange();
+        }
     }
 
     private void FixedUpdate()
     {
         if (_nowWeapon != WeaponType.melee)
         {
-            // 마우스 위치를 월드 좌표로 변환
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = transform.position.z; // Z값을 현재 오브젝트의 Z로 고정
+            mousePosition.z = transform.position.z;
 
-            // 마우스 방향 계산
             Vector3 direction = mousePosition - transform.position;
 
-            // 방향에서 각도 계산 (라디안을 각도로 변환)
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            // Z축 회전을 적용
-            transform.localEulerAngles = new Vector3(0, 0, angle);
+           
+            if (Mathf.Sign(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x) < 0)
+            {
+                transform.localEulerAngles = new Vector3(0, 0, -(angle+180));
+            }
+            else
+            {
+                transform.localEulerAngles = new Vector3(0, 0, angle);
+            }
         }
+
         else
         {
             transform.localEulerAngles = Vector3.zero;
@@ -55,9 +64,15 @@ public class Hands : MonoBehaviour
     {
         switch (_nowWeapon)
         {
-            case WeaponType.handGun:_handRenderer.sprite = _handGun; break;
-            case WeaponType.handsGun: _handRenderer.sprite = _handsGun; break;
-            case WeaponType.melee:_handRenderer.sprite = _melee; break;
+            case WeaponType.handGun:_handRenderer.sprite = _handGun;
+                _handTransform.gameObject.SetActive(true);
+                _handsTransform.gameObject.SetActive(false); break;
+            case WeaponType.handsGun: _handRenderer.sprite = _handsGun;
+                _handTransform.gameObject.SetActive(false);
+                _handsTransform.gameObject.SetActive(true); break;
+            case WeaponType.melee:_handRenderer.sprite = _melee;
+                _handTransform.gameObject.SetActive(false);
+                _handsTransform.gameObject.SetActive(false); break;
         }
     }
 
@@ -74,5 +89,28 @@ public class Hands : MonoBehaviour
                 return (T)array.GetValue(i + 1);
         }
         return (T)array.GetValue(0);
+    }
+
+    public void PickUpGun(GameObject Piked)
+    {
+         if (_currentHandGun != null)
+            Destroy(_currentHandGun.gameObject);
+         if(_currentHandsGun != null)
+            Destroy(_currentHandsGun.gameObject);
+
+         Gun gunCompo = Piked.GetComponent<Gun>();
+
+
+        switch (gunCompo.type)
+        {
+            case WeaponType.handGun: _currentHandGun = gunCompo;
+                GameObject HandGun = Instantiate(Piked, _handTransform);
+                HandGun.name = Piked.name;
+                _nowWeapon = WeaponType.handGun; ImageChange(); break;
+            case WeaponType.handsGun: _currentHandsGun = gunCompo;
+                GameObject HandsGun = Instantiate(Piked, _handTransform);
+                HandsGun.name = Piked.name;
+                _nowWeapon = WeaponType.handsGun; ImageChange(); break;
+        }
     }
 }
