@@ -3,20 +3,23 @@ using UnityEngine;
 public class Leviathan : Enemy
 {
     [SerializeField] private EntityFSMSO _asmodeusFSM;
-    public AsmodeusAttackCompo AttackCompo;
+    public LeviathanAttackCompo AttackCompo;
 
     private EntityHealth _health;
     public EntityState CurrentState => _stateMachine.currentState;
 
+    public DamageCast _damgeCast;
+
     protected override void AfterInitialize()
     {
         base.AfterInitialize();
-
+        _damgeCast = GetComponentInChildren<DamageCast>();
         _health = GetCompo<EntityHealth>();
         _stateMachine = new StateMachine(_asmodeusFSM, this);
-        AttackCompo = GetCompo<AsmodeusAttackCompo>();
+        AttackCompo = GetCompo<LeviathanAttackCompo>();
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
         GetCompo<EntityAnimator>().OnAttackEvent += HandleAttack;
+        _damgeCast.InitCaster(this);
         _health.OnHit += HandleHit;
         _health.OnDeath += HandleDead;
     }
@@ -40,7 +43,7 @@ public class Leviathan : Enemy
 
     public void HandleAttack()
     {
-
+        _damgeCast.CastDamage();
     }
 
     private void HandleAnimationEnd()

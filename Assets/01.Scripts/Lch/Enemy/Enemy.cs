@@ -77,10 +77,15 @@ public abstract class Enemy : Entity
     }
 
 
-    //public RaycastHit2D CheckObstacleInFront()
-    //{
-    //    return Physics2D.Raycast(transform.position, transform.right, _wallCheckRange, _whatIsObstacle);
-    //}
+    public bool CheckObstacleInFront()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, _wallCheckRange, _whatIsObstacle);
+        if (hit.transform != null)
+        {
+            return true;
+        }
+        return false;
+    }
 
     protected virtual void OnDrawGizmosSelected()
     {
@@ -94,7 +99,7 @@ public abstract class Enemy : Entity
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + transform.right * _sightRange);
 
-        //Gizmos.color = Color.green;
-        //Gizmos.DrawLine(transform.position, transform.position + transform.right * _wallCheckRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * _wallCheckRange);
     }
 }
