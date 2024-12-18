@@ -11,6 +11,7 @@ public class Dark : Entity
     private Rigidbody2D _rbCompo;
     private Asmodeus _asmodeus;
     private Vector2 _targetDir;
+    private float _lifeTime = 3;
 
     protected override void Awake()
     {
@@ -20,21 +21,15 @@ public class Dark : Entity
         _asmodeus = GameObject.FindWithTag("Enemy").GetComponent<Asmodeus>();
     }
 
-    private void Start()
-    {
-        StartCoroutine(LifeTime());
-    }
-
-    private IEnumerator LifeTime()
-    {
-        yield return new WaitForSeconds(6f);
-        Destroy(gameObject);
-    }
-
     private void Update()
     {
         _targetDir = _target.position - transform.position;
         _rbCompo.linearVelocity = _targetDir.normalized * _shotSpeed;
+        _lifeTime -= Time.deltaTime;
+        if (_lifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,6 +43,7 @@ public class Dark : Entity
                 knockBackForce.x *= atkDirection.x;
                 damageable.ApplyDamage(_damge, atkDirection, -knockBackForce, this);
             }
+            Destroy(gameObject);
         }
     }
 }

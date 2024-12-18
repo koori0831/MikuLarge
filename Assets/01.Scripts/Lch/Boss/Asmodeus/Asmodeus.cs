@@ -16,7 +16,8 @@ public class Asmodeus : Enemy
         _stateMachine = new StateMachine(_asmodeusFSM, this);
         AttackCompo = GetCompo<AsmodeusAttackCompo>();
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
-        GetCompo<EntityAnimator>().OnAttackEvent += HandleAttack;
+        GetCompo<EntityAnimator>().OnPhase2Attack += Handle2Attack;
+        GetCompo<EntityAnimator>().OnPhase3Attack += Handle3Attack;
         _health.OnHit += HandleHit;
         _health.OnDeath += HandleDead;
     }
@@ -38,9 +39,14 @@ public class Asmodeus : Enemy
         ChangeState(StateName.Hit);
     }
 
-    public void HandleAttack()
+    public void Handle2Attack()
     {
-        
+        AttackCompo.CharmAttack();
+    }
+
+    public void Handle3Attack()
+    {
+        AttackCompo.DarkAttack();
     }
 
     private void HandleAnimationEnd()
@@ -50,7 +56,8 @@ public class Asmodeus : Enemy
     private void OnDestroy()
     {
         GetCompo<EntityAnimator>(true).OnAnimationEnd -= HandleAnimationEnd;
-        GetCompo<EntityAnimator>().OnAttackEvent -= HandleAttack;
+        GetCompo<EntityAnimator>().OnPhase2Attack -= Handle2Attack;
+        GetCompo<EntityAnimator>().OnPhase3Attack -= Handle3Attack;
         _health.OnHit -= HandleHit;
         _health.OnDeath -= HandleDead;
 
