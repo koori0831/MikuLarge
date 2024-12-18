@@ -14,6 +14,7 @@ public class Player : Entity
     public float dashDuration = 0.2f;
     [SerializeField] private float _interactRange = 3f;
     [SerializeField] private LayerMask _interatable;
+    public Hands Hands;
 
     public bool charmed;
 
@@ -31,6 +32,7 @@ public class Player : Entity
         _stateMachine = new StateMachine(_playerFSM, this);
 
         _mover = GetCompo<EntityMover>();
+        Hands = GetCompo<Hands>();
         _mover.OnGroundStatusChange += HandleGroundStatusChange;
         PlayerInput.JumpEvent += HandleJumpEvent;
         PlayerInput.InteractEvent += HadleInteractEvent;
@@ -90,7 +92,7 @@ public class Player : Entity
         {
             if (obj.TryGetComponent(out IInteractable target))
             {
-                target.Interact();
+                target.Interact(this);
             }
         }
     }
