@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Unity.Cinemachine;
 
 public class Item : MonoBehaviour, IInteractable
 {

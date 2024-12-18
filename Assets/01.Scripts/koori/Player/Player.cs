@@ -12,6 +12,8 @@ public class Player : Entity
     public int jumpCount = 2;
     public float dashSpeed = 25f;
     public float dashDuration = 0.2f;
+    public float interactRange = 3f;
+    public LayerMask interatable;
 
     public bool charmed;
 
@@ -31,12 +33,25 @@ public class Player : Entity
         _mover = GetCompo<EntityMover>();
         _mover.OnGroundStatusChange += HandleGroundStatusChange;
         PlayerInput.JumpEvent += HandleJumpEvent;
+        PlayerInput.InteractEvent += HadleInteractEvent;
 
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
 
         _atkCompo = GetCompo<PlayerAttackCompo>();
         PlayerInput.MeleeEvent += HandleAttackKeyEvent;
         PlayerInput.DashEvent += HandleDashEvent;
+    }
+
+    private void HadleInteractEvent()
+    {
+        Collider2D obj = Physics2D.OverlapCircle(transform.position, interactRange, interatable);
+        if (obj != null)
+        {
+            if (obj.TryGetComponent(out IInteractable target))
+            {
+                target.Interact();
+            }
+        }
     }
 
     private void OnDestroy()
@@ -60,6 +75,7 @@ public class Player : Entity
         {
             StartCoroutine(RollBackPlayer());
         }
+
     }
 
     private IEnumerator RollBackPlayer()
