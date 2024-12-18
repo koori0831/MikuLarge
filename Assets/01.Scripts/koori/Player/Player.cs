@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player : Entity
@@ -10,6 +12,10 @@ public class Player : Entity
     public int jumpCount = 2;
     public float dashSpeed = 25f;
     public float dashDuration = 0.2f;
+    [SerializeField] private float _interactRange = 3f;
+    [SerializeField] private LayerMask _interatable;
+
+    public bool charmed;
 
     private int _currentJumpCount = 0;
     private EntityMover _mover;
@@ -27,6 +33,7 @@ public class Player : Entity
         _mover = GetCompo<EntityMover>();
         _mover.OnGroundStatusChange += HandleGroundStatusChange;
         PlayerInput.JumpEvent += HandleJumpEvent;
+        PlayerInput.InteractEvent += HadleInteractEvent;
 
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
 
@@ -42,6 +49,7 @@ public class Player : Entity
         GetCompo<EntityAnimator>(true).OnAnimationEnd -= HandleAnimationEnd;
         PlayerInput.MeleeEvent -= HandleAttackKeyEvent;
         PlayerInput.DashEvent -= HandleDashEvent;
+        PlayerInput.InteractEvent -= HadleInteractEvent;
     }
 
     protected void Start()
@@ -52,6 +60,17 @@ public class Player : Entity
     private void Update()
     {
         _stateMachine.UpdateStateMachine();
+        if (charmed)
+        {
+            StartCoroutine(RollBackPlayer());
+        }
+
+    }
+
+    private IEnumerator RollBackPlayer()
+    {
+        yield return new WaitForSeconds(3f);
+        PlayerInput.Controls.Player.Enable();
     }
 
     public void ChangeState(StateName newState)
@@ -62,6 +81,18 @@ public class Player : Entity
     public EntityState GetState(StateSO state)
     {
         return _stateMachine.GetState(state.stateName);
+    }
+
+    private void HadleInteractEvent()
+    {
+        Collider2D obj = Physics2D.OverlapCircle(transform.position, _interactRange, _interatable);
+        if (obj != null)
+        {
+            if (obj.TryGetComponent(out IInteractable target))
+            {
+                target.Interact();
+            }
+        }
     }
 
     private void HandleJumpEvent()
@@ -100,5 +131,11 @@ public class Player : Entity
         {
             ChangeState(StateName.Dash);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, _interactRange);
     }
 }
