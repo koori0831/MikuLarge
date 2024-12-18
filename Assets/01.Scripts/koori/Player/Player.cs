@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player : Entity
@@ -10,6 +12,8 @@ public class Player : Entity
     public int jumpCount = 2;
     public float dashSpeed = 25f;
     public float dashDuration = 0.2f;
+
+    public bool charmed;
 
     private int _currentJumpCount = 0;
     private EntityMover _mover;
@@ -52,6 +56,16 @@ public class Player : Entity
     private void Update()
     {
         _stateMachine.UpdateStateMachine();
+        if (charmed)
+        {
+            StartCoroutine(RollBackPlayer());
+        }
+    }
+
+    private IEnumerator RollBackPlayer()
+    {
+        yield return new WaitForSeconds(3f);
+        PlayerInput.Controls.Player.Enable();
     }
 
     public void ChangeState(StateName newState)
