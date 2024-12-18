@@ -3,16 +3,16 @@ using DG.Tweening;
 
 public class Item : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Manager _manager;
+    //[SerializeField] private Manager _manager;
     [SerializeField] private ItemSO _item;
 
     private bool isHighLight;
     public void Interact()
     {
-        if (_manager.ResourceManager.Coin >= _item.Cost)
+        if (Manager.manager.ResourceManager.Coin >= _item.Cost)
         {
-            _manager.ResourceManager.Coin -= _item.Cost;
-            _manager.ResourceUI.SetCoin();
+            Manager.manager.ResourceManager.Coin -= _item.Cost;
+            Manager.manager.ResourceUI.SetCoin();
             GetItem();
             Destroy(gameObject);
         }
