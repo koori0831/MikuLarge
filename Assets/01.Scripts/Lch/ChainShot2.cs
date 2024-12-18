@@ -95,6 +95,7 @@ public class ChainShot2 : Entity
 
         line.SetPosition(0, startPos);
         line.SetPosition(1, endPos);
+        EnemyDamge();
         StartCoroutine(CameraShake(0.2f, 0.1f));
     }
 
@@ -109,7 +110,6 @@ public class ChainShot2 : Entity
             _cameraShake.AmplitudeGain = 5f;
             _cameraShake.FrequencyGain = 5f;
             elapsed += Time.deltaTime;
-            EnemyDamge();
 
             yield return null;
         }
