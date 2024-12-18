@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEditor.Media;
+using JetBrains.Annotations;
 
 public class ResourceUI : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class ResourceUI : MonoBehaviour
     {
         SetCoin();
         SetupGun("장착된 무기 없음", 0);
+        SetHealth(Manager.manager.ResourceManager.Health);
     }
 
 
@@ -32,6 +34,7 @@ public class ResourceUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             Manager.manager.ResourceManager.Coin += 1;
+            AddHealth(1);
             SetCoin();
         }
     }
@@ -71,16 +74,17 @@ public class ResourceUI : MonoBehaviour
 
     public void AddHealth(int value)
     {
-        int currentHealth = 0;
-        currentHealth = Manager.manager.ResourceManager.Health / 20;
         Manager.manager.ResourceManager.Health += value * 20;
-        SetHealth(currentHealth);
+        SetHealth(Manager.manager.ResourceManager.Health);
     }
 
 
-    private void SetHealth(int currentHealth)
+    public void SetHealth(int value)
     {
-        if(_healthUI.childCount > 0)
+        int currentHealth = 0;
+        currentHealth = Manager.manager.ResourceManager.Health / 20;
+
+        if (_healthUI.childCount > 0)
         {
             for (int i = 0; i < _healthUI.childCount; i++)
             {
@@ -89,7 +93,7 @@ public class ResourceUI : MonoBehaviour
         }
         for (int i = 0; i < currentHealth; i++)
         {
-            Instantiate(_heartPrefab, _bulletUI);
+            Instantiate(_heartPrefab, _healthUI);
         }
     }
 }
