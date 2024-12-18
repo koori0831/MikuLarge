@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Walther P38_0: 7288765410797780499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
