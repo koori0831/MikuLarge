@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tokarev TT-33_0: -2366239469367227785
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
