@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ec75a900dee98408970939b496e73b, type: 3}
-  m_Name: Death
+  m_Script: {fileID: 11500000, guid: 5428fa6a22a2dd04c9b35ea3c7c827b0, type: 3}
+  m_Name: PlayerFallState
   m_EditorClassIdentifier: 
-  paramName: Death
-  paramType: 1
-  hashValue: 646380074
+  stateName: 6
+  className: PlayerFallState
+  animParam: {fileID: 11400000, guid: 3954c36d1f102b3418717cfce9dbb4f7, type: 2}
