@@ -18,6 +18,8 @@ public class ADIdleState : EntityState
     {
         base.Enter();
         _mover.StopImmediately(true);
+        _adEnemy.target = GameObject.FindWithTag("Player").GetComponent<Player>();
+        FacingToPlayer();
     }
 
     public override void Update()
@@ -28,5 +30,11 @@ public class ADIdleState : EntityState
         {
             _adEnemy.ChangeState(StateName.Attack);
         }
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _adEnemy.target.transform.position.x - _adEnemy.transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 }
