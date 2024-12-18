@@ -7,8 +7,9 @@ public class PoolManager : MonoSingleton<PoolManager>
 
     private Dictionary<string, Pool> _pools;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _pools = new Dictionary<string, Pool>();
         foreach (PoolItemSO pair in _poolList.list)
         {
