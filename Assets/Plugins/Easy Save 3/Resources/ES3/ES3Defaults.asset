@@ -36,7 +36,6 @@ MonoBehaviour:
     - Autodesk.Fbx
     - Autodesk.Fbx.BuildTestAssets
     - BroAudio
-    - Cinemachine
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
