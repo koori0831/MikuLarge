@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 public class Charm : Entity
 {
@@ -10,13 +11,14 @@ public class Charm : Entity
     private Rigidbody2D _rbCompo;
     private EntityMover _mover;
     private Asmodeus _asmodeus;
+    private float _lifeTime = 3;
 
     protected override void Awake()
     {
         base.Awake();
-        _target = GameObject.Find("Player").transform;
+        _target = GameObject.FindWithTag("Player").transform;
         _rbCompo = GetComponent<Rigidbody2D>();
-        _asmodeus = GameObject.Find("Enemy").GetComponent<Asmodeus>();
+        _asmodeus = GameObject.FindWithTag("Enemy").GetComponent<Asmodeus>();
     }
 
     private void Start()
@@ -24,28 +26,29 @@ public class Charm : Entity
         Vector2 targetDir = _target.position - transform.position;
         _rbCompo.linearVelocity = targetDir.normalized * _shotSpeed;
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        if(collision.gameObject.TryGetComponent(out Player player))
+        _lifeTime -= Time.deltaTime;
+        if (_lifeTime <= 0)
         {
-            if(collision.gameObject.TryGetComponent(out IDamageable damageable))
+            Destroy(gameObject);
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Player player))
+        {
+            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
             {
+                player.PlayerInput.Controls.Player.Disable();
                 Vector2 atkDirection = gameObject.transform.right;
                 Vector2 knockBackForce = _knockBackForce;
                 knockBackForce.x *= atkDirection.x;
                 damageable.ApplyDamage(_damge, atkDirection, -knockBackForce, this);
             }
-          
-            StartCoroutine(PlayerAttack(player));
+            Destroy(gameObject);
         }
-    }
-
-    private IEnumerator PlayerAttack(Player player)
-    {
-        player.PlayerInput.Controls.Disable();
-        _mover = player.GetCompo<EntityMover>();
-        _mover.AddForceToEntity(_asmodeus.transform.position);
-        yield return new WaitForSeconds(3f);
     }
 }
