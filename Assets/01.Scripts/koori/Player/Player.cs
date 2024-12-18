@@ -12,8 +12,8 @@ public class Player : Entity
     public int jumpCount = 2;
     public float dashSpeed = 25f;
     public float dashDuration = 0.2f;
-    public float interactRange = 3f;
-    public LayerMask interatable;
+    [SerializeField] private float _interactRange = 3f;
+    [SerializeField] private LayerMask _interatable;
 
     public bool charmed;
 
@@ -42,18 +42,6 @@ public class Player : Entity
         PlayerInput.DashEvent += HandleDashEvent;
     }
 
-    private void HadleInteractEvent()
-    {
-        Collider2D obj = Physics2D.OverlapCircle(transform.position, interactRange, interatable);
-        if (obj != null)
-        {
-            if (obj.TryGetComponent(out IInteractable target))
-            {
-                target.Interact();
-            }
-        }
-    }
-
     private void OnDestroy()
     {
         _mover.OnGroundStatusChange -= HandleGroundStatusChange;
@@ -61,6 +49,7 @@ public class Player : Entity
         GetCompo<EntityAnimator>(true).OnAnimationEnd -= HandleAnimationEnd;
         PlayerInput.MeleeEvent -= HandleAttackKeyEvent;
         PlayerInput.DashEvent -= HandleDashEvent;
+        PlayerInput.InteractEvent -= HadleInteractEvent;
     }
 
     protected void Start()
@@ -92,6 +81,18 @@ public class Player : Entity
     public EntityState GetState(StateSO state)
     {
         return _stateMachine.GetState(state.stateName);
+    }
+
+    private void HadleInteractEvent()
+    {
+        Collider2D obj = Physics2D.OverlapCircle(transform.position, _interactRange, _interatable);
+        if (obj != null)
+        {
+            if (obj.TryGetComponent(out IInteractable target))
+            {
+                target.Interact();
+            }
+        }
     }
 
     private void HandleJumpEvent()
@@ -130,5 +131,11 @@ public class Player : Entity
         {
             ChangeState(StateName.Dash);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, _interactRange);
     }
 }
