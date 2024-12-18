@@ -10,7 +10,7 @@ public class Hands : MonoBehaviour
 {
     [SerializeField] Sprite _handGun, _handsGun, _melee;
     private SpriteRenderer _handRenderer;
-    private Transform _handTransform, _handsTransform;
+    [SerializeField] private Transform _handTransform, _handsTransform;
 
     private WeaponType _nowWeapon = WeaponType.melee;
     private Player _player;
