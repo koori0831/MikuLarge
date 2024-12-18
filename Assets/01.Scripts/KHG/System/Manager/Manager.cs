@@ -8,4 +8,6 @@ public class Manager : MonoBehaviour
 
     [Header("UI")]
     public ResourceUI ResourceUI;
+    public MinimapUI MinimapUI;
+    public UIAnimationManager AnimationManager;             
 }
