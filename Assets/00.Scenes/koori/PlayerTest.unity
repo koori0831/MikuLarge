@@ -430,6 +430,7 @@ MonoBehaviour:
   _interatable:
     serializedVersion: 2
     m_Bits: 8192
+  Hands: {fileID: 0}
   charmed: 0
 --- !u!114 &542563363
 MonoBehaviour:
@@ -600,8 +601,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1071950921}
   - component: {fileID: 1071950920}
-  - component: {fileID: 1071950919}
   - component: {fileID: 1071950918}
+  - component: {fileID: 1071950922}
   m_Layer: 13
   m_Name: tt-33
   m_TagString: Untagged
@@ -655,18 +656,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.04, y: 0.04}
   m_EdgeRadius: 0
---- !u!114 &1071950919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1071950917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b39e8775809f5e14794813439f21ff5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1071950920
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -737,6 +726,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1071950922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071950917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b0180a35f878d41a273060c99ba1b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunPreFab: {fileID: 7877074899859489947, guid: 4360ee7af7ac84b40b1ce895875d9514, type: 3}
 --- !u!1 &1182142533
 GameObject:
   m_ObjectHideFlags: 0
