@@ -33,6 +33,8 @@ MonoBehaviour:
     - AllIn1SpriteShaderAssembly
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - Autodesk.Fbx
+    - Autodesk.Fbx.BuildTestAssets
     - BroAudio
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
