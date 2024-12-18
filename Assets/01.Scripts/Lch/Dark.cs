@@ -1,15 +1,16 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
-public class Charm : Entity
+public class Dark : Entity
 {
     private Transform _target;
     [SerializeField] private float _shotSpeed = 5;
     [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
     [SerializeField] private float _damge;
     private Rigidbody2D _rbCompo;
-    private EntityMover _mover;
     private Asmodeus _asmodeus;
+    private Vector2 _targetDir;
 
     protected override void Awake()
     {
@@ -21,13 +22,24 @@ public class Charm : Entity
 
     private void Start()
     {
-        Vector2 targetDir = _target.position - transform.position;
-        _rbCompo.linearVelocity = targetDir.normalized * _shotSpeed;
+        StartCoroutine(LifeTime());
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private IEnumerator LifeTime()
     {
-        if(collision.gameObject.TryGetComponent(out Player player))
+        yield return new WaitForSeconds(6f);
+        Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        _targetDir = _target.position - transform.position;
+        _rbCompo.linearVelocity = _targetDir.normalized * _shotSpeed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
             if(collision.gameObject.TryGetComponent(out IDamageable damageable))
             {
@@ -36,16 +48,6 @@ public class Charm : Entity
                 knockBackForce.x *= atkDirection.x;
                 damageable.ApplyDamage(_damge, atkDirection, -knockBackForce, this);
             }
-          
-            StartCoroutine(PlayerAttack(player));
         }
-    }
-
-    private IEnumerator PlayerAttack(Player player)
-    {
-        player.PlayerInput.Controls.Disable();
-        _mover = player.GetCompo<EntityMover>();
-        _mover.AddForceToEntity(_asmodeus.transform.position);
-        yield return new WaitForSeconds(3f);
     }
 }

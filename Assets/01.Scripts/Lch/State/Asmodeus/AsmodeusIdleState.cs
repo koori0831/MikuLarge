@@ -21,12 +21,11 @@ public class AsmodeusIdleState : EntityState
         _phaseSelect = Random.Range(1, 3);
         _asmodeus.target = GameObject.FindWithTag("Player").GetComponent<Player>();
         FacingToPlayer();
-        _asmodeus.StartCoroutine(PhaseSelectCoroutine());
     }
 
-    private IEnumerator PhaseSelectCoroutine()
+    public override void Update()
     {
-        yield return new WaitForSeconds(1.5f);
+        base.Update();
         if (_asmodeus.AttackCompo.CanAttack())
         {
             switch (_phaseSelect)
