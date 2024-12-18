@@ -5,6 +5,8 @@ public class EntityAnimator : MonoBehaviour, IEntityComponent
 {
     public event Action OnAnimationEnd;
     public event Action OnAttackEvent;
+    public event Action OnPhase2Attack;
+    public event Action OnPhase3Attack;
     protected Entity _entity;
     
     protected virtual void AnimationEnd()
@@ -15,6 +17,16 @@ public class EntityAnimator : MonoBehaviour, IEntityComponent
     protected virtual void AttackEvent()
     {
         OnAttackEvent?.Invoke();
+    }
+
+    protected virtual void Phase2Attack()
+    {
+        OnPhase2Attack?.Invoke();
+    }
+
+    protected virtual void Phase3Attack()
+    {
+        OnPhase3Attack?.Invoke();
     }
 
     public void Initialize(Entity entity)
