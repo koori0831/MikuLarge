@@ -17,8 +17,7 @@ public class AsmodeusPhase1State : EntityState
         base.Enter();
         _mover.StopImmediately(false);
         _mover.CanManualMove = false;
-        Vector2 targetDir = new Vector2(_asmodeus.target.transform.position.x - 2.5f, _asmodeus.target.transform.position.y);
-        _mover.AddForceToEntity(targetDir);
+        _asmodeus.AttackCompo.DarkAttack();
     }
 
     public override void Update()

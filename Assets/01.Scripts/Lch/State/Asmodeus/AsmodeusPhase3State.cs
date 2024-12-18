@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class AsmodeusPhase3 : EntityState
+public class AsmodeusPhase3State : EntityState
 {
 
     private Asmodeus _asmodeus;
 
-    public AsmodeusPhase3(Entity entity, AnimParamSO animParam) : base(entity, animParam)
+    public AsmodeusPhase3State(Entity entity, AnimParamSO animParam) : base(entity, animParam)
     {
         _asmodeus = entity as Asmodeus;
     }

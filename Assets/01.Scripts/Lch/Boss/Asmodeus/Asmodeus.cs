@@ -3,7 +3,6 @@ using UnityEngine;
 public class Asmodeus : Enemy
 {
     [SerializeField] private EntityFSMSO _asmodeusFSM;
-    private DamageCast _damgeCast;
     public AsmodeusAttackCompo AttackCompo;
 
     private EntityHealth _health;
@@ -15,11 +14,9 @@ public class Asmodeus : Enemy
 
         _health = GetCompo<EntityHealth>();
         _stateMachine = new StateMachine(_asmodeusFSM, this);
-        _damgeCast = GetComponentInChildren<DamageCast>();
         AttackCompo = GetCompo<AsmodeusAttackCompo>();
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
         GetCompo<EntityAnimator>().OnAttackEvent += HandleAttack;
-        _damgeCast.InitCaster(this);
         _health.OnHit += HandleHit;
         _health.OnDeath += HandleDead;
     }
@@ -43,7 +40,7 @@ public class Asmodeus : Enemy
 
     public void HandleAttack()
     {
-        _damgeCast.CastDamage();
+        
     }
 
     private void HandleAnimationEnd()

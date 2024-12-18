@@ -576,7 +576,7 @@ Animator:
   m_GameObject: {fileID: 1435466062}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43b04be86e4f05c43999e170f99c0d24, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -775,6 +775,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ad6ef15fce1bd41ab0c0667b1247d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cooldown: 1.5
+  _charmPrefab: {fileID: 2653599098262749549, guid: 1eb2997533a9ebf478db60d1aa63fd70, type: 3}
+  _darkPrefab: {fileID: 5271685244682638427, guid: a0f2e8f114fac064897aee814051c1ff, type: 3}
 --- !u!1 &1611600109
 GameObject:
   m_ObjectHideFlags: 0
