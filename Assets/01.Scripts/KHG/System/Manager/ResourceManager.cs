@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public int Coin { get; private set; }
-    public int Health { get; private set; }
+    public int Coin { get; set; } = 0;
+    public int Health { get; set; }
 }
