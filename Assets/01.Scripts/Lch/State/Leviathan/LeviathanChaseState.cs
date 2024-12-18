@@ -27,7 +27,7 @@ public class LeviathanChaseState : EntityState
 
         if (_leviathan.AttackCompo.CanAttack())
         {
-            _phaseSelect = Random.Range(1, 3);
+            _phaseSelect = Random.Range(1, 4);
             switch (_phaseSelect)
             {
                 case 1:
