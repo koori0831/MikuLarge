@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Type 99 Arisaka_0: 6441105340919707063
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
