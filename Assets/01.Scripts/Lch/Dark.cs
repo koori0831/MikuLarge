@@ -15,9 +15,9 @@ public class Dark : Entity
     protected override void Awake()
     {
         base.Awake();
-        _target = GameObject.Find("Player").transform;
+        _target = GameObject.FindWithTag("Player").transform;
         _rbCompo = GetComponent<Rigidbody2D>();
-        _asmodeus = GameObject.Find("Enemy").GetComponent<Asmodeus>();
+        _asmodeus = GameObject.FindWithTag("Enemy").GetComponent<Asmodeus>();
     }
 
     private void Start()
