@@ -1,10 +1,4 @@
 using UnityEngine;
-<<<<<<< Updated upstream
-
-public class Player : Entity
-{
-=======
-using UnityEngine.InputSystem;
 
 public class Player : Entity
 {
@@ -113,5 +107,4 @@ public class Player : Entity
             ChangeState(StateName.Dash);
         }
     }
->>>>>>> Stashed changes
 }
