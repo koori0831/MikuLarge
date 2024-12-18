@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5428fa6a22a2dd04c9b35ea3c7c827b0, type: 3}
   m_Name: AsmodeusPhase3State
   m_EditorClassIdentifier: 
-  stateName: 13
+  stateName: 17
   className: AsmodeusPhase3State
-  animParam: {fileID: 0}
+  animParam: {fileID: 11400000, guid: a5d947fd914fa4745a2ecf709174af8b, type: 2}
