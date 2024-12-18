@@ -4,9 +4,8 @@ using UnityEngine.Events;
 
 public class GrabItem : MonoBehaviour, IInteractable
 {
-    public UnityEvent Grab;
-    public void Interact()
+    public void Interact(Player player)
     {
-        Grab?.Invoke();
+        
     }
 }
