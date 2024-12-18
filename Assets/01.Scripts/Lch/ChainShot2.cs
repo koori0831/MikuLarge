@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
-
-public class ChainShot2 : MonoBehaviour
+using System.Collections.Generic;
+using Unity.Cinemachine;
+public class ChainShot2 : Entity
 {
     [SerializeField] private LineRenderer _startLine;
     [SerializeField] private LineRenderer _NextLine;
@@ -14,7 +15,16 @@ public class ChainShot2 : MonoBehaviour
     private Vector3 endPos4 = Vector2.zero;
     private Vector3 endPos5 = Vector2.zero;
     [SerializeField] private LayerMask _wathIsWalls;
+    [SerializeField] private CinemachineBasicMultiChannelPerlin _cameraShake;
 
+    [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
+
+    private List<IDamageable> damgeAble = new List<IDamageable>();
+    [SerializeField] private float _enemyDamge;
+
+
+
+    public bool isEnd = false;  
     private void Start()
     {
         StartCoroutine(DrawLines());
@@ -59,6 +69,8 @@ public class ChainShot2 : MonoBehaviour
 
         endPos5 = EndPos5().point;
         yield return AnimateLine(nextLine4, endPos4, endPos5);
+
+        isEnd = true;
     }
 
     IEnumerator AnimateLine(LineRenderer line, Vector3 startPos, Vector3 endPos)
@@ -83,6 +95,49 @@ public class ChainShot2 : MonoBehaviour
 
         line.SetPosition(0, startPos);
         line.SetPosition(1, endPos);
+        StartCoroutine(CameraShake(0.2f, 0.1f));
+    }
+
+    IEnumerator CameraShake(float duration, float magnitude)
+    {
+        float _amplitudeGain = 0;
+        float _frequencyGain = 0;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            _cameraShake.AmplitudeGain = 5f;
+            _cameraShake.FrequencyGain = 5f;
+            elapsed += Time.deltaTime;
+            EnemyDamge();
+
+            yield return null;
+        }
+
+        _cameraShake.AmplitudeGain = _amplitudeGain;
+        _cameraShake.FrequencyGain = _frequencyGain; 
+    }
+
+    private void EnemyDamge()
+    {
+        foreach (IDamageable enemy in damgeAble)
+        {
+            Vector2 atkDirection = gameObject.transform.right;
+            Vector2 knockBackForce = _knockBackForce;
+            knockBackForce.x *= atkDirection.x;
+            enemy.ApplyDamage(_enemyDamge, atkDirection, knockBackForce, this);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Enemy enemy))
+        {
+            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
+            {
+                damgeAble.Add(damageable);
+            }
+        }
     }
     private void Update()
     {

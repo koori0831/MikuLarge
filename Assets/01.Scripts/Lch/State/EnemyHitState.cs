@@ -15,6 +15,7 @@ public class EnemyHitState : EntityState
     public override void Enter()
     {
         base.Enter();
+        _enemy.target = GameObject.FindWithTag("Player").GetComponent<Player>();
         Vector3 dir = _enemy.target.transform.position - _enemy.transform.position;
         _renderer.FlipController(dir.x);
     }
