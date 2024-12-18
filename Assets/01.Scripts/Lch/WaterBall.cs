@@ -2,25 +2,35 @@ using UnityEngine;
 
 public class WaterBall : Entity
 {
-    [SerializeField] private Rigidbody2D _rbCompo;
-    [SerializeField] private float _damge;
+    private Transform _target;
+    [SerializeField] private float _shotSpeed = 5;
     [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
+    [SerializeField] private float _damge;
+    private Rigidbody2D _rbCompo;
     //[SerializeField] private Animator _animator;
     //[SerializeField] private AnimParamSO _triggerParam;
-    private float _lifeTime;
-    private bool _canExplosion;
+    private float _lifeTime = 3f;
+    private Leviathan _leviathan;
 
-    public void ThrowBullet(Vector2 velocity, float lifeTime)
+    protected override void Awake()
     {
-        _canExplosion = true;
-        _lifeTime = lifeTime;
-        _rbCompo.AddForce(velocity, ForceMode2D.Impulse);
+        base.Awake();
+        _target = GameObject.FindWithTag("Player").transform;
+        _rbCompo = GetComponent<Rigidbody2D>();
+        _leviathan = GameObject.FindWithTag("Enemy").GetComponent<Leviathan>();
     }
+
+    private void Start()
+    {
+        Vector2 targetDir = _target.position - transform.position;
+        _rbCompo.linearVelocity = targetDir.normalized * _shotSpeed;
+    }
+
 
     private void Update()
     {
         _lifeTime -= Time.deltaTime;
-        if (_lifeTime <= 0 && _canExplosion)
+        if (_lifeTime <= 0)
         {
             Destroy(gameObject);
         }

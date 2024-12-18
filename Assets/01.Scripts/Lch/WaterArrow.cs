@@ -8,7 +8,7 @@ public class WaterArrow : Entity
     [SerializeField] private float _damge;
     private Rigidbody2D _rbCompo;
     private EntityMover _mover;
-    private Asmodeus _asmodeus;
+    private Leviathan _leviathan;
     private float _lifeTime = 3;
 
     protected override void Awake()
@@ -16,7 +16,7 @@ public class WaterArrow : Entity
         base.Awake();
         _target = GameObject.FindWithTag("Player").transform;
         _rbCompo = GetComponent<Rigidbody2D>();
-        _asmodeus = GameObject.FindWithTag("Enemy").GetComponent<Asmodeus>();
+        _leviathan = GameObject.FindWithTag("Enemy").GetComponent <Leviathan>();
     }
 
     private void Start()
