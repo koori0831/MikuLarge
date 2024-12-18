@@ -15,7 +15,9 @@ public class LeviathanIdleState : EntityState
     public override void Enter()
     {
         base.Enter();
+        _leviathan.target = GameObject.FindWithTag("Player").GetComponent<Player>();
         _mover.StopImmediately(true);
+        FacingToPlayer();
     }
 
     public override void Update()
@@ -26,4 +28,12 @@ public class LeviathanIdleState : EntityState
             _leviathan.ChangeState(StateName.Move);
         }
     }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _leviathan.target.transform.position.x - _leviathan.transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
+    }
+
+
 }
