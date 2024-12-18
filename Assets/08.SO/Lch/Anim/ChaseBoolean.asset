@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe27a1a13f2ba3e4799ab286b40ddcc8, type: 3}
-  m_Name: Ghost
+  m_Script: {fileID: 11500000, guid: 74ec75a900dee98408970939b496e73b, type: 3}
+  m_Name: ChaseBoolean
   m_EditorClassIdentifier: 
-  states: []
+  paramName: Chase
+  paramType: 1
+  hashValue: 1463555229
