@@ -51,7 +51,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _groundCheckSize: {x: 0.4, y: 0.15}
-  _ySpeedParam: {fileID: 11400000, guid: 87dc69588743bb643b9db56de629390e, type: 2}
+  _ySpeedParam: {fileID: 11400000, guid: 79cd21cfc7bd8214fb5079e20477e0f1, type: 2}
 --- !u!1 &8433470966148589053
 GameObject:
   m_ObjectHideFlags: 0

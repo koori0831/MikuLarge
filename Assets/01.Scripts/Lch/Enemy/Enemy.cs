@@ -26,7 +26,7 @@ public abstract class Enemy : Entity
         return _stateMachine.GetState(state.stateName);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         _stateMachine.currentState.Update();
     }
@@ -51,6 +51,11 @@ public abstract class Enemy : Entity
             return true;
         }
         return false;
+    }
+
+    public void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 
 
