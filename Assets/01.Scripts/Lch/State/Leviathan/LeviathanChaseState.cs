@@ -11,7 +11,6 @@ public class LeviathanChaseState : EntityState
     {
         _leviathan = entity as Leviathan;
         _mover = _leviathan.GetCompo<EntityMover>();
-        _phaseSelect = Random.Range(1, 3);
     }
 
     public override void Enter()
@@ -28,6 +27,7 @@ public class LeviathanChaseState : EntityState
 
         if (_leviathan.AttackCompo.CanAttack())
         {
+            _phaseSelect = Random.Range(1, 3);
             switch (_phaseSelect)
             {
                 case 1:

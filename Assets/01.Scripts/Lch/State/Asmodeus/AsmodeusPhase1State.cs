@@ -17,13 +17,15 @@ public class AsmodeusPhase1State : EntityState
         base.Enter();
         _mover.StopImmediately(false);
         _mover.CanManualMove = false;
-        _asmodeus.AttackCompo.DarkAttack();
+        _asmodeus.AttackCompo.DashAttack();
+        Vector2 targetDir = _asmodeus.target.transform.position - _asmodeus.transform.position;
+        _mover.AddForceToEntity(targetDir * 4f);
     }
 
     public override void Update()
     {
         base.Update();
-        if(_asmodeus.RbCompo.linearVelocity.x <= 0)
+        if (_asmodeus.CheckObstacleInFront())
         {
             _asmodeus.ChangeState(StateName.Idle);
         }

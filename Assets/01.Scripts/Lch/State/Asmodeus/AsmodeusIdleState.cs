@@ -18,7 +18,6 @@ public class AsmodeusIdleState : EntityState
     {
         base.Enter();
         _mover.StopImmediately(true);
-        _phaseSelect = Random.Range(1, 3);
         _asmodeus.target = GameObject.FindWithTag("Player").GetComponent<Player>();
         FacingToPlayer();
     }
@@ -26,8 +25,10 @@ public class AsmodeusIdleState : EntityState
     public override void Update()
     {
         base.Update();
+        Debug.Log(_phaseSelect);
         if (_asmodeus.AttackCompo.CanAttack())
         {
+            _phaseSelect = Random.Range(1, 4);
             switch (_phaseSelect)
             {
                 case 1:
