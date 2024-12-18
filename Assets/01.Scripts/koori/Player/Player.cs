@@ -15,6 +15,7 @@ public class Player : Entity
     [SerializeField] private float _interactRange = 3f;
     [SerializeField] private LayerMask _interatable;
     public Hands Hands;
+    public LayerMask dashExclude;
 
     public bool charmed;
 
