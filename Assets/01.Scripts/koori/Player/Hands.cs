@@ -6,10 +6,11 @@ public enum WeaponType
     handGun, handsGun, melee
 }
 
-public class Hands : MonoBehaviour
+public class Hands : MonoBehaviour, IEntityComponent
 {
     [SerializeField] Sprite _handGun, _handsGun, _melee;
     private SpriteRenderer _handRenderer;
+    private Entity _entity;
     [SerializeField] private Transform _handTransform, _handsTransform;
 
     private WeaponType _nowWeapon = WeaponType.melee;
@@ -112,5 +113,10 @@ public class Hands : MonoBehaviour
                 HandsGun.name = Piked.name;
                 _nowWeapon = WeaponType.handsGun; ImageChange(); break;
         }
+    }
+
+    public void Initialize(Entity entity)
+    {
+        _entity = entity;
     }
 }
