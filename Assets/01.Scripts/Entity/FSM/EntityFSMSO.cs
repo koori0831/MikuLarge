@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum StateName
 {
-    Idle, Move, Dead, Hit, Landing, Jump, Fall, Dash, DoubleJump, Attack 
+    Idle, Move, Dead, Hit, Landing, Jump, Fall, Dash, DoubleJump, Attack,Wake
 }
 
 [CreateAssetMenu(fileName = "EntityFSMSO", menuName = "SO/FSM/EntityFSM")]
