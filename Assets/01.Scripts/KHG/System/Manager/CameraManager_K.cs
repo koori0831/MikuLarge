@@ -3,7 +3,7 @@ using DG.Tweening;
 
 public class CameraManager_K : MonoBehaviour
 {
-    [SerializeField] private Manager _manager;
+    //[SerializeField] private Manager _manager;
     [SerializeField] private Transform _mainCamObj;
 
 
@@ -12,7 +12,7 @@ public class CameraManager_K : MonoBehaviour
 
     private void Start()
     {
-        _moveAmount = _manager.MapManager_K._mapScale.x;
+        _moveAmount = Manager.manager.MapManager_K._mapScale.x;
         _currentRoom = 0;
     }
 
@@ -34,14 +34,29 @@ public class CameraManager_K : MonoBehaviour
 
     public void MoveRight()
     {
-        _mainCamObj.position += new Vector3(_moveAmount, 0, 0);
+        if(_currentRoom < Manager.manager.MapManager_K._targetMapAmount)
+        {
+            _mainCamObj.position += new Vector3(_moveAmount, 0, 0);
+            _currentRoom++;
+            SetMinimap();
+        }
         //_mainCamObj.DOMoveX(_mainCamObj.position.x + _moveAmount, 0.5f);
     }
 
 
     public void MoveLeft()
     {
-        _mainCamObj.position += new Vector3(-_moveAmount, 0, 0);
+        if (_currentRoom > 0)
+        {
+            _mainCamObj.position += new Vector3(-_moveAmount, 0, 0);
+            _currentRoom--;
+            SetMinimap();
+        }
         //_mainCamObj.DOMoveX(-_mainCamObj.position.x + _moveAmount, 0.5f);
+    }
+
+    private void SetMinimap()
+    {
+        Manager.manager.MinimapUI.SetMinimapPosistion(_currentRoom);
     }
 }
