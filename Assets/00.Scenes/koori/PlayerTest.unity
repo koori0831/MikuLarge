@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 1071950919}
   - component: {fileID: 1071950918}
   m_Layer: 13
-  m_Name: test
+  m_Name: tt-33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -667,9 +667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39e8775809f5e14794813439f21ff5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Grab:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!212 &1071950920
 SpriteRenderer:
   m_ObjectHideFlags: 0
