@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe27a1a13f2ba3e4799ab286b40ddcc8, type: 3}
+  m_Name: LeviathanFsm
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 11400000, guid: 3cecee8aa83d5354db029f8c77e168c4, type: 2}
+  - {fileID: 11400000, guid: 65e2a1939ac4b29459ad9305b1a88262, type: 2}
+  - {fileID: 11400000, guid: 1affa291bf1d855449a03ef0129a8961, type: 2}
+  - {fileID: 11400000, guid: 706312472e2889a46be5f8407e755534, type: 2}
+  - {fileID: 11400000, guid: fd63034c9cb94cb4d8c2c2f93fb91566, type: 2}
+  - {fileID: 11400000, guid: 17fe6d3dd424da848b14f0483dd647d2, type: 2}
+  - {fileID: 11400000, guid: dfad1f332d6f2744dab43f298911f315, type: 2}
