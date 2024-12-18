@@ -13,7 +13,6 @@ public class AsmodeusPhase3State : EntityState
     public override void Enter()
     {
         base.Enter();
-        _asmodeus.AttackCompo.DarkAttack();
     }
 
     public override void Update()

@@ -15,6 +15,11 @@ TagManager:
   - Player
   - Ground
   - Enemy
+  - EnemyBullet
+  - Obj
+  - Wall
+  - Chain
+  - 
   - 
   - 
   - 
