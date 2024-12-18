@@ -6,24 +6,24 @@ public class PlayerAttackCompo : MonoBehaviour, IEntityComponent
     [SerializeField] private StateSO _attackState;
     [SerializeField] private float _dashCooltime;
     [SerializeField] private StateSO _dashState;
-    [SerializeField] private AnimParamSO _atkTriggerParam;
+    [SerializeField] private StateSO _jumpState;
+    [SerializeField] private StateSO _fallState;
     [SerializeField] private DamageCast _damageCaster;
     private Player _player;
     private float _lastAtkTime;
     private float _lastDashTime;
 
-    private Animator _animator;
-
     public void Initialize(Entity entity)
     {
         _player = entity as Player;
-        _animator = GetComponent<Animator>();
         _damageCaster.InitCaster(_player);
     }
 
     public bool AttemptDash()
     {
         if (_player.CurrentState == _player.GetState(_dashState)) return false;
+        if (_player.CurrentState == _player.GetState(_jumpState)) return false;
+        if (_player.CurrentState == _player.GetState(_fallState)) return false;
         if (_lastDashTime + _dashCooltime > Time.time) return false;
 
         _lastDashTime = Time.time;
@@ -37,13 +37,8 @@ public class PlayerAttackCompo : MonoBehaviour, IEntityComponent
         if (_lastAtkTime + _atkCooltime > Time.time) return false;
 
         _lastAtkTime = Time.time;
-        Attack();
+        CastAttack();
         return true;
-    }
-
-    private void Attack()
-    {
-        _animator.SetTrigger(_atkTriggerParam.hashValue);
     }
 
     private void CastAttack()

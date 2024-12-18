@@ -13,7 +13,6 @@ public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     public event Action ChangeWeaponEvent;
     public event Action NailEvent;
     public event Action MeleeEvent;
-    public event Action SeatEvent;
         
     public Vector2 InputDirection { get; private set; }
 
@@ -84,11 +83,5 @@ public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
     {
         if(context.performed)
             MeleeEvent?.Invoke();
-    }
-
-    public void OnSeat(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            SeatEvent?.Invoke();
     }
 }

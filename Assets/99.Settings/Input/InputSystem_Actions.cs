@@ -107,15 +107,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Seat"",
-                    ""type"": ""Button"",
-                    ""id"": ""1b3acdc8-d530-4108-b814-accae287552f"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -248,17 +239,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Melee"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b102c106-f40d-4213-b6b9-96353b1de1d4"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Seat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -855,7 +835,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
         m_Player_Nail = m_Player.FindAction("Nail", throwIfNotFound: true);
         m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
-        m_Player_Seat = m_Player.FindAction("Seat", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -944,7 +923,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ChangeWeapon;
     private readonly InputAction m_Player_Nail;
     private readonly InputAction m_Player_Melee;
-    private readonly InputAction m_Player_Seat;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -958,7 +936,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
         public InputAction @Nail => m_Wrapper.m_Player_Nail;
         public InputAction @Melee => m_Wrapper.m_Player_Melee;
-        public InputAction @Seat => m_Wrapper.m_Player_Seat;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -995,9 +972,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Melee.started += instance.OnMelee;
             @Melee.performed += instance.OnMelee;
             @Melee.canceled += instance.OnMelee;
-            @Seat.started += instance.OnSeat;
-            @Seat.performed += instance.OnSeat;
-            @Seat.canceled += instance.OnSeat;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1029,9 +1003,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Melee.started -= instance.OnMelee;
             @Melee.performed -= instance.OnMelee;
             @Melee.canceled -= instance.OnMelee;
-            @Seat.started -= instance.OnSeat;
-            @Seat.performed -= instance.OnSeat;
-            @Seat.canceled -= instance.OnSeat;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1223,7 +1194,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnChangeWeapon(InputAction.CallbackContext context);
         void OnNail(InputAction.CallbackContext context);
         void OnMelee(InputAction.CallbackContext context);
-        void OnSeat(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
