@@ -23,6 +23,8 @@ public class PlayerDashState : EntityState
         _mover.AddForceToEntity(speed);
         //원래는 거리 측정하고 레이캐스트 쏴야해. 근데 지금은 간략하게. 중급이니까.
         _dashStartTime = Time.time;
+
+        _player.GetComponent<Collider2D>().excludeLayers = _player.dashExclude;
     }
 
     public override void Update()
@@ -39,6 +41,7 @@ public class PlayerDashState : EntityState
         _mover.StopImmediately(true);
         _mover.CanManualMove = true;
         _mover.SetGravityScale(1f);
+        _player.GetComponent<Collider2D>().excludeLayers = new LayerMask();
         base.Exit();
     }
 }

@@ -6,5 +6,6 @@ public class GlabGun : MonoBehaviour, IInteractable
     public void Interact(Player player)
     {
         player.Hands.PickUpGun(gunPreFab);
+        Destroy(gameObject);
     }
 }
