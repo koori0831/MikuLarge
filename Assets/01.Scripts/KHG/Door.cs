@@ -25,7 +25,7 @@ public class Door : MonoBehaviour, IInteractable
         transform.DOMove(_targetPosition,1.5f).SetEase(Ease.InExpo).OnComplete(()=>_enterable = true);
     }
 
-    public void Interact()
+    public void Interact(Player player)
     {
         if(_enterable)
         {

@@ -8,7 +8,7 @@ public class Item : MonoBehaviour, IInteractable
     [SerializeField] private ItemSO _item;
 
     private bool isHighLight;
-    public void Interact()
+    public void Interact(Player player)
     {
         if (Manager.manager.ResourceManager.Coin >= _item.Cost)
         {
