@@ -1,8 +1,7 @@
-using System;
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
-public class ChainShot : MonoBehaviour
+public class ChainShot4 : MonoBehaviour
 {
     [SerializeField] private LineRenderer _startLine;
     [SerializeField] private LineRenderer _NextLine;
@@ -27,7 +26,7 @@ public class ChainShot : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         endPos = EndPosRay().point;
-        yield return AnimateLine(_startLine, transform.position, endPos);
+        yield return AnimateLine(_startLine, _startLine.transform.position, endPos);
 
         // 두 번째 라인 생성
         LineRenderer nextLineObj = Instantiate(_NextLine, endPos, Quaternion.identity);
@@ -84,27 +83,6 @@ public class ChainShot : MonoBehaviour
 
         line.SetPosition(0, startPos);
         line.SetPosition(1, endPos);
-
-        StartCoroutine(CameraShake(0.2f, 0.1f));
-    }
-
-    IEnumerator CameraShake(float duration, float magnitude)
-    {
-        Vector3 originalPos = Camera.main.transform.localPosition;
-        float elapsed = 0.0f;
-
-        while (elapsed < duration)
-        {
-            //float x = Random.Range(-1f, 1f) * magnitude;
-            //float y = Random.Range(-1f, 1f) * magnitude;
-
-            //Camera.main.transform.localPosition = originalPos + new Vector3(x, y, 0);
-            //elapsed += Time.deltaTime;
-
-            yield return null;
-        }
-
-        Camera.main.transform.localPosition = originalPos;
     }
     private void Update()
     {
@@ -114,19 +92,20 @@ public class ChainShot : MonoBehaviour
         EndPos4();
         EndPos5();
     }
+
     public RaycastHit2D EndPosRay()
     {
-        return Physics2D.Raycast(gameObject.transform.position, Vector2.up + Vector2.right, Mathf.Infinity, _wathIsWalls);
+        return Physics2D.Raycast(gameObject.transform.position, Vector2.down + Vector2.right, Mathf.Infinity, _wathIsWalls);
     }
 
     public RaycastHit2D EndPos2()
     {
-        return Physics2D.Raycast(_NextLine.transform.position, Vector2.left, Mathf.Infinity, _wathIsWalls);
+        return Physics2D.Raycast(_NextLine.transform.position, Vector2.up + Vector2.right, Mathf.Infinity, _wathIsWalls);
     }
 
     public RaycastHit2D EndPos3()
     {
-        return Physics2D.Raycast(_NextLine.transform.position, Vector2.down + Vector2.right, Mathf.Infinity, _wathIsWalls);
+        return Physics2D.Raycast(_NextLine.transform.position, Vector2.left, Mathf.Infinity, _wathIsWalls);
     }
 
     public RaycastHit2D EndPos4()
@@ -136,11 +115,6 @@ public class ChainShot : MonoBehaviour
 
     public RaycastHit2D EndPos5()
     {
-        return Physics2D.Raycast(_NextLine.transform.position, Vector2.up + Vector2.right, Mathf.Infinity, _wathIsWalls);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
+        return Physics2D.Raycast(_NextLine.transform.position, Vector2.up , Mathf.Infinity, _wathIsWalls);
     }
 }
