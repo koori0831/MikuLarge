@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class Ghost : Enemy
+public class Asmodeus : Enemy
 {
     [SerializeField] private EntityFSMSO _ghostFSM;
     private DamageCast _damgeCast;
