@@ -40,7 +40,6 @@ public class Asmodeus : Enemy
 
     public void HandleAttack()
     {
-        
     }
 
     private void HandleAnimationEnd()
