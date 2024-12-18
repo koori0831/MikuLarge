@@ -74,7 +74,7 @@ public class EntityMover : MonoBehaviour, IEntityComponent
     {
         if (CanManualMove)
         {
-            _renderer.FlipController(_movementX);
+            _renderer.FlipController(Mathf.Sign(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x));
             _rbCompo.linearVelocityX = _movementX * _moveSpeed * _moveSpeedMultiplier;
         }
         

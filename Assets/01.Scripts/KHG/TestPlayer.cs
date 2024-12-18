@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class TestPlayer : MonoBehaviour
@@ -8,6 +9,7 @@ public class TestPlayer : MonoBehaviour
     {
         if (collision.TryGetComponent(out IInteractable interactable))
         {
+            print(collision.name);
             _currentInteractable = interactable;
         }
     }
@@ -17,6 +19,15 @@ public class TestPlayer : MonoBehaviour
         if (collision.TryGetComponent(out IInteractable interactable) && interactable == _currentInteractable)
         {
             _currentInteractable = null;
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.TryGetComponent(out ICollectable collectable))
+        {
+            collectable.Collect();
         }
     }
 
