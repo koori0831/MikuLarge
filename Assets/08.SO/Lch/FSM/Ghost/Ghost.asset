@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe27a1a13f2ba3e4799ab286b40ddcc8, type: 3}
+  m_Name: Ghost
+  m_EditorClassIdentifier: 
+  states:
+  - {fileID: 11400000, guid: 19698131bd869e145b8d39b0c7da8a06, type: 2}
+  - {fileID: 11400000, guid: 363d24fdf9448b249b2d6fd511484afd, type: 2}
+  - {fileID: 11400000, guid: a78be1e93e19c6244969ab5c0b809837, type: 2}
+  - {fileID: 11400000, guid: f37282cd8b1c3ce4e96f5784caf50cf1, type: 2}
+  - {fileID: 11400000, guid: 8f05fbebf2da358479836a1a49d9a091, type: 2}
+  - {fileID: 11400000, guid: 36a6675bd9ac35441aa4853455866fcb, type: 2}
