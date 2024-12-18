@@ -13,7 +13,6 @@ public class AsmodeusPhase2State : EntityState
     public override void Enter()
     {
         base.Enter();
-        _asmodeus.AttackCompo.CharmAttack();
     }
 
     public override void Update()

@@ -42,7 +42,7 @@ public class Charm : Entity
         {
             if (collision.gameObject.TryGetComponent(out IDamageable damageable))
             {
-                StartCoroutine(PlayerAttack(player));
+                player.PlayerInput.Controls.Player.Disable();
                 Vector2 atkDirection = gameObject.transform.right;
                 Vector2 knockBackForce = _knockBackForce;
                 knockBackForce.x *= atkDirection.x;
@@ -50,17 +50,5 @@ public class Charm : Entity
             }
             Destroy(gameObject);
         }
-    }
-
-    private IEnumerator PlayerAttack(Player player)
-    {
-        Debug.Log("매혹당함");
-        player.PlayerInput.Controls.Player.Disable();
-        _mover = player.GetCompo<EntityMover>();
-        Vector2 targetDir = _asmodeus.transform.position - player.transform.position;
-        player.transform.DOMoveX(targetDir.x, 2.5F);
-        yield return new WaitForSeconds(3f);
-        player.PlayerInput.Controls.Player.Enable();
-        _mover.StopImmediately(true);
     }
 }
