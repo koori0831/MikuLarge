@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Asmodeus : Enemy
 {
-    [SerializeField] private EntityFSMSO _ghostFSM;
+    [SerializeField] private EntityFSMSO _asmodeusFSM;
     private DamageCast _damgeCast;
-    public EnemyAttackCompo AttackCompo;
+    public AsmodeusAttackCompo AttackCompo;
 
     private EntityHealth _health;
     public EntityState CurrentState => _stateMachine.currentState;
@@ -14,9 +14,9 @@ public class Asmodeus : Enemy
         base.AfterInitialize();
 
         _health = GetCompo<EntityHealth>();
-        _stateMachine = new StateMachine(_ghostFSM, this);
+        _stateMachine = new StateMachine(_asmodeusFSM, this);
         _damgeCast = GetComponentInChildren<DamageCast>();
-        AttackCompo = GetCompo<EnemyAttackCompo>();
+        AttackCompo = GetCompo<AsmodeusAttackCompo>();
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
         GetCompo<EntityAnimator>().OnAttackEvent += HandleAttack;
         _damgeCast.InitCaster(this);
