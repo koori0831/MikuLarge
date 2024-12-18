@@ -9,8 +9,8 @@ public class WaterBall : Entity
     private Rigidbody2D _rbCompo;
     //[SerializeField] private Animator _animator;
     //[SerializeField] private AnimParamSO _triggerParam;
-    private float _lifeTime = 3f;
-    private Leviathan _leviathan;
+    private float _lifeTime = 3f; private Leviathan _leviathan;
+    private EntityRenderer _renderer;
 
     protected override void Awake()
     {
@@ -18,6 +18,7 @@ public class WaterBall : Entity
         _target = GameObject.FindWithTag("Player").transform;
         _rbCompo = GetComponent<Rigidbody2D>();
         _leviathan = GameObject.FindWithTag("Enemy").GetComponent<Leviathan>();
+        _renderer = _leviathan.GetCompo<EntityRenderer>();
     }
 
     private void Start()
@@ -29,6 +30,9 @@ public class WaterBall : Entity
 
     private void Update()
     {
+
+        FacingToPlayer();
+
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0)
         {
@@ -49,5 +53,13 @@ public class WaterBall : Entity
             }
             Destroy(gameObject);
         }
+
+        Destroy(gameObject);
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _leviathan.target.transform.position.x - transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 }

@@ -12,6 +12,7 @@ public class Charm : Entity
     private EntityMover _mover;
     private Asmodeus _asmodeus;
     private float _lifeTime = 3;
+    private EntityRenderer _renderer;
 
     protected override void Awake()
     {
@@ -19,6 +20,7 @@ public class Charm : Entity
         _target = GameObject.FindWithTag("Player").transform;
         _rbCompo = GetComponent<Rigidbody2D>();
         _asmodeus = GameObject.FindWithTag("Enemy").GetComponent<Asmodeus>();
+        _renderer = _asmodeus.GetCompo<EntityRenderer>();
     }
 
     private void Start()
@@ -28,6 +30,9 @@ public class Charm : Entity
     }
     private void Update()
     {
+
+        FacingToPlayer();
+
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0)
         {
@@ -43,6 +48,7 @@ public class Charm : Entity
             if (collision.gameObject.TryGetComponent(out IDamageable damageable))
             {
                 player.PlayerInput.Controls.Player.Disable();
+                player.charmed = true;
                 Vector2 atkDirection = gameObject.transform.right;
                 Vector2 knockBackForce = _knockBackForce;
                 knockBackForce.x *= atkDirection.x;
@@ -50,5 +56,13 @@ public class Charm : Entity
             }
             Destroy(gameObject);
         }
+
+        Destroy(gameObject);
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _asmodeus.target.transform.position.x - transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 }

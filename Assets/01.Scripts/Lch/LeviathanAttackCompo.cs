@@ -37,4 +37,6 @@ public class LeviathanAttackCompo : MonoBehaviour, IEntityComponent
             Instantiate(_waterBallPrefab, ShotPos , Quaternion.identity);
         }
     }
+
+  
 }
