@@ -27,11 +27,8 @@ public class Hands : MonoBehaviour, IEntityComponent
 
     public void WeaponChange()
     {
-        if (_currentHandGun != null && _currentHandGun != null)
-        {
-            _nowWeapon = GetNext(_nowWeapon);
-            ImageChange();
-        }
+        _nowWeapon = GetNext(_nowWeapon);
+        ImageChange();
     }
 
     private void FixedUpdate()
@@ -65,10 +62,22 @@ public class Hands : MonoBehaviour, IEntityComponent
     {
         switch (_nowWeapon)
         {
-            case WeaponType.handGun:_handRenderer.sprite = _handGun;
+            case WeaponType.handGun:if (_currentHandGun == null)
+                {
+                    _nowWeapon = GetNext(_nowWeapon);
+                    ImageChange();
+                    break;
+                }
+                _handRenderer.sprite = _handGun;
                 _handTransform.gameObject.SetActive(true);
                 _handsTransform.gameObject.SetActive(false); break;
-            case WeaponType.handsGun: _handRenderer.sprite = _handsGun;
+            case WeaponType.handsGun:if (_currentHandsGun == null)
+                {
+                    _nowWeapon = GetNext(_nowWeapon);
+                    ImageChange();
+                    break;
+                }
+                _handRenderer.sprite = _handsGun;
                 _handTransform.gameObject.SetActive(false);
                 _handsTransform.gameObject.SetActive(true); break;
             case WeaponType.melee:_handRenderer.sprite = _melee;
@@ -109,7 +118,7 @@ public class Hands : MonoBehaviour, IEntityComponent
                 HandGun.name = Piked.name;
                 _nowWeapon = WeaponType.handGun; ImageChange(); break;
             case WeaponType.handsGun: _currentHandsGun = gunCompo;
-                GameObject HandsGun = Instantiate(Piked, _handTransform);
+                GameObject HandsGun = Instantiate(Piked, _handsTransform);
                 HandsGun.name = Piked.name;
                 _nowWeapon = WeaponType.handsGun; ImageChange(); break;
         }
