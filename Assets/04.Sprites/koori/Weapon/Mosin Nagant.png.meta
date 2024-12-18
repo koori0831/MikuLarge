@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mosin Nagant_0: -3415153424549150721
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
