@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5428fa6a22a2dd04c9b35ea3c7c827b0, type: 3}
-  m_Name: PlayerAttackState
+  m_Script: {fileID: 11500000, guid: 74ec75a900dee98408970939b496e73b, type: 3}
+  m_Name: Shot
   m_EditorClassIdentifier: 
-  stateName: 9
-  className: PlayerAttackState
-  animParam: {fileID: 11400000, guid: a21959d5e400af44ebac71753d60f6ea, type: 2}
+  paramName: Shot
+  paramType: 1
+  hashValue: 188032901
