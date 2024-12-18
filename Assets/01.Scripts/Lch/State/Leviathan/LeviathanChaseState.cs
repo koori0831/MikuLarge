@@ -23,11 +23,13 @@ public class LeviathanChaseState : EntityState
     {
         base.Update();
         Vector2 targetDir = _leviathan.target.transform.position - _leviathan.transform.position;
-        _mover.SetMovement(targetDir.x);
+        _mover.SetMovement(targetDir.normalized.x);
+
+        FacingToPlayer();
 
         if (_leviathan.AttackCompo.CanAttack())
         {
-            _phaseSelect = Random.Range(1, 4);
+            _phaseSelect = /*Random.Range(1, 4)*/3;
             switch (_phaseSelect)
             {
                 case 1:
@@ -44,5 +46,11 @@ public class LeviathanChaseState : EntityState
                     break;
             }
         }
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _leviathan.target.transform.position.x - _leviathan.transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 }

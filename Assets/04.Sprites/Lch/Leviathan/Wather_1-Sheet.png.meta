@@ -1,0 +1,464 @@
+fileFormatVersion: 2
+guid: 36ae3d13847246c46ba78faf0e2dff88
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6595997866022774941
+    second: Wather_1-Sheet_0
+  - first:
+      213: 1682521312843200123
+    second: Wather_1-Sheet_1
+  - first:
+      213: -7277671306894328042
+    second: Wather_1-Sheet_2
+  - first:
+      213: -388017231826147951
+    second: Wather_1-Sheet_3
+  - first:
+      213: 3503277772292132461
+    second: Wather_1-Sheet_4
+  - first:
+      213: 8562311884700760188
+    second: Wather_1-Sheet_5
+  - first:
+      213: -476045977951371582
+    second: Wather_1-Sheet_6
+  - first:
+      213: -3550995849171840921
+    second: Wather_1-Sheet_7
+  - first:
+      213: 4116056350231087528
+    second: Wather_1-Sheet_8
+  - first:
+      213: 4761167102066069530
+    second: Wather_1-Sheet_9
+  - first:
+      213: -12131002122772148
+    second: Wather_1-Sheet_10
+  - first:
+      213: -8406432373857312533
+    second: Wather_1-Sheet_11
+  - first:
+      213: 1463087112181509770
+    second: Wather_1-Sheet_12
+  - first:
+      213: 2923595216364248941
+    second: Wather_1-Sheet_13
+  - first:
+      213: -6103475285254365919
+    second: Wather_1-Sheet_14
+  - first:
+      213: 2450530985244444020
+    second: Wather_1-Sheet_15
+  - first:
+      213: -7725154289740137940
+    second: Wather_1-Sheet_16
+  - first:
+      213: -564391851911909245
+    second: Wather_1-Sheet_17
+  - first:
+      213: -396810473113928569
+    second: Wather_1-Sheet_18
+  - first:
+      213: 3080643482695324267
+    second: Wather_1-Sheet_19
+  - first:
+      213: 1334557773848541638
+    second: Wather_1-Sheet_20
+  - first:
+      213: 5083643912281876560
+    second: Wather_1-Sheet_21
+  - first:
+      213: -3449938209410703612
+    second: Wather_1-Sheet_22
+  - first:
+      213: 5999293598049259049
+    second: Wather_1-Sheet_23
+  - first:
+      213: -6348394168083851872
+    second: Wather_1-Sheet_24
+  - first:
+      213: -8432434367081096421
+    second: Wather_1-Sheet_25
+  - first:
+      213: 5167801411331787205
+    second: Wather_1-Sheet_26
+  - first:
+      213: 3660989930090800467
+    second: Wather_1-Sheet_27
+  - first:
+      213: 7566647345350175727
+    second: Wather_1-Sheet_28
+  - first:
+      213: 6511894432609468462
+    second: Wather_1-Sheet_29
+  - first:
+      213: -2077845487681340480
+    second: Wather_1-Sheet_30
+  - first:
+      213: 2965657312165827646
+    second: Wather_1-Sheet_31
+  - first:
+      213: -6416982768031901268
+    second: Wather_1-Sheet_32
+  - first:
+      213: -5212507737409723408
+    second: Wather_1-Sheet_33
+  - first:
+      213: -951903173626098697
+    second: Wather_1-Sheet_34
+  - first:
+      213: -7813811019194421050
+    second: Wather_1-Sheet_35
+  - first:
+      213: 4941524731348486076
+    second: Wather_1-Sheet_36
+  - first:
+      213: -2492155669572165888
+    second: Wather_1-Sheet_37
+  - first:
+      213: -5021454111620978360
+    second: Wather_1-Sheet_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wather_1-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d98a58fac11b98b50800000000000000
+      internalID: 6595997866022774941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76fa0b3834895710800000000000000
+      internalID: 1682521312843200123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61fb2805184800b90800000000000000
+      internalID: -7277671306894328042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 195a54a226c7d9af0800000000000000
+      internalID: -388017231826147951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e8efe92942e9030800000000000000
+      internalID: 3503277772292132461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78b1b74b4173d670800000000000000
+      internalID: 8562311884700760188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce747b84beb469f0800000000000000
+      internalID: -476045977951371582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1932
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 760d933d61458bec0800000000000000
+      internalID: -3550995849171840921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2208
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a9c307517b2f1930800000000000000
+      internalID: 4116056350231087528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wather_1-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 0
+        width: 276
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a109ceae040131240800000000000000
+      internalID: 4761167102066069530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 71121ddd60fb207459edea3d32e55d08
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Wather_1-Sheet_0: 6595997866022774941
+      Wather_1-Sheet_1: 1682521312843200123
+      Wather_1-Sheet_2: -7277671306894328042
+      Wather_1-Sheet_3: -388017231826147951
+      Wather_1-Sheet_4: 3503277772292132461
+      Wather_1-Sheet_5: 8562311884700760188
+      Wather_1-Sheet_6: -476045977951371582
+      Wather_1-Sheet_7: -3550995849171840921
+      Wather_1-Sheet_8: 4116056350231087528
+      Wather_1-Sheet_9: 4761167102066069530
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

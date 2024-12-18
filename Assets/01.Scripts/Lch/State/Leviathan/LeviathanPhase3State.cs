@@ -16,11 +16,22 @@ public class LeviathanPhase3State : EntityState
     {
         base.Enter();
         _mover.StopImmediately(true);
-        _leviathan.AttackCompo.WaterBallAttack();
+        _leviathan.AttackCompo.Attack();
+        FacingToPlayer();
     }
 
     public override void Update()
     {
         base.Update();
+        if (_isTriggerCall)
+        {
+            _leviathan.ChangeState(StateName.Idle);
+        }
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _leviathan.target.transform.position.x - _leviathan.transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 }
