@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
+    public static Manager manager { get; private set; }
+
     public MapManager_K MapManager_K;
     public CameraManager_K CameraManager_K;
     public ResourceManager ResourceManager;
@@ -9,5 +11,13 @@ public class Manager : MonoBehaviour
     [Header("UI")]
     public ResourceUI ResourceUI;
     public MinimapUI MinimapUI;
-    public UIAnimationManager AnimationManager;             
+    public UIAnimationManager AnimationManager;
+
+
+
+    private void Awake()
+    {
+        if (manager == null) manager = this;
+        else Destroy(this);
+    }
 }
