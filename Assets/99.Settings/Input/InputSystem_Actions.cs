@@ -98,11 +98,29 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Melee"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d51d443-3ddc-4171-b1eb-16ec98e384c6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Seat"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b3acdc8-d530-4108-b814-accae287552f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD"",
+                    ""name"": ""AD"",
                     ""id"": ""00ca640b-d935-4593-8157-c05846ea39b3"",
                     ""path"": ""Dpad"",
                     ""interactions"": """",
@@ -111,28 +129,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""e2062cb9-1b15-46a2-838c-2f8d72a0bdd9"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""320bffee-a40b-4347-ac70-c210eb8bc73a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
@@ -170,7 +166,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f2e9ba44-c423-42a7-ad56-f20975884794"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -180,8 +176,19 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""90cf6ee5-a13c-429c-8311-0f53c158a713"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""eb40bb66-4559-4dfa-9a2f-820438abb426"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -225,11 +232,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5a24b8b8-2f05-4284-a2fe-9c0cc3700edc"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Nail"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46cbeee2-33ec-4b21-a91f-5ec4b0bcabd9"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b102c106-f40d-4213-b6b9-96353b1de1d4"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Seat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -825,6 +854,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
         m_Player_Nail = m_Player.FindAction("Nail", throwIfNotFound: true);
+        m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
+        m_Player_Seat = m_Player.FindAction("Seat", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -912,6 +943,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Reload;
     private readonly InputAction m_Player_ChangeWeapon;
     private readonly InputAction m_Player_Nail;
+    private readonly InputAction m_Player_Melee;
+    private readonly InputAction m_Player_Seat;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -924,6 +957,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
         public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
         public InputAction @Nail => m_Wrapper.m_Player_Nail;
+        public InputAction @Melee => m_Wrapper.m_Player_Melee;
+        public InputAction @Seat => m_Wrapper.m_Player_Seat;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -957,6 +992,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Nail.started += instance.OnNail;
             @Nail.performed += instance.OnNail;
             @Nail.canceled += instance.OnNail;
+            @Melee.started += instance.OnMelee;
+            @Melee.performed += instance.OnMelee;
+            @Melee.canceled += instance.OnMelee;
+            @Seat.started += instance.OnSeat;
+            @Seat.performed += instance.OnSeat;
+            @Seat.canceled += instance.OnSeat;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -985,6 +1026,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Nail.started -= instance.OnNail;
             @Nail.performed -= instance.OnNail;
             @Nail.canceled -= instance.OnNail;
+            @Melee.started -= instance.OnMelee;
+            @Melee.performed -= instance.OnMelee;
+            @Melee.canceled -= instance.OnMelee;
+            @Seat.started -= instance.OnSeat;
+            @Seat.performed -= instance.OnSeat;
+            @Seat.canceled -= instance.OnSeat;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1175,6 +1222,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnReload(InputAction.CallbackContext context);
         void OnChangeWeapon(InputAction.CallbackContext context);
         void OnNail(InputAction.CallbackContext context);
+        void OnMelee(InputAction.CallbackContext context);
+        void OnSeat(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
