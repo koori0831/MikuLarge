@@ -19,6 +19,8 @@ public class Leviathan : Enemy
         AttackCompo = GetCompo<LeviathanAttackCompo>();
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
         GetCompo<EntityAnimator>().OnAttackEvent += HandleAttack;
+        GetCompo<EntityAnimator>().OnPhase2Attack += AttackCompo.WaterArrowAttack;
+        GetCompo<EntityAnimator>().OnPhase3Attack += AttackCompo.WaterBallAttack;
         _damgeCast.InitCaster(this);
         _health.OnHit += HandleHit;
         _health.OnDeath += HandleDead;
@@ -52,8 +54,9 @@ public class Leviathan : Enemy
     }
     private void OnDestroy()
     {
-        GetCompo<EntityAnimator>(true).OnAnimationEnd -= HandleAnimationEnd;
         GetCompo<EntityAnimator>().OnAttackEvent -= HandleAttack;
+        GetCompo<EntityAnimator>().OnPhase2Attack -= AttackCompo.WaterArrowAttack;
+        GetCompo<EntityAnimator>().OnPhase3Attack -= AttackCompo.WaterBallAttack;
         _health.OnHit -= HandleHit;
         _health.OnDeath -= HandleDead;
 
