@@ -30,6 +30,7 @@ public class UIAnimationManager : MonoBehaviour
     public void FocusAnim()
     {
         _player.PlayerInput.Controls.Player.Disable();
+        Manager.manager.CameraManager_K.SetCameraAim(4.2f);
         _animatorBackground.Play("Background_Focus");
         _animatorUI.Play("UI_Focus");
     }
