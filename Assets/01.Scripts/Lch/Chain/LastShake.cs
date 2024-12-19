@@ -12,7 +12,8 @@ public class LastShake : Entity
     [SerializeField] private ChainShot3 _shot3;
     [SerializeField] private ChainShot4 _shot4;
     [SerializeField] private ChainShot5 _shot5;
-    [SerializeField]private GameObject[] _shots;
+    [SerializeField] private GameObject[] _shots;
+    [SerializeField] private BoolEventChannelSO evenetChannel; 
     private Vector2 _knockBackForce = new Vector2(5f, 3f);
     private bool _isShakeEnd = false;   
     private List<IDamageable> damgeAble = new List<IDamageable>();
@@ -43,6 +44,7 @@ public class LastShake : Entity
         {
             Destroy(_shots[i].gameObject);
         }
+        evenetChannel.RaiseEvent(true);
         Destroy(gameObject);
     }
 
