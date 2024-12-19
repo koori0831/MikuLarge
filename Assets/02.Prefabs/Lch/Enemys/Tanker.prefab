@@ -138,12 +138,12 @@ MonoBehaviour:
   _knockBackForce: {x: 5, y: 3}
   SoulPrefab: {fileID: 3993354691502283645, guid: ccfd62e9c7934f64ba7269d15e7b9a99, type: 3}
   HitSound:
-    ID: 0
-    _sourceAsset: {fileID: 0}
+    ID: 1073741838
+    _sourceAsset: {fileID: 11400000, guid: b5a055b05f417e84f97f551468c08be5, type: 2}
     <DebugObject>k__BackingField: {fileID: 5283649696095793030}
   AttakSound:
-    ID: 0
-    _sourceAsset: {fileID: 0}
+    ID: 1073741840
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
     <DebugObject>k__BackingField: {fileID: 5283649696095793030}
   Phase1Sound:
     ID: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36cea8ab86ce854d92739e124436ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cooldown: 3
+  _cooldown: 6
 --- !u!1 &9122439924267953435
 GameObject:
   m_ObjectHideFlags: 0
