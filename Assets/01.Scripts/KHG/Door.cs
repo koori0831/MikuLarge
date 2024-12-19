@@ -2,13 +2,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using DG.Tweening;
+using Unity.Cinemachine;
 
 public class Door : MonoBehaviour, IInteractable
 {
     //[SerializeField] private Manager _manager;
     [SerializeField] private Vector3 _targetPosition;
+    [SerializeField] private ParticleSystem _brickParticle;
 
     [SerializeField] private GameObject _stagePassUI;
+
     private void OnEnable()
     {
         //StartCoroutine(Intro());
@@ -22,14 +25,18 @@ public class Door : MonoBehaviour, IInteractable
 
     public void DoorRise()
     {
-        transform.DOMove(_targetPosition,1.5f).SetEase(Ease.InExpo).OnComplete(()=>_enterable = true);
+        transform.DOMove(_targetPosition, 1.5f).SetEase(Ease.InExpo).OnComplete(() =>
+        {
+            _enterable = true;
+            _brickParticle.Play();
+            Manager.manager.CameraManager_K.ShakeCamera(0.2f, 1f)
+;        });
     }
 
     public void Interact(Player player)
     {
         if(_enterable)
         {
-            print("TryAnimPlay");
             Manager.manager.AnimationManager.PlayerAnim("BackgroundClose");
             Manager.manager.AnimationManager.PlayerAnim("UIClose");
             StartCoroutine(StagePass());
