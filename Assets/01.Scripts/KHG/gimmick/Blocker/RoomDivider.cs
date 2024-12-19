@@ -148,6 +148,8 @@ public class RoomDivider : MonoBehaviour
         door.DOMoveY(door.position.y - 4f, 0.1f).OnComplete(() =>
         {
             Manager.manager.CameraManager_K.ShakeCamera(0.2f, 2f);
+            Manager.manager.RoomManager.DoorStatus = true;
+            print("tr");
         });
     }
 
@@ -159,6 +161,8 @@ public class RoomDivider : MonoBehaviour
         door.DOMoveY(door.position.y + 4f, 0.1f).OnComplete(() =>
         {
             Manager.manager.CameraManager_K.ShakeCamera(0.2f, 2f);
+            Manager.manager.RoomManager.DoorStatus = false;
+            print("fl");
         });
     }
 
