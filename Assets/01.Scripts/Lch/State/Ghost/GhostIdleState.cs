@@ -18,7 +18,7 @@ public class GhostIdleState : EntityState
     public override void Update()
     {
         base.Update();
-        if (_ghost.CheckPlayerInRadius() && Manager.manager.RoomManager.DoorStatus)
+        if (_ghost.CheckPlayerInRadius() && Manager.manager.RoomManager.DoorStatus && !_ghost.IsDead)
         {
             _ghost.ChangeState(StateName.Wake);
         }
