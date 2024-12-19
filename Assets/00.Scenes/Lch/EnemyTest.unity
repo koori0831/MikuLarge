@@ -2670,6 +2670,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: HitSound.ID
+      value: 1073741838
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: AttakSound.ID
+      value: 1073741837
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: HitSound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b5a055b05f417e84f97f551468c08be5, type: 2}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: AttakSound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: HitSound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1528133254}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: AttakSound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1528133254}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: Phase1Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1528133254}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: Phase2Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1528133254}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: Phase3Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1528133254}
     - target: {fileID: 2916985699342177554, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2723,6 +2759,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+--- !u!1 &1528133254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3088233501336665578, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+  m_PrefabInstance: {fileID: 1528133253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1570247773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,11 +4519,68 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: HitSound.ID
+      value: 1073741838
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase1Sound.ID
+      value: 1073741841
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase2Sound.ID
+      value: 1073741842
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase3Sound.ID
+      value: 1073741843
+      objectReference: {fileID: 0}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: HitSound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b5a055b05f417e84f97f551468c08be5, type: 2}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase1Sound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase2Sound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase3Sound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: HitSound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1995498756}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: AttakSound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1995498756}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase1Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1995498756}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase2Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1995498756}
+    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+      propertyPath: Phase3Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 1995498756}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+--- !u!1 &1995498756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4593101305297070637, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
+  m_PrefabInstance: {fileID: 1995498755}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2014938692
 GameObject:
   m_ObjectHideFlags: 0
@@ -4848,6 +4946,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: HitSound.ID
+      value: 1073741838
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase1Sound.ID
+      value: 1073741844
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase2Sound.ID
+      value: 1073741845
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase3Sound.ID
+      value: 1073741846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: HitSound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b5a055b05f417e84f97f551468c08be5, type: 2}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase1Sound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase2Sound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase3Sound._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: HitSound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 3084509649724161111}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: AttakSound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 3084509649724161111}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase1Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 3084509649724161111}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase2Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 3084509649724161111}
+    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: Phase3Sound.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 3084509649724161111}
     - target: {fileID: 4004048496761947724, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4901,6 +5051,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+--- !u!1 &3084509649724161111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8733385341891768083, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+  m_PrefabInstance: {fileID: 3084509649724161110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4584923515051472618
 PrefabInstance:
   m_ObjectHideFlags: 0
