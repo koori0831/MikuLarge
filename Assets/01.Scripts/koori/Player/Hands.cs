@@ -13,9 +13,10 @@ public class Hands : MonoBehaviour, IEntityComponent
     private Entity _entity;
     [SerializeField] private Transform _handTransform, _handsTransform;
 
-    private WeaponType _nowWeapon = WeaponType.melee;
+    public WeaponType nowWeapon { get; private set; } = WeaponType.melee;
     private Player _player;
-    private Gun _currentHandGun, _currentHandsGun;
+    public Gun currentHandGun { get; private set; }
+    public Gun currentHandsGun { get; private set; }
     private void Awake()
     {
         _player = GetComponentInParent<Player>();
@@ -27,13 +28,14 @@ public class Hands : MonoBehaviour, IEntityComponent
 
     public void WeaponChange()
     {
-        _nowWeapon = GetNext(_nowWeapon);
+        if(_player.isReloading) return;
+        nowWeapon = GetNext(nowWeapon);
         ImageChange();
     }
 
     private void FixedUpdate()
     {
-        if (_nowWeapon != WeaponType.melee)
+        if (nowWeapon != WeaponType.melee)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = transform.position.z;
@@ -60,20 +62,20 @@ public class Hands : MonoBehaviour, IEntityComponent
 
     private void ImageChange()
     {
-        switch (_nowWeapon)
+        switch (nowWeapon)
         {
-            case WeaponType.handGun:if (_currentHandGun == null)
+            case WeaponType.handGun:if (currentHandGun == null)
                 {
-                    _nowWeapon = GetNext(_nowWeapon);
+                    nowWeapon = GetNext(nowWeapon);
                     ImageChange();
                     break;
                 }
                 _handRenderer.sprite = _handGun;
                 _handTransform.gameObject.SetActive(true);
                 _handsTransform.gameObject.SetActive(false); break;
-            case WeaponType.handsGun:if (_currentHandsGun == null)
+            case WeaponType.handsGun:if (currentHandsGun == null)
                 {
-                    _nowWeapon = GetNext(_nowWeapon);
+                    nowWeapon = GetNext(nowWeapon);
                     ImageChange();
                     break;
                 }
@@ -103,24 +105,26 @@ public class Hands : MonoBehaviour, IEntityComponent
 
     public void PickUpGun(GameObject Piked)
     {
-         if (_currentHandGun != null)
-            Destroy(_currentHandGun.gameObject);
-         if(_currentHandsGun != null)
-            Destroy(_currentHandsGun.gameObject);
+         if (currentHandGun != null)
+            Destroy(currentHandGun.gameObject);
+         if(currentHandsGun != null)
+            Destroy(currentHandsGun.gameObject);
 
          Gun gunCompo = Piked.GetComponent<Gun>();
 
 
         switch (gunCompo.type)
         {
-            case WeaponType.handGun: _currentHandGun = gunCompo;
+            case WeaponType.handGun: 
                 GameObject HandGun = Instantiate(Piked, _handTransform);
                 HandGun.name = Piked.name;
-                _nowWeapon = WeaponType.handGun; ImageChange(); break;
-            case WeaponType.handsGun: _currentHandsGun = gunCompo;
+                currentHandGun = HandGun.GetComponent<Gun>(); ;
+                nowWeapon = WeaponType.handGun; ImageChange(); break;
+            case WeaponType.handsGun: 
                 GameObject HandsGun = Instantiate(Piked, _handsTransform);
                 HandsGun.name = Piked.name;
-                _nowWeapon = WeaponType.handsGun; ImageChange(); break;
+                currentHandsGun = HandsGun.GetComponent<Gun>();
+                nowWeapon = WeaponType.handsGun; ImageChange(); break;
         }
     }
 

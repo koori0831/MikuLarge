@@ -435,6 +435,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   charmed: 0
+  isReloading: 0
 --- !u!114 &542563363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,7 +608,7 @@ GameObject:
   - component: {fileID: 1071950918}
   - component: {fileID: 1071950922}
   m_Layer: 18
-  m_Name: T-33
+  m_Name: TT-33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

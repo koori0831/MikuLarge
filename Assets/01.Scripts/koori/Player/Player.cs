@@ -19,6 +19,8 @@ public class Player : Entity
 
     public bool charmed;
 
+    public bool isReloading;
+
     private int _currentJumpCount = 0;
     private EntityMover _mover;
     private PlayerAttackCompo _atkCompo;
@@ -43,6 +45,7 @@ public class Player : Entity
         _atkCompo = GetCompo<PlayerAttackCompo>();
         PlayerInput.MeleeEvent += HandleAttackKeyEvent;
         PlayerInput.DashEvent += HandleDashEvent;
+        PlayerInput.ShotEvent += HandleShotEvent;
     }
 
     private void OnDestroy()
@@ -53,6 +56,7 @@ public class Player : Entity
         PlayerInput.MeleeEvent -= HandleAttackKeyEvent;
         PlayerInput.DashEvent -= HandleDashEvent;
         PlayerInput.InteractEvent -= HadleInteractEvent;
+        PlayerInput.ShotEvent -= HandleShotEvent;
     }
 
     protected void Start()
@@ -89,7 +93,7 @@ public class Player : Entity
     private void HadleInteractEvent()
     {
         Collider2D obj = Physics2D.OverlapCircle(transform.position, _interactRange, _interatable);
-        if (obj != null)
+        if (obj != null && !isReloading)
         {
             if (obj.TryGetComponent(out IInteractable target))
             {
@@ -130,9 +134,22 @@ public class Player : Entity
 
     private void HandleDashEvent()
     {
-        if (_atkCompo.AttemptDash())
+        if (_atkCompo.AttemptDash() && !isReloading)
         {
             ChangeState(StateName.Dash);
+        }
+    }
+
+    private void HandleShotEvent()
+    {
+        if (_atkCompo.AttemptShot())
+        {
+            switch (Hands.nowWeapon)
+            {
+                case WeaponType.handGun:if (isReloading) return; Hands.currentHandGun.Shot();  break;
+                case WeaponType.handsGun: if (isReloading) return; Hands.currentHandGun.Shot(); break;
+                case WeaponType.melee: HandleAttackKeyEvent(); break;
+            }
         }
     }
 
