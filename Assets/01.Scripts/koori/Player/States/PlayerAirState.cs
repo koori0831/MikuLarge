@@ -24,6 +24,7 @@ public class PlayerAirState : EntityState
         if (Mathf.Abs(xInput) > 0f)
         {
             _mover.SetMovement(xInput);
+            _mover.IsPlayer();
         }
     }
 
