@@ -41,6 +41,14 @@ public class PlayerAttackCompo : MonoBehaviour, IEntityComponent
         return true;
     }
 
+    public bool AttemptShot()
+    {
+        if (_player.CurrentState == _player.GetState(_attackState)) return false;
+        if (_player.CurrentState == _player.GetState(_dashState)) return false;
+
+        return true;
+    }
+
     private void CastAttack()
     {
         _damageCaster.CastDamage();
