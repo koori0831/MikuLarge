@@ -18,6 +18,7 @@ public class LeviathanIdleState : EntityState
         _leviathan.target = GameObject.FindWithTag("Player").GetComponent<Player>();
         _mover.StopImmediately(true);
         FacingToPlayer();
+        _leviathan.isPhaseing = false;
     }
 
     public override void Update()
