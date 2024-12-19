@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public class GhostAttackState : EntityState
 {
@@ -12,6 +13,7 @@ public class GhostAttackState : EntityState
     {
         base.Enter();
         _ghost.AttackCompo.Attack();
+        BroAudio.Play(_ghost.AttackSound);
     }
 
     public override void Update()

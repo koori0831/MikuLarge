@@ -379,7 +379,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.029448986, y: -0.109380364}
+  m_Offset: {x: 0.17698073, y: -0.40865946}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -389,7 +389,11 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
+<<<<<<< Updated upstream
   m_Size: {x: 1.12, y: 3.7765806}
+=======
+  m_Size: {x: 2.092336, y: 3.1780224}
+>>>>>>> Stashed changes
   m_EdgeRadius: 0
 --- !u!114 &7359278990103701959
 MonoBehaviour:
@@ -431,6 +435,26 @@ MonoBehaviour:
   _attackRadius: 1.28
   _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  HitSound:
+    ID: 1073741837
+    _sourceAsset: {fileID: 11400000, guid: 071115fe6ac847b46aba0daafdeac9bf, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8733385341891768083}
+  AttackSound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 8733385341891768083}
+  Phase1Sound:
+    ID: 1073741841
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8733385341891768083}
+  Phase2Sound:
+    ID: 1073741845
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8733385341891768083}
+  Phase3Sound:
+    ID: 1073741846
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8733385341891768083}
   SoulPrefab: {fileID: 3993354691502283645, guid: ccfd62e9c7934f64ba7269d15e7b9a99, type: 3}
   isPhaseing: 0
   DropCoin: {fileID: 0}
@@ -438,7 +462,7 @@ MonoBehaviour:
   _asmodeusFSM: {fileID: 11400000, guid: c32ef008d3d7fa54eb1591e56a8d3c8d, type: 2}
   AttackCompo: {fileID: 0}
   _damgeCast: {fileID: 0}
-  _bossDeadEvnet: {fileID: 11400000, guid: 575ccd4780723d448a909c7c2f392b97, type: 2}
+  _VoidDeadEvnet: {fileID: 11400000, guid: 049c95162ae29d941a6869d38c50ba90, type: 2}
 --- !u!1001 &4659501816559101055
 PrefabInstance:
   m_ObjectHideFlags: 0

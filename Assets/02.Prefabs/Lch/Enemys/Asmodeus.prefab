@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3842772457267148424
 Transform:
   m_ObjectHideFlags: 0
@@ -91,13 +91,33 @@ MonoBehaviour:
   _attackRadius: 0
   _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  HitSound:
+    ID: 1073741837
+    _sourceAsset: {fileID: 11400000, guid: 071115fe6ac847b46aba0daafdeac9bf, type: 2}
+    <DebugObject>k__BackingField: {fileID: 4593101305297070637}
+  AttackSound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 4593101305297070637}
+  Phase1Sound:
+    ID: 1073741841
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    <DebugObject>k__BackingField: {fileID: 4593101305297070637}
+  Phase2Sound:
+    ID: 1073741842
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    <DebugObject>k__BackingField: {fileID: 4593101305297070637}
+  Phase3Sound:
+    ID: 1073741843
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    <DebugObject>k__BackingField: {fileID: 4593101305297070637}
   SoulPrefab: {fileID: 3993354691502283645, guid: ccfd62e9c7934f64ba7269d15e7b9a99, type: 3}
   isPhaseing: 0
   DropCoin: {fileID: 0}
   ItemList: {fileID: 0}
   _asmodeusFSM: {fileID: 11400000, guid: c58fc518cbc1d6147a6d0dab59eca34f, type: 2}
   AttackCompo: {fileID: 0}
-  BossDeadEvnet: {fileID: 11400000, guid: 575ccd4780723d448a909c7c2f392b97, type: 2}
+  VoidDeadEvnet: {fileID: 11400000, guid: 049c95162ae29d941a6869d38c50ba90, type: 2}
 --- !u!61 &2334998124481943667
 BoxCollider2D:
   m_ObjectHideFlags: 0

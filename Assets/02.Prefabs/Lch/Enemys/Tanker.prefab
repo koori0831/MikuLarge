@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5829106816682203957
 Transform:
   m_ObjectHideFlags: 0
@@ -136,6 +136,26 @@ MonoBehaviour:
   _attackRadius: 0.75
   _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  HitSound:
+    ID: 1073741837
+    _sourceAsset: {fileID: 11400000, guid: 071115fe6ac847b46aba0daafdeac9bf, type: 2}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
+  AttackSound:
+    ID: 1073741839
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
+  Phase1Sound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
+  Phase2Sound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
+  Phase3Sound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
   SoulPrefab: {fileID: 3993354691502283645, guid: ccfd62e9c7934f64ba7269d15e7b9a99, type: 3}
   isPhaseing: 0
   DropCoin: {fileID: 5581353378834596202, guid: cce3a0a40b91a6646980baece3229388, type: 3}

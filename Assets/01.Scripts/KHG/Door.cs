@@ -9,6 +9,7 @@ public class Door : MonoBehaviour, IInteractable
     //[SerializeField] private Manager _manager;
     [SerializeField] private Vector3 _targetPosition;
     [SerializeField] private ParticleSystem _brickParticle;
+    [SerializeField] private BoolEventChannelSO _openDoor;
 
     [SerializeField] private GameObject _stagePassUI;
 
@@ -20,7 +21,7 @@ public class Door : MonoBehaviour, IInteractable
     private bool _enterable;
     private void Start()
     {
-        DoorRise();
+       
     }
 
     public void DoorRise()

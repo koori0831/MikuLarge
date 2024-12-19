@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public class AsmodeusPhase3State : EntityState
 {
@@ -13,6 +14,7 @@ public class AsmodeusPhase3State : EntityState
     public override void Enter()
     {
         base.Enter();
+        BroAudio.Play(_asmodeus.Phase3Sound);
     }
 
     public override void Update()
