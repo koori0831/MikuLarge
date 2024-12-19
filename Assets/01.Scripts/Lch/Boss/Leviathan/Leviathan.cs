@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public class Leviathan : Enemy
 {
@@ -10,7 +11,9 @@ public class Leviathan : Enemy
 
     public DamageCast _damgeCast;
 
-    [ field : SerializeField] public Transform DropPos; 
+    [ field : SerializeField] public Transform DropPos;
+
+    [field: SerializeField] public SoundID BossMuisc;
 
     protected override void AfterInitialize()
     {

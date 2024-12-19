@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itmeList: {fileID: 11400000, guid: d8da166a63e09d642887db7c14497455, type: 2}
   _showRenderer: {fileID: 6260613899617234841}
-  _shotPos: {fileID: 0}
+  _shotPos: {fileID: 479515140551757329}
 --- !u!95 &5268649560045740984
 Animator:
   serializedVersion: 7
