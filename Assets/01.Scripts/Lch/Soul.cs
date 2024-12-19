@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class Soul : MonoBehaviour ,ICollectable
+public class Soul : MonoBehaviour
 {
     private Rigidbody2D _rbCompo;
     private float _lifeTime = 10f;
 
-    public void Collect()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Manager.manager.ResourceManager.SoulGauge += 0.3f;
-        Destroy(gameObject);
+        if(collision.gameObject.TryGetComponent(out Player player))
+        {
+            Manager.manager.ResourceManager.SoulGauge += 0.3f;
+            Destroy(gameObject);
+        }
     }
 
     private void Awake()
