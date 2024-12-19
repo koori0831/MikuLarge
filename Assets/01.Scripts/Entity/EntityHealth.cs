@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour, IEntityComponent, IDamageable
 {
-    [SerializeField] private float _maxHealth = 50f;
+    [field:SerializeField] public float MaxHealth = 50f;
     public float _currentHealth;
     [SerializeField] private float _knockBackTime = 0.5f;
     private Entity _entity;
@@ -18,13 +18,13 @@ public class EntityHealth : MonoBehaviour, IEntityComponent, IDamageable
         _entity = entity;
         _mover = _entity.GetCompo<EntityMover>();
         
-        _currentHealth = _maxHealth;
+        _currentHealth = MaxHealth;
     }
 
 
     public void ApplyDamage(float damage, Vector2 direction, Vector2 knockBack, Entity dealer)
     {
-        _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _maxHealth);
+        _currentHealth = Mathf.Clamp(_currentHealth - damage, 0, MaxHealth);
         StartCoroutine(ApplyKnockBack(knockBack));
         OnHit?.Invoke(dealer);
 

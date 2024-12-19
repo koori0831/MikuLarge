@@ -17,7 +17,7 @@ public abstract class Gun : MonoBehaviour
     [Range(0, 360)]
     public int spreadAngle = 0;
 
-    private int currentAmmo;
+    public int currentAmmo;
     private bool isReloading;
     private Coroutine reloadCoroutine;
     private Player _player;
