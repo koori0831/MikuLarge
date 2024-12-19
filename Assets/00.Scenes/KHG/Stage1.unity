@@ -725,6 +725,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3609457733221801018, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
+      propertyPath: melee.ID
+      value: 1073741847
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609457733221801018, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
+      propertyPath: melee._sourceAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 356316d8e7edda544946ecf4c0ccfcc9, type: 2}
+    - target: {fileID: 3609457733221801018, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
+      propertyPath: melee.<DebugObject>k__BackingField
+      value: 
+      objectReference: {fileID: 938929967}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2981,6 +2993,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &938929967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2235842860719263181, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
+  m_PrefabInstance: {fileID: 289091251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &949415925
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,7 +3640,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3609457733221801018, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
   m_PrefabInstance: {fileID: 289091251}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 938929967}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0490e3a7e44212643a96edd102afe0ef, type: 3}

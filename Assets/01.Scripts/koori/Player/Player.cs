@@ -11,6 +11,7 @@ public class Player : Entity
     [SerializeField] private EntityFSMSO _playerFSM;
     [field :SerializeField] public PlayerSavesSO PlayerSave;
     [SerializeField] private PlayerSaveSoEventChannelSO _soEvent;
+    [SerializeField] private SoundID melee;
 
     [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
     public float jumpPower = 12f;
@@ -205,6 +206,7 @@ public class Player : Entity
     {
         if (_atkCompo.AttemptAttack() && !isReloading&& !isHit && !IsDead)
         {
+            BroAudio.Play(melee);
             ChangeState(StateName.Melee);
         }
     }
