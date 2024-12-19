@@ -8,6 +8,8 @@ public class Asmodeus : Enemy
     private EntityHealth _health;
     public EntityState CurrentState => _stateMachine.currentState;
 
+    public BoolEventChannelSO BossDeadEvnet;
+
     protected override void AfterInitialize()
     {
         base.AfterInitialize();
@@ -22,11 +24,6 @@ public class Asmodeus : Enemy
         _health.OnDeath += HandleDead;
     }
 
-    protected override void OnCollisionEnter2D(Collision2D other)
-    {
-        base.OnCollisionEnter2D(other);
-    }
-
     private void HandleDead()
     {
         _stateMachine.ChageState(StateName.Dead);
@@ -34,7 +31,7 @@ public class Asmodeus : Enemy
 
     private void HandleHit(Entity dealer)
     {
-        if (IsDead) return;
+        if (IsDead || isPhaseing) return;
         target = dealer as Player;
         ChangeState(StateName.Hit);
     }

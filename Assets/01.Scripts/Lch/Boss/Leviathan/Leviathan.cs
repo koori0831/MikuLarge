@@ -10,6 +10,8 @@ public class Leviathan : Enemy
 
     public DamageCast _damgeCast;
 
+    public BoolEventChannelSO _bossDeadEvnet;
+
     protected override void AfterInitialize()
     {
         base.AfterInitialize();
@@ -19,15 +21,13 @@ public class Leviathan : Enemy
         AttackCompo = GetCompo<LeviathanAttackCompo>();
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
         GetCompo<EntityAnimator>().OnAttackEvent += HandleAttack;
+        GetCompo<EntityAnimator>().OnPhase2Attack += AttackCompo.WaterArrowAttack;
+        GetCompo<EntityAnimator>().OnPhase3Attack += AttackCompo.WaterBallAttack;
         _damgeCast.InitCaster(this);
         _health.OnHit += HandleHit;
         _health.OnDeath += HandleDead;
     }
 
-    protected override void OnCollisionEnter2D(Collision2D other)
-    {
-        base.OnCollisionEnter2D(other);
-    }
 
     private void HandleDead()
     {
@@ -36,7 +36,7 @@ public class Leviathan : Enemy
 
     private void HandleHit(Entity dealer)
     {
-        if (IsDead) return;
+        if (IsDead || isPhaseing) return;
         target = dealer as Player;
         ChangeState(StateName.Hit);
     }
@@ -52,8 +52,9 @@ public class Leviathan : Enemy
     }
     private void OnDestroy()
     {
-        GetCompo<EntityAnimator>(true).OnAnimationEnd -= HandleAnimationEnd;
         GetCompo<EntityAnimator>().OnAttackEvent -= HandleAttack;
+        GetCompo<EntityAnimator>().OnPhase2Attack -= AttackCompo.WaterArrowAttack;
+        GetCompo<EntityAnimator>().OnPhase3Attack -= AttackCompo.WaterBallAttack;
         _health.OnHit -= HandleHit;
         _health.OnDeath -= HandleDead;
 

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3340261553959020514}
   - component: {fileID: 2765085229272105015}
   - component: {fileID: 5306291015880947057}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tanker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,17 +125,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   _sightRange: 10
-  _wallCheckRange: 1
+  _wallCheckRange: 0.72
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
   _whatIsObstacle:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2112
   _playercheckRadius: 10
-  _attackRadius: 0
-  _damge: 0
+  _attackRadius: 0.71
+  _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  DropCoin: {fileID: 5581353378834596202, guid: cce3a0a40b91a6646980baece3229388, type: 3}
+  ItemList: {fileID: 0}
   _tankerFsm: {fileID: 11400000, guid: a197377ba82e28c44a9e32f9f7a36988, type: 2}
   AttackCompo: {fileID: 0}
 --- !u!114 &5306291015880947057
