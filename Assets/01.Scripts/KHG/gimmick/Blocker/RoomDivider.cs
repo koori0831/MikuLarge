@@ -166,9 +166,9 @@ public class RoomDivider : MonoBehaviour
         });
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(origin.position, detectSize); // 적 감지 영역 시각화
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawWireCube(origin.position, detectSize); // 적 감지 영역 시각화
+    //}
 }
