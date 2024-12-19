@@ -125,17 +125,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   _sightRange: 10
-  _wallCheckRange: 0.72
+  _wallCheckRange: 0.9
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
   _whatIsObstacle:
     serializedVersion: 2
-    m_Bits: 2112
+    m_Bits: 2048
   _playercheckRadius: 10
-  _attackRadius: 0.71
+  _attackRadius: 0.75
   _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  SoulPrefab: {fileID: 3993354691502283645, guid: ccfd62e9c7934f64ba7269d15e7b9a99, type: 3}
+  isPhaseing: 0
   DropCoin: {fileID: 5581353378834596202, guid: cce3a0a40b91a6646980baece3229388, type: 3}
   ItemList: {fileID: 0}
   _tankerFsm: {fileID: 11400000, guid: a197377ba82e28c44a9e32f9f7a36988, type: 2}

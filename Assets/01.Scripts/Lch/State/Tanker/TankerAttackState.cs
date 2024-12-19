@@ -28,7 +28,7 @@ public class TankerAttackState : EntityState
     {
         base.Update();
         FacingToPlayer();
-        if (_tanker.CheckObstacleInFront())
+        if (_tanker.CheckAttackToPlayerRadius() || _tanker.CheckObstacleInFront())
         {
             _mover.StopImmediately(true);
             _tanker.ChangeState(StateName.Idle);
