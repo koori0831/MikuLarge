@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public abstract class Enemy : Entity
 {
@@ -8,6 +9,11 @@ public abstract class Enemy : Entity
     [SerializeField] private float _playercheckRadius = 10f , _attackRadius;
     [SerializeField] protected float _damge;
     [SerializeField] protected Vector2 _knockBackForce = new Vector2(5f, 3f);
+    [field:SerializeField] public SoundID HitSound;
+    [field: SerializeField] public SoundID AttackSound;
+    [field: SerializeField] public SoundID Phase1Sound;
+    [field: SerializeField] public SoundID Phase2Sound;
+    [field: SerializeField] public SoundID Phase3Sound;
     public Rigidbody2D RbCompo { get; protected set; }
 
     [field:SerializeField] public Soul SoulPrefab;

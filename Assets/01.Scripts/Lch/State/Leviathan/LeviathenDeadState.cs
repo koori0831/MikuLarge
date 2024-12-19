@@ -31,7 +31,7 @@ public class LeviathenDeadState : EntityState
             _renderer.enabled = false;
             _mover.enabled = false;
             _spriteRenderer.color = Color.gray;
-            _leviathan._bossDeadEvnet.RaiseEvent(true);
+            _leviathan._VoidDeadEvnet.RaiseEvent();
         }
     }
 }

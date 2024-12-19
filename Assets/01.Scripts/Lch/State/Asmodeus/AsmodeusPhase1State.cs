@@ -1,6 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
 using System;
+using Ami.BroAudio;
+
 
 public class AsmodeusPhase1State : EntityState
 {
@@ -22,6 +24,7 @@ public class AsmodeusPhase1State : EntityState
         base.Enter();
         
         _asmodeus.AttackCompo.DashAttack();
+        BroAudio.Play(_asmodeus.Phase1Sound);
         Sequence seq = DOTween.Sequence();
         seq.Append(_asmodeus.transform.DOMoveX(_asmodeus.target.transform.position.x, 1.5f)).AppendCallback(() => ChangeIdleState());
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public class TankerAttackState : EntityState
 {
@@ -19,6 +20,7 @@ public class TankerAttackState : EntityState
         base.Enter();
         _mover.StopImmediately(false);
         _tanker.AttackCompo.Attack();
+        BroAudio.Play(_tanker.AttackSound);
     }
 
     public override void Update()
