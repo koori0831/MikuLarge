@@ -10,12 +10,49 @@ public class MainUI : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _tmp;
     [SerializeField] private TextListSO _list;
+    [SerializeField] private TextListSO _shoplist;
     private int Count = 0;
     public bool isTextTrigger = false;
 
     private void Start()
     {
         _image.gameObject.SetActive(false);
+    }
+
+    public void ShowShopText()
+    {
+        StartCoroutine(TextShopShow(() => OnTextAnimationComplete()));
+    }
+
+    private IEnumerator TextShopShow(Action onComplete)
+    {
+        _tmp.text = "";
+
+        string currentText = _list._textList[Count].Text;
+
+        if (currentText.Length > 20)
+        {
+            _tmp.alignment = TextAlignmentOptions.Midline;
+        }
+
+        for (int i = 0; i < currentText.Length; i++)
+        {
+            _tmp.text += currentText[i];
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        onComplete?.Invoke();
+    }
+
+    private void OnTextAnimationComplete()
+    {
+        CloseShopShow();
+    }
+
+    private void CloseShopShow()
+    {
+        _image.gameObject.SetActive(false);
+        Count++;
     }
 
     public void ShowBox()
