@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AsmodeusDeadState
   m_EditorClassIdentifier: 
   stateName: 2
-  className: EnemyDeadState
+  className: AsmodeusDeadState
   animParam: {fileID: 11400000, guid: 555912df2824705449aba525410a0288, type: 2}
