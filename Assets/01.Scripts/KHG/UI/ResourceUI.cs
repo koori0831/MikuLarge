@@ -98,6 +98,8 @@ public class ResourceUI : MonoSingleton<ResourceUI>
 
         for (int i = 0; i < amount; i++)
         {
+            if (_bulletUI.childCount <= 0) return;
+            if (amount <= 0) return;
             _bulletUI.GetChild(i).GetComponent<Image>().color = new Color(122, 122, 0);
         }
     }
