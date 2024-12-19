@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class LastShake : Entity
 {
-    [SerializeField] private CinemachineBasicMultiChannelPerlin _cameraShake;
+    private CinemachineBasicMultiChannelPerlin _cameraShake;
     [SerializeField] private ChainShot _shot1;
     [SerializeField] private ChainShot2 _shot2;
     [SerializeField] private ChainShot3 _shot3;
@@ -14,29 +14,30 @@ public class LastShake : Entity
     [SerializeField] private ChainShot5 _shot5;
     [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
     private bool _isShakeEnd = false;   
-    private float duration = 0.8f;
     private List<IDamageable> damgeAble = new List<IDamageable>();
     [SerializeField] private float _enemyDamge;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     private void Update()
     {
         if (_shot1.isEnd && _shot2.isEnd && _shot3.isEnd && _shot4.isEnd && _shot5.isEnd && !_isShakeEnd)
         {
-            StartCoroutine(CameraShake());
+            CameraShake();
 
         }
     }
 
-    private IEnumerator CameraShake()
+    private void CameraShake()
     {
-        _cameraShake.AmplitudeGain = 6f;
-        _cameraShake.FrequencyGain = 6f;
-        yield return new WaitForSeconds(1.5f);
-        _isShakeEnd = true;
-        _cameraShake.AmplitudeGain = 0;
-        _cameraShake.FrequencyGain = 0f;
-        EnemyDamge();
+        Manager.manager.CameraManager_K.ShakeCamera(1.5f, 6, 6);
 
+        _isShakeEnd = true;
+        EnemyDamge();
+        Destroy(gameObject);
     }
 
     private void EnemyDamge()
