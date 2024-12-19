@@ -41,6 +41,7 @@ public class Ghost : Enemy
 
     public void HandleAttack()
     {
+        if (IsDead) return;
         _damgeCast.CastDamage();
     }
 
