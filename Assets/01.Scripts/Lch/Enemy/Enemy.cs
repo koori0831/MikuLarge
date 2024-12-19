@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public abstract class Enemy : Entity
 {
@@ -12,6 +13,11 @@ public abstract class Enemy : Entity
 
     [field:SerializeField] public Soul SoulPrefab;
 
+    [field: SerializeField] public SoundID HitSound;
+    [field: SerializeField] public SoundID AttakSound;
+    [field: SerializeField] public SoundID Phase1Sound;
+    [field: SerializeField] public SoundID Phase2Sound;
+    [field: SerializeField] public SoundID Phase3Sound;
     public bool isPhaseing;
 
     [field:SerializeField] public Coin DropCoin;
