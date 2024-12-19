@@ -6445,13 +6445,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c55462e00650ff4cac309046506dd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDontDestroy: 0
   _bulletUI: {fileID: 968339676}
   _gunTmp: {fileID: 73387778}
   _coinTmp: {fileID: 1604064092}
   _healthUI: {fileID: 297012373}
   _bulletPrefab: {fileID: 7642344115850552334, guid: 9e149974885cdfa408aa91a3ddc9c60d, type: 3}
   _heartPrefab: {fileID: 4884687641329791478, guid: fee67f92809bdbb41b36098302d0d356, type: 3}
-  _player: {fileID: 0}
+  _neail: {fileID: 651549551}
+  _player: {fileID: 1080144740}
 --- !u!1 &1743982073
 GameObject:
   m_ObjectHideFlags: 0
