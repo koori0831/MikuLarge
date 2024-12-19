@@ -5,44 +5,63 @@ using System.Collections;
 
 public class CameraManager_K : MonoBehaviour
 {
+    [SerializeField] private Transform _player;
     //[SerializeField] private Manager _manager;
     [SerializeField] private Transform _mainCamObj;
     [SerializeField] private CinemachineCamera _virtualCamera;
 
+    public float PlayerXPosition { get; set; }
 
-    private int _currentRoom;
+
+    public int CurrentRoom;
     private float _moveAmount;
 
     private void Start()
     {
         _moveAmount = Manager.manager.MapManager_K._mapScale.x;
-        _currentRoom = 0;
+        CurrentRoom = 0;
     }
 
-
-
-    public void MoveRight()
+    public void SetCamera(float targetPosionX)
     {
-        if(_currentRoom < Manager.manager.MapManager_K._targetMapAmount)
+        if(targetPosionX < _mainCamObj.position.x)
         {
-            _mainCamObj.position += new Vector3(_moveAmount, 0, 0);
-            _currentRoom++;
-            SetMinimap();
+            CurrentRoom--;
         }
-        //_mainCamObj.DOMoveX(_mainCamObj.position.x + _moveAmount, 0.5f);
+        else if (targetPosionX > _mainCamObj.position.x)
+        {
+            CurrentRoom++;
+        }
+        _mainCamObj.position = new Vector3(targetPosionX, _mainCamObj.position.y, _mainCamObj.position.z);
     }
 
 
-    public void MoveLeft()
+    private void FixedUpdate()
     {
-        if (_currentRoom > 0)
-        {
-            _mainCamObj.position += new Vector3(-_moveAmount, 0, 0);
-            _currentRoom--;
-            SetMinimap();
-        }
-        //_mainCamObj.DOMoveX(-_mainCamObj.position.x + _moveAmount, 0.5f);
+        SetCameraWithInt();
     }
+    //public void MoveRight()
+    //{
+    //    if(CurrentRoom < Manager.manager.MapManager_K._targetMapAmount)
+    //    {
+    //        _mainCamObj.position += new Vector3(_moveAmount, 0, 0);
+    //        CurrentRoom++;
+    //        SetMinimap();
+    //    }
+    //    //_mainCamObj.DOMoveX(_mainCamObj.position.x + _moveAmount, 0.5f);
+    //}
+
+
+    //public void MoveLeft()
+    //{
+    //    if (CurrentRoom > 0)
+    //    {
+    //        _mainCamObj.position += new Vector3(-_moveAmount, 0, 0);
+    //        CurrentRoom--;
+    //        SetMinimap();
+    //    }
+    //    //_mainCamObj.DOMoveX(-_mainCamObj.position.x + _moveAmount, 0.5f);
+    //}
 
 
     public void ShakeCamera( float duration, float frequencyAmount, float AmplitudeAmount = 0.7f)
@@ -52,7 +71,7 @@ public class CameraManager_K : MonoBehaviour
 
     private void SetMinimap()
     {
-        Manager.manager.MinimapUI.SetMinimapPosistion(_currentRoom);
+        Manager.manager.MinimapUI.SetMinimapPosistion(CurrentRoom);
     }
 
     private IEnumerator CamShake(float duration, float frequencyAmount, float AmplitudeAmount)
@@ -64,4 +83,21 @@ public class CameraManager_K : MonoBehaviour
         vCam.FrequencyGain = 0;
         vCam.AmplitudeGain = 0;
     }
+
+    public int GetCamPos() //플레이어의 X position 을 맵 사이즈(20)에 맞게 설정해서 int 로 반환 => 예시) 10f -> 0, 25f -> 2
+    {
+        float adjustedPosition = PlayerXPosition + (Manager.manager.MapManager_K._mapScale.x / 2);
+        if (PlayerXPosition < 10)
+            return 0;
+        return Mathf.FloorToInt(adjustedPosition / Manager.manager.MapManager_K._mapScale.x);
+    }
+
+    private void SetCameraWithInt()
+    {
+        Manager.manager.MinimapUI.SetMinimapPosistion(GetCamPos());
+        PlayerXPosition = _player.position.x;
+        print(GetCamPos());
+        Manager.manager.CameraManager_K.SetCamera((GetCamPos() * Manager.manager.MapManager_K._mapScale.x));
+    }
+
 }
