@@ -95,98 +95,80 @@
 
 
 
-using NUnit.Framework;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using DG.Tweening;
 using UnityEngine;
+using DG.Tweening;
 
 public class RoomDivider : MonoBehaviour
 {
-    [SerializeField] private Vector2 _detectSize;
-    [SerializeField] private Transform _origin;
-    [SerializeField] private LayerMask _enemyLayer;
-    [SerializeField] private Transform _door;
+    [SerializeField] private Vector2 detectSize; // 적 감지 영역 크기
+    [SerializeField] private Transform origin; // 감지 영역 기준 위치
+    [SerializeField] private LayerMask enemyLayer; // 적으로 감지할 레이어
+    [SerializeField] private Transform door; // 문 오브젝트
 
-    private List<GameObject> _enemyList = new List<GameObject>();
-    private List<int> _clearedRoom = new List<int>();
-    private bool _isClosed;
-
-    private void Start()
-    {
-        _clearedRoom.Add(0); // 초기 방 상태 추가
-    }
+    private bool isClosed; // 문이 닫혀있는지 여부
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return; // 플레이어가 아니면 반환
-        if (_clearedRoom.Contains(Manager.manager.CameraManager_K.CurrentRoom)) return; // 이미 클리어된 방이면 반환
-        if (_isClosed) return; // 이미 문이 닫혀있으면 반환
-        PlayerEntered();
-    }
+        if (isClosed) return; // 이미 닫혀있으면 반환
 
-    public void PlayerEntered()
-    {
-        if (!_isClosed) // 문이 열려있으면 닫기
-        {
-            DetectAndSetDoor(false);
-        }
-    }
-
-    private void DetectAndSetDoor(bool value)
-    {
-        if (value) // 문 열기
-        {
-            _isClosed = false;
-            Manager.manager.RoomManager.DoorStatus = false;
-            DoorOpen();
-        }
-        else // 문 닫기
-        {
-            // 적 감지
-            Collider2D[] enemys = Physics2D.OverlapBoxAll(_origin.position, _detectSize, 0, _enemyLayer);
-            if (enemys.Length > 0) // 적이 있으면 닫기
-            {
-                _isClosed = true;
-                Manager.manager.RoomManager.DoorStatus = true;
-                DoorClose();
-            }
-        }
-    }
-
-    private void DoorClose()
-    {
-        if (_door.position.y > 1f) return; // 문이 이미 닫힌 상태면 반환
-        _door.DOMoveY(_door.position.y - 4f, 0.1f).OnComplete(() =>
-            Manager.manager.CameraManager_K.ShakeCamera(0.2f, 2f));
-    }
-
-    private void DoorOpen()
-    {
-        if (_door.position.y < 3f) return; // 문이 이미 열린 상태면 반환
-        _door.DOMoveY(_door.position.y + 4f, 0.1f);
-    }
-
-    private void Detect()
-    {
-        if (!_isClosed) return; // 문이 열려있으면 적 감지 불필요
-
-        Collider2D[] enemys = Physics2D.OverlapBoxAll(_origin.position, _detectSize, 0, _enemyLayer);
-        if (enemys.Length == 0) // 감지된 적이 없으면
-        {
-            DetectAndSetDoor(true); // 문 열기
-            _clearedRoom.Add(Manager.manager.CameraManager_K.CurrentRoom); // 현재 방을 클리어 목록에 추가
-        }
+        DetectAndCloseDoor(); // 적 감지 후 문 닫기
     }
 
     private void FixedUpdate()
     {
-        Detect(); // 매 프레임마다 적 감지
+        if (isClosed) DetectEnemies(); // 문이 닫힌 상태에서 적 상태를 확인
+    }
+
+    private void DetectAndCloseDoor()
+    {
+        Collider2D[] enemies = Physics2D.OverlapBoxAll(origin.position, detectSize, 0, enemyLayer);
+
+        if (enemies.Length > 0) // 감지된 적이 있으면
+        {
+            CloseDoor();
+        }
+    }
+
+    private void DetectEnemies()
+    {
+        Collider2D[] enemies = Physics2D.OverlapBoxAll(origin.position, detectSize, 0, enemyLayer);
+
+        if (enemies.Length == 0) // 감지된 적이 없으면
+        {
+            OpenDoor();
+        }
+    }
+
+    private void CloseDoor()
+    {
+        if (isClosed) return; // 이미 닫혀있으면 반환
+
+        isClosed = true; // 문 상태 변경
+        door.DOMoveY(door.position.y - 4f, 0.1f).OnComplete(() =>
+        {
+            Manager.manager.CameraManager_K.ShakeCamera(0.2f, 2f);
+            Manager.manager.RoomManager.DoorStatus = true;
+            print("tr");
+        });
+    }
+
+    private void OpenDoor()
+    {
+        if (!isClosed) return; // 이미 열려있으면 반환
+
+        isClosed = false; // 문 상태 변경
+        door.DOMoveY(door.position.y + 4f, 0.1f).OnComplete(() =>
+        {
+            Manager.manager.CameraManager_K.ShakeCamera(0.2f, 2f);
+            Manager.manager.RoomManager.DoorStatus = false;
+            print("fl");
+        });
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(_origin.position, _detectSize); // 적 감지 영역 시각화
+        Gizmos.DrawWireCube(origin.position, detectSize); // 적 감지 영역 시각화
     }
 }

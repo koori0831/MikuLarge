@@ -16,6 +16,16 @@ public class PlayerMeleeState : EntityState
         _mover.StopImmediately();
         _player.HidingGun(false);
     }
+
+    public override void Update()
+    {
+        base.Update();
+        if (_isTriggerCall)
+        {
+            _player.ChangeState(StateName.Idle);
+        }
+    }
+
     public override void Exit()
     {
         _player.HidingGun(true);

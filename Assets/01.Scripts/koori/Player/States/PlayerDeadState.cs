@@ -26,6 +26,9 @@ public class PlayerDeadState : EntityState
         {
             _player.IsDead = true;
             Manager.manager.UIManager.Gameover();
-        }
+            _player.ChangeState(StateName.Idle);
+         }
     }
+
+
 }
