@@ -19,6 +19,7 @@ public class AsmodeusIdleState : EntityState
         base.Enter();
         _mover.StopImmediately(true);
         _asmodeus.target = GameObject.FindWithTag("Player").GetComponent<Player>();
+        _asmodeus.isPhaseing = false;
     }
 
     public override void Update()
@@ -32,12 +33,15 @@ public class AsmodeusIdleState : EntityState
             {
                 case 1:
                     _asmodeus.ChangeState(StateName.Phase1);
+                    _asmodeus.isPhaseing = true;
                     break;
                 case 2:
                     _asmodeus.ChangeState(StateName.Phase2);
+                    _asmodeus.isPhaseing = true;
                     break;
                 case 3:
                     _asmodeus.ChangeState(StateName.Phase3);
+                    _asmodeus.isPhaseing = true;
                     break;
                 default:
                     Debug.Log("이상한걸로감");
