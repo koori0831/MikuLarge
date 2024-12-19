@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5428fa6a22a2dd04c9b35ea3c7c827b0, type: 3}
-  m_Name: LeviathanDeadState
+  m_Script: {fileID: 11500000, guid: b123d076142a22948bb05e16c1abbfd3, type: 3}
+  m_Name: DeadBoolEnvetChanel
   m_EditorClassIdentifier: 
-  stateName: 2
-  className: LeviathenDeadState
-  animParam: {fileID: 11400000, guid: 555912df2824705449aba525410a0288, type: 2}
