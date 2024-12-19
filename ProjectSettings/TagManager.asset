@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - ADEnemy
   - Wall
+  - ShotPos
   layers:
   - Default
   - TransparentFX

@@ -5,10 +5,10 @@ using Unity.Cinemachine;
 public class ChainShot2 : Entity
 {
     [SerializeField] private LineRenderer _startLine;
-    [SerializeField] private LineRenderer _NextLine;
-    [SerializeField] private LineRenderer _NextLine2;
-    [SerializeField] private LineRenderer _NextLine3;
-    [SerializeField] private LineRenderer _NextLine4;
+    [SerializeField] public LineRenderer _NextLine;
+    [SerializeField] public LineRenderer _NextLine2;
+    [SerializeField] public LineRenderer _NextLine3;
+    [SerializeField] public LineRenderer _NextLine4;
     private Vector3 endPos = Vector2.zero;
     private Vector3 endPos2 = Vector2.zero;
     private Vector3 endPos3 = Vector2.zero;
