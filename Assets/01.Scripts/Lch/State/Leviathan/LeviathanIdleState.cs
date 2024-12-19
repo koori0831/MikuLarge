@@ -24,7 +24,7 @@ public class LeviathanIdleState : EntityState
     public override void Update()
     {
         base.Update();
-        if (_leviathan.CheckPlayerInRadius())
+        if (_leviathan.CheckPlayerInRadius() && Manager.manager.RoomManager.DoorStatus)
         {
             _leviathan.ChangeState(StateName.Move);
         }

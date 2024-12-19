@@ -23,7 +23,7 @@ public class TankerIdleState : EntityState
     {
         base.Update();
         FacingToPlayer();
-        if (_tanker.CheckPlayerInRadius() && _tanker.AttackCompo.CanAttack())
+        if (_tanker.CheckPlayerInRadius() && _tanker.AttackCompo.CanAttack() && Manager.manager.RoomManager.DoorStatus)
         {
             _tanker.ChangeState(StateName.Attack);
         }
