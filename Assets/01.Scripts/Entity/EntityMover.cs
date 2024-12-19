@@ -21,6 +21,7 @@ public class EntityMover : MonoBehaviour, IEntityComponent
     private EntityRenderer _renderer;
     private Rigidbody2D _rbCompo;
     private float _movementX;
+    private bool _isEnemy = true;
     
     private float _moveSpeedMultiplier, _originalGravityScale;
     
@@ -55,11 +56,17 @@ public class EntityMover : MonoBehaviour, IEntityComponent
     {
         _movementX = x;
     }
+
+    public void IsPlayer()
+    {
+        _isEnemy = false;
+    }
     
     private void FixedUpdate()
     {
         CheckGround();
         MoveCharacter();
+
     }
     
     private void CheckGround()
@@ -74,7 +81,10 @@ public class EntityMover : MonoBehaviour, IEntityComponent
     {
         if (CanManualMove)
         {
-            _renderer.FlipController(Mathf.Sign(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x));
+            if(_isEnemy)
+                _renderer.FlipController(_movementX);
+            else
+                _renderer.FlipController(Mathf.Sign(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x));
             _rbCompo.linearVelocityX = _movementX * _moveSpeed * _moveSpeedMultiplier;
         }
         
