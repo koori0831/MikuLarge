@@ -18,6 +18,7 @@ public class Player : Entity
     [SerializeField] private float _interactRange = 3f;
     [SerializeField] private LayerMask _interatable;
     public Hands Hands;
+    public GameObject ReLoadOb;
     public LayerMask dashExclude;
 
     public bool charmed;
@@ -55,6 +56,8 @@ public class Player : Entity
         PlayerInput.ShotEvent += HandleShotEvent;
         _health.OnHit += HandleHit;
         _health.OnDeath += HandleDeath;
+
+        ReLoadOb.SetActive(false);
     }
 
     private void HandleDeath()
