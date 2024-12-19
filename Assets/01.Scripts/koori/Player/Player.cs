@@ -124,6 +124,7 @@ public class Player : Entity
         PlayerSave.currentHandGun = Hands.currentHandGun;
         PlayerSave.currentHandsGun = Hands.currentHandsGun;
         PlayerSave.NowCoin = Manager.manager.ResourceManager.Coin;
+        _soEvent.RaiseEvent(PlayerSave);
     }
 
     protected void Start()
