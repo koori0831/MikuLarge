@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3269191213845997754}
   - component: {fileID: 7738274258801300535}
   m_Layer: 0
-  m_Name: T-33
+  m_Name: TT-33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2001808911
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7515f7e296ca51147bf30a65085ee9cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,5 +132,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7145dd9a3e8940e4e8890b79246135f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletEnterEvent: {fileID: 11400000, guid: 5a4f1cabfd0ce884587230a338ff54cc, type: 2}
+  bulletPrefab: {fileID: 6795840553651300307, guid: 47996a4a0c95a8a4c8e8d24ca6673c43, type: 3}
   firePos: {fileID: 2389405432954822826}
   type: 0
+  damage: 10
+  shotSpeed: 10
+  shotWaitTime: 0.3
+  knockBack: {x: 1.6, y: 0}
+  reloadingTime: 3
+  ammo: 8
+  shotCount: 1
+  spreadAngle: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class T33 : Gun
+public class TT33 : Gun
 {
     
 }

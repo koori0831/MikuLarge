@@ -12,16 +12,18 @@ public class RoomDivider : MonoBehaviour
     [SerializeField] private Transform _door;
 
     private List<GameObject> _enemyList = new List<GameObject>();
+    private List<int> _clearedRoom = new List<int>();
     private bool _isClosed;
 
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            PlayerEntered();
-        }
+        if (collision.CompareTag("Player")) return;
+        if (_clearedRoom.Contains(Manager.manager.CameraManager_K.CurrentRoom)) return;
+        if (_isClosed) return;
+        PlayerEntered();
     }
+
 
     public void PlayerEntered()
     {
@@ -51,7 +53,7 @@ public class RoomDivider : MonoBehaviour
 
     private void DoorClose()
     {
-        _door.DOMoveY(_door.position.y - 4f, 0.1f);
+        _door.DOMoveY(_door.position.y - 4f, 0.1f).OnComplete(()=>Manager.manager.CameraManager_K.ShakeCamera(0.2f,2f));
     }
     private void DoorOpen()
     {
@@ -64,6 +66,7 @@ public class RoomDivider : MonoBehaviour
         if(enemys.Length <= 0 && _isClosed) //감지된 적이 0보다 작고 문이 닫혀있을떄
         {
             SetDoor(true);
+            _clearedRoom.Add(Manager.manager.CameraManager_K.CurrentRoom);
         }
     }
 
