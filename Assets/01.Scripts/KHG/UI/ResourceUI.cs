@@ -16,6 +16,8 @@ public class ResourceUI : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private GameObject _heartPrefab;
 
+    [SerializeField] private Player _player;
+
 
     private void Start()
     {
@@ -76,6 +78,7 @@ public class ResourceUI : MonoBehaviour
     public void SetHealth(int value)
     {
         int currentHealth = 0;
+        currentHealth = (int)_player.GetComponent<EntityHealth>()._currentHealth;
         currentHealth = Manager.manager.ResourceManager.Health / 20;
 
         if (_healthUI.childCount > 0)
