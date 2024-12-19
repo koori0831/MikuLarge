@@ -17,7 +17,7 @@ public class ChainShot2 : Entity
     [SerializeField] private LayerMask _wathIsWalls;
     [SerializeField] private CinemachineBasicMultiChannelPerlin _cameraShake;
 
-    [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
+    [SerializeField] private Vector2 _knockBackForce;
 
     private List<IDamageable> damgeAble = new List<IDamageable>();
     [SerializeField] private float _enemyDamge;

@@ -25,12 +25,20 @@ public class Player : Entity
 
     public bool isReloading;
 
+    public Transform nailPos;
+
+    public GameObject Chain;
+
+    public BoolEventChannelSO  NailEvent;
+
     public bool isHit;
+
+    public bool isNailed;
 
     private int _currentJumpCount = 0;
     private EntityMover _mover;
     private PlayerAttackCompo _atkCompo;
-    private EntityHealth _health;
+    public EntityHealth health;
 
     [SerializeField] private StateMachine _stateMachine;
 
@@ -43,23 +51,34 @@ public class Player : Entity
 
         _mover = GetCompo<EntityMover>();
         Hands = GetCompo<Hands>();
-        _health = GetCompo<EntityHealth>();
+        health = GetCompo<EntityHealth>();
         _mover.OnGroundStatusChange += HandleGroundStatusChange;
         PlayerInput.JumpEvent += HandleJumpEvent;
         PlayerInput.InteractEvent += HadleInteractEvent;
         PlayerInput.NailEvent += HandleNailEvent;
 
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
+        GetCompo<EntityAnimator>(true).OnNailShot += Nail;
 
         _atkCompo = GetCompo<PlayerAttackCompo>();
         PlayerInput.MeleeEvent += HandleAttackKeyEvent;
         PlayerInput.DashEvent += HandleDashEvent;
         PlayerInput.ShotEvent += HandleShotEvent;
-        _health.OnHit += HandleHit;
-        _health.OnDeath += HandleDeath;
+        health.OnHit += HandleHit;
+        health.OnDeath += HandleDeath;
 
         ReLoadOb.SetActive(false);
         _mover.IsPlayer();
+
+        NailEvent.OnValueEvent += RevertInput;
+    }
+
+    private void RevertInput(bool obj)
+    {
+        PlayerInput.Controls.Enable();
+        health._currentHealth = 20;
+
+        isNailed = obj;
     }
 
     private void HandleNailEvent()
@@ -83,13 +102,14 @@ public class Player : Entity
         _mover.OnGroundStatusChange -= HandleGroundStatusChange;
         PlayerInput.JumpEvent -= HandleJumpEvent;
         GetCompo<EntityAnimator>(true).OnAnimationEnd -= HandleAnimationEnd;
+        GetCompo<EntityAnimator>(true).OnNailShot -= Nail;
         PlayerInput.MeleeEvent -= HandleAttackKeyEvent;
         PlayerInput.DashEvent -= HandleDashEvent;
         PlayerInput.InteractEvent -= HadleInteractEvent;
         PlayerInput.ShotEvent -= HandleShotEvent;
         PlayerInput.NailEvent -= HandleNailEvent;
-        _health.OnHit -= HandleHit;
-        _health.OnDeath -= HandleDeath;
+        health.OnHit -= HandleHit;
+        health.OnDeath -= HandleDeath;
     }
 
     protected void Start()
@@ -193,6 +213,10 @@ public class Player : Entity
             case WeaponType.handsGun:
                 Hands.currentHandsGun.gameObject.GetComponent<SpriteRenderer>().enabled = value; break;
         }
+    }
+    private void Nail()
+    {
+        Instantiate(Chain, nailPos.position, Quaternion.identity);
     }
 
     private void OnDrawGizmos()
