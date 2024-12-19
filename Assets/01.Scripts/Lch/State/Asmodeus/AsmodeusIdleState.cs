@@ -26,7 +26,7 @@ public class AsmodeusIdleState : EntityState
     {
         base.Update();
         FacingToPlayer();
-        if (_asmodeus.AttackCompo.CanAttack())
+        if (_asmodeus.CheckPlayerInRadius()&&_asmodeus.AttackCompo.CanAttack() && Manager.manager.RoomManager.DoorStatus)
         {
             _phaseSelect = Random.Range(1, 4);
             switch (_phaseSelect)
