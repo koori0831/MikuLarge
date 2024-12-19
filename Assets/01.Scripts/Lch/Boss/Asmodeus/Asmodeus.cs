@@ -22,11 +22,6 @@ public class Asmodeus : Enemy
         _health.OnDeath += HandleDead;
     }
 
-    protected override void OnCollisionEnter2D(Collision2D other)
-    {
-        base.OnCollisionEnter2D(other);
-    }
-
     private void HandleDead()
     {
         _stateMachine.ChageState(StateName.Dead);

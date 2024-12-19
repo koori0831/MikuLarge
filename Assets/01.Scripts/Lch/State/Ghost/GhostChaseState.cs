@@ -19,13 +19,21 @@ public class GhostChaseState : EntityState
     public override void Update()
     {
         base.Update();
+        FacingToPlayer();
         Vector2 targetDir = _ghost.target.transform.position - _ghost.transform.position;
 
         _mover.SetMovement(targetDir.normalized.x);
 
         if (_ghost.CheckAttackToPlayerRadius()&& _ghost.AttackCompo.CanAttack())
         {
+            _mover.StopImmediately(true);
             _ghost.ChangeState(StateName.Attack);
         }
+    }
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _ghost.target.transform.position.x - _ghost.transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
     }
 }

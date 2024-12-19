@@ -19,7 +19,7 @@ public class Bullet : Entity
         base.Awake();
         _target = GameObject.FindWithTag("Player").transform;
         _rbCompo = GetComponent<Rigidbody2D>();
-        _adEnemy = GameObject.FindWithTag("Enemy").GetComponent<ADEnemy>();
+        _adEnemy = GameObject.FindWithTag("ADEnemy").GetComponent<ADEnemy>();
         _renderer = _adEnemy.GetCompo<EntityRenderer>();
     }
 
