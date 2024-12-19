@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shotSpeed: 5
   _knockBackForce: {x: 5, y: 3}
-  _damge: 0
+  _damge: 20
 --- !u!114 &4917677675908003816
 MonoBehaviour:
   m_ObjectHideFlags: 0
