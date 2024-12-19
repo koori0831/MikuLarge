@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bdfed7e36b67046baf2e023d274c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
+  _maxHealth: 1500
   _currentHealth: 0
   _knockBackTime: 0.5
 --- !u!114 &1948637001344309169
@@ -429,8 +429,10 @@ MonoBehaviour:
     m_Bits: 1024
   _playercheckRadius: 10
   _attackRadius: 1.28
-  _damge: 0
+  _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  DropCoin: {fileID: 0}
+  ItemList: {fileID: 11400000, guid: d8da166a63e09d642887db7c14497455, type: 2}
   _asmodeusFSM: {fileID: 11400000, guid: c32ef008d3d7fa54eb1591e56a8d3c8d, type: 2}
   AttackCompo: {fileID: 0}
   _damgeCast: {fileID: 0}

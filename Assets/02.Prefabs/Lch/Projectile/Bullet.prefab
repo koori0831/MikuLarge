@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rbCompo: {fileID: 523331278044788566}
-  _damge: 0
+  _damge: 20
   _knockBackForce: {x: 5, y: 3}
 --- !u!50 &523331278044788566
 Rigidbody2D:

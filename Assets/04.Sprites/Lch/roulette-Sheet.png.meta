@@ -1,124 +1,43 @@
 fileFormatVersion: 2
-guid: 36ae3d13847246c46ba78faf0e2dff88
+guid: ebe3559acf929b545929794a8c5adc1f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6595997866022774941
-    second: Wather_1-Sheet_0
+      213: -6781811316287965774
+    second: roulette-Sheet_0
   - first:
-      213: 1682521312843200123
-    second: Wather_1-Sheet_1
+      213: 4858810985435340093
+    second: roulette-Sheet_1
   - first:
-      213: -7277671306894328042
-    second: Wather_1-Sheet_2
+      213: 725212834721462094
+    second: roulette-Sheet_2
   - first:
-      213: -388017231826147951
-    second: Wather_1-Sheet_3
+      213: 3078697821779436090
+    second: roulette-Sheet_3
   - first:
-      213: 3503277772292132461
-    second: Wather_1-Sheet_4
+      213: 115962556922743769
+    second: roulette-Sheet_4
   - first:
-      213: 8562311884700760188
-    second: Wather_1-Sheet_5
+      213: 571514480573063351
+    second: roulette-Sheet_5
   - first:
-      213: -476045977951371582
-    second: Wather_1-Sheet_6
+      213: -4893522294218527243
+    second: roulette-Sheet_6
   - first:
-      213: -3550995849171840921
-    second: Wather_1-Sheet_7
+      213: 6466326623789879812
+    second: roulette-Sheet_7
   - first:
-      213: 4116056350231087528
-    second: Wather_1-Sheet_8
+      213: 751471058258934023
+    second: roulette-Sheet_8
   - first:
-      213: 4761167102066069530
-    second: Wather_1-Sheet_9
+      213: -5696640048454212879
+    second: roulette-Sheet_9
   - first:
-      213: -12131002122772148
-    second: Wather_1-Sheet_10
+      213: 2162235603957091423
+    second: roulette-Sheet_10
   - first:
-      213: -8406432373857312533
-    second: Wather_1-Sheet_11
-  - first:
-      213: 1463087112181509770
-    second: Wather_1-Sheet_12
-  - first:
-      213: 2923595216364248941
-    second: Wather_1-Sheet_13
-  - first:
-      213: -6103475285254365919
-    second: Wather_1-Sheet_14
-  - first:
-      213: 2450530985244444020
-    second: Wather_1-Sheet_15
-  - first:
-      213: -7725154289740137940
-    second: Wather_1-Sheet_16
-  - first:
-      213: -564391851911909245
-    second: Wather_1-Sheet_17
-  - first:
-      213: -396810473113928569
-    second: Wather_1-Sheet_18
-  - first:
-      213: 3080643482695324267
-    second: Wather_1-Sheet_19
-  - first:
-      213: 1334557773848541638
-    second: Wather_1-Sheet_20
-  - first:
-      213: 5083643912281876560
-    second: Wather_1-Sheet_21
-  - first:
-      213: -3449938209410703612
-    second: Wather_1-Sheet_22
-  - first:
-      213: 5999293598049259049
-    second: Wather_1-Sheet_23
-  - first:
-      213: -6348394168083851872
-    second: Wather_1-Sheet_24
-  - first:
-      213: -8432434367081096421
-    second: Wather_1-Sheet_25
-  - first:
-      213: 5167801411331787205
-    second: Wather_1-Sheet_26
-  - first:
-      213: 3660989930090800467
-    second: Wather_1-Sheet_27
-  - first:
-      213: 7566647345350175727
-    second: Wather_1-Sheet_28
-  - first:
-      213: 6511894432609468462
-    second: Wather_1-Sheet_29
-  - first:
-      213: -2077845487681340480
-    second: Wather_1-Sheet_30
-  - first:
-      213: 2965657312165827646
-    second: Wather_1-Sheet_31
-  - first:
-      213: -6416982768031901268
-    second: Wather_1-Sheet_32
-  - first:
-      213: -5212507737409723408
-    second: Wather_1-Sheet_33
-  - first:
-      213: -951903173626098697
-    second: Wather_1-Sheet_34
-  - first:
-      213: -7813811019194421050
-    second: Wather_1-Sheet_35
-  - first:
-      213: 4941524731348486076
-    second: Wather_1-Sheet_36
-  - first:
-      213: -2492155669572165888
-    second: Wather_1-Sheet_37
-  - first:
-      213: -5021454111620978360
-    second: Wather_1-Sheet_38
+      213: -7363094020585416458
+    second: roulette-Sheet_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -214,221 +133,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wather_1-Sheet_0
+      name: roulette-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.20289856, y: 0}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d98a58fac11b98b50800000000000000
-      internalID: 6595997866022774941
+      spriteID: 2b57ee61a8a22e1a0800000000000000
+      internalID: -6781811316287965774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_1
+      name: roulette-Sheet_1
       rect:
         serializedVersion: 2
-        x: 276
+        x: 213
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.442029, y: 0}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b76fa0b3834895710800000000000000
-      internalID: 1682521312843200123
+      spriteID: d3d93a129d6fd6340800000000000000
+      internalID: 4858810985435340093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_2
+      name: roulette-Sheet_2
       rect:
         serializedVersion: 2
-        x: 552
+        x: 426
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.6630435, y: -0.0009090909}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61fb2805184800b90800000000000000
-      internalID: -7277671306894328042
+      spriteID: e4770281b39701a00800000000000000
+      internalID: 725212834721462094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_3
+      name: roulette-Sheet_3
       rect:
         serializedVersion: 2
-        x: 828
+        x: 639
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.6702899, y: 0.0004545454}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 195a54a226c7d9af0800000000000000
-      internalID: -388017231826147951
+      spriteID: a32aee57b5bb9ba20800000000000000
+      internalID: 3078697821779436090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_4
+      name: roulette-Sheet_4
       rect:
         serializedVersion: 2
-        x: 1104
+        x: 852
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.6594203, y: -0}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6e8efe92942e9030800000000000000
-      internalID: 3503277772292132461
+      spriteID: 9db40a4c45bfb9100800000000000000
+      internalID: 115962556922743769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_5
+      name: roulette-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1380
+        x: 1065
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.16304348, y: -0.0022727272}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c78b1b74b4173d670800000000000000
-      internalID: 8562311884700760188
+      spriteID: 7b0ac8e546d6ee700800000000000000
+      internalID: 571514480573063351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_6
+      name: roulette-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1656
+        x: 1278
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.16304348, y: -0}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ce747b84beb469f0800000000000000
-      internalID: -476045977951371582
+      spriteID: 5fd66a08667b61cb0800000000000000
+      internalID: -4893522294218527243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_7
+      name: roulette-Sheet_7
       rect:
         serializedVersion: 2
-        x: 1932
+        x: 1491
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.1594203, y: -0.0009090909}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 760d933d61458bec0800000000000000
-      internalID: -3550995849171840921
+      spriteID: 40295a4edc10db950800000000000000
+      internalID: 6466326623789879812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_8
+      name: roulette-Sheet_8
       rect:
         serializedVersion: 2
-        x: 2208
+        x: 1704
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.17391305, y: 0.0004545454}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a9c307517b2f1930800000000000000
-      internalID: 4116056350231087528
+      spriteID: 709b28e22f2cd6a00800000000000000
+      internalID: 751471058258934023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wather_1-Sheet_9
+      name: roulette-Sheet_9
       rect:
         serializedVersion: 2
-        x: 2484
+        x: 1917
         y: 0
-        width: 276
-        height: 220
-      alignment: 9
-      pivot: {x: 0.18115942, y: -0.005}
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a109ceae040131240800000000000000
-      internalID: 4761167102066069530
+      spriteID: 1f26f9ade0871f0b0800000000000000
+      internalID: -5696640048454212879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roulette-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 0
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5c809663ddc10e10800000000000000
+      internalID: 2162235603957091423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roulette-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2343
+        y: 0
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f81437eff801d990800000000000000
+      internalID: -7363094020585416458
       vertices: []
       indices: 
       edges: []
@@ -437,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 71121ddd60fb207459edea3d32e55d08
+    spriteID: 6a68ab8c56bf6c944b8c51d3718a578d
     internalID: 0
     vertices: []
     indices: 
@@ -447,16 +410,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wather_1-Sheet_0: 6595997866022774941
-      Wather_1-Sheet_1: 1682521312843200123
-      Wather_1-Sheet_2: -7277671306894328042
-      Wather_1-Sheet_3: -388017231826147951
-      Wather_1-Sheet_4: 3503277772292132461
-      Wather_1-Sheet_5: 8562311884700760188
-      Wather_1-Sheet_6: -476045977951371582
-      Wather_1-Sheet_7: -3550995849171840921
-      Wather_1-Sheet_8: 4116056350231087528
-      Wather_1-Sheet_9: 4761167102066069530
+      roulette-Sheet_0: -6781811316287965774
+      roulette-Sheet_1: 4858810985435340093
+      roulette-Sheet_10: 2162235603957091423
+      roulette-Sheet_11: -7363094020585416458
+      roulette-Sheet_2: 725212834721462094
+      roulette-Sheet_3: 3078697821779436090
+      roulette-Sheet_4: 115962556922743769
+      roulette-Sheet_5: 571514480573063351
+      roulette-Sheet_6: -4893522294218527243
+      roulette-Sheet_7: 6466326623789879812
+      roulette-Sheet_8: 751471058258934023
+      roulette-Sheet_9: -5696640048454212879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
