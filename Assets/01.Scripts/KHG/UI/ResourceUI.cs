@@ -48,12 +48,12 @@ public class ResourceUI : MonoSingleton<ResourceUI>
         
         if(_player.Hands.currentHandsGun != null)
         {
-            SetBullet(_player.Hands.currentHandGun.currentAmmo);
+            SetBullet(_player.Hands.currentHandsGun.currentAmmo);
         }
 
         if(_player.Hands.currentHandGun != null)
         {
-            SetBullet(_player.Hands.currentHandsGun.currentAmmo);
+            SetBullet(_player.Hands.currentHandGun.currentAmmo);
         }
         
 
