@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 166316499}
   m_Layer: 11
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1226,18 +1226,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
-    - target: {fileID: 1840891541398698969, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
-      propertyPath: _contactFilter.useLayerMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1840891541398698969, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
-      propertyPath: _contactFilter.layerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 3997725059410804581, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.914
-      objectReference: {fileID: 0}
     - target: {fileID: 4548159758917878876, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.58
@@ -1746,14 +1734,6 @@ PrefabInstance:
     - target: {fileID: 3088233501336665578, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
       propertyPath: m_Name
       value: ADEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3088233501336665578, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3088233501336665578, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2421,7 +2401,7 @@ GameObject:
   - component: {fileID: 1942381759}
   m_Layer: 11
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2620,14 +2600,6 @@ PrefabInstance:
     - target: {fileID: 4593101305297070637, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
       propertyPath: m_Name
       value: Asmodeus
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593101305297070637, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084221907104515757, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
-      propertyPath: _maxHealth
-      value: 1000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2856,6 +2828,10 @@ PrefabInstance:
     - target: {fileID: 8733385341891768083, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
       propertyPath: m_Name
       value: Leviathan
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733385341891768083, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

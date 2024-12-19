@@ -44,7 +44,7 @@ public class WaterArrow : Entity
         {
             if (collision.gameObject.TryGetComponent(out IDamageable damageable))
             {
-                Vector2 atkDirection = gameObject.transform.right;
+                Vector2 atkDirection = transform.right;
                 Vector2 knockBackForce = _knockBackForce;
                 knockBackForce.x *= atkDirection.x;
                 damageable.ApplyDamage(_damge, atkDirection, -knockBackForce, this);
@@ -52,7 +52,11 @@ public class WaterArrow : Entity
             Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private void FacingToPlayer()
