@@ -10,8 +10,6 @@ public class Leviathan : Enemy
 
     public DamageCast _damgeCast;
 
-    public BoolEventChannelSO _bossDeadEvnet;
-
     protected override void AfterInitialize()
     {
         base.AfterInitialize();

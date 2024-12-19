@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public class AsmodeusAttackCompo : MonoBehaviour,IEntityComponent
 {
@@ -20,18 +21,23 @@ public class AsmodeusAttackCompo : MonoBehaviour,IEntityComponent
     public void DashAttack()
     {
         _lastAtkTime = Time.time;;
+        BroAudio.Play(_asmodeus.Phase1Sound);
     }
 
     public void CharmAttack()
     {
         _lastAtkTime = Time.time;
         Instantiate(_charmPrefab, _shotPos.position, Quaternion.identity);
+        BroAudio.Play(_asmodeus.Phase2Sound);
+
     }
 
     public void DarkAttack()
     {
         _lastAtkTime = Time.time;
         Instantiate(_darkPrefab, _shotPos.position, Quaternion.identity);
+        BroAudio.Play(_asmodeus.Phase3Sound);
+
     }
 
 }

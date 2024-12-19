@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public class EnemyHitState : EntityState
 {
@@ -14,6 +15,7 @@ public class EnemyHitState : EntityState
     public override void Enter()
     {
         base.Enter();
+        BroAudio.Play(_enemy.HitSound);
         _enemy.target = GameObject.FindWithTag("Player").GetComponent<Player>();
         Vector3 dir = _enemy.target.transform.position - _enemy.transform.position;
         _renderer.FlipController(dir.x);
