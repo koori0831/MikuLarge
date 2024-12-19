@@ -56,8 +56,11 @@ public class Charm : Entity
             }
             Destroy(gameObject);
         }
+        if(!TryGetComponent(out Enemy enemy))
+        {
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 
     private void FacingToPlayer()

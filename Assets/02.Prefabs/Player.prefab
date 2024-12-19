@@ -167,6 +167,7 @@ MonoBehaviour:
   NailEvent: {fileID: 11400000, guid: a1ac84ad74805204fa0851e711d4ce53, type: 2}
   isHit: 0
   isNailed: 0
+  health: {fileID: 0}
 --- !u!114 &4464803417060981899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,8 +477,8 @@ Transform:
   m_GameObject: {fileID: 6150153079231887859}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.558, y: -0.164, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalPosition: {x: 1.202, y: -0.058, z: 0}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1137323712665969227}
