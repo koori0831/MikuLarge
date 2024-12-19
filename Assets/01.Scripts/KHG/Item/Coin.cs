@@ -19,7 +19,7 @@ public class Coin : MonoBehaviour, ICollectable
 
     private void CoinCollected()
     {
-        Manager.manager.ResourceManager.Coin++;
+        Manager.manager.ResourceManager.Coin += 10;
         Manager.manager.ResourceUI.SetCoin();
         Destroy(gameObject);
     }

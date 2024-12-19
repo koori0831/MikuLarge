@@ -22,6 +22,14 @@ public class ItemSpawn : MonoBehaviour
             
             GameObject item = Instantiate(_item[spawnIndex], _itemParent);
 
+            if (item.TryGetComponent(out GlabGun gun))
+            {
+                gun.IsShop = true;
+            }
+            else if(item.TryGetComponent(out HealtItem healtItem))
+            {
+                healtItem.IsShop = true;
+            }
             item.transform.position = spawner.transform.position;
             _spawnList.Add(spawnIndex);
             
