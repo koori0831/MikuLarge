@@ -9,7 +9,7 @@ public class Soul : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent(out Player player))
         {
-            Manager.manager.ResourceManager.SoulGauge += 0.3f;
+            Manager.manager.ResourceUI.SetNeail(0.3f);
             Destroy(gameObject);
         }
     }
