@@ -5,6 +5,8 @@ public class Asmodeus : Enemy
     [SerializeField] private EntityFSMSO _asmodeusFSM;
     public AsmodeusAttackCompo AttackCompo;
 
+    [field :SerializeField] public Transform DropPos;
+
     private EntityHealth _health;
     public EntityState CurrentState => _stateMachine.currentState;
 

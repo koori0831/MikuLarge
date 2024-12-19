@@ -25,6 +25,21 @@ public class ChainShot4 : Entity
 
     public bool isEnd = false;
 
+    private void OnEnable()
+    {
+        base.Awake();
+        Camera mainCamera = Camera.main;
+
+        BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+
+        float cameraHeight = 2f * mainCamera.orthographicSize;
+        float cameraWidth = cameraHeight * mainCamera.aspect;
+
+        boxCollider.size = new Vector2(cameraWidth, cameraHeight);
+
+        transform.position = mainCamera.transform.position;
+    }
+
     private void Start()
     {
         StartCoroutine(DrawLines());

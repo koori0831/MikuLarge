@@ -22,7 +22,20 @@ public class ChainShot2 : Entity
     private List<IDamageable> damgeAble = new List<IDamageable>();
     [SerializeField] private float _enemyDamge;
 
+    private void OnEnable()
+    {
+        base.Awake();
+        Camera mainCamera = Camera.main;
 
+        BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+
+        float cameraHeight = 2f * mainCamera.orthographicSize;
+        float cameraWidth = cameraHeight * mainCamera.aspect;
+
+        boxCollider.size = new Vector2(cameraWidth, cameraHeight);
+
+        transform.position = mainCamera.transform.position;
+    }
 
     public bool isEnd = false;  
     private void Start()

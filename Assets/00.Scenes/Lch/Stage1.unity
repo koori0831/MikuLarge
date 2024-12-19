@@ -586,6 +586,10 @@ PrefabInstance:
       propertyPath: ReLoadOb
       value: 
       objectReference: {fileID: 2009951135}
+    - target: {fileID: 3609457733221801018, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
+      propertyPath: PlayerSave
+      value: 
+      objectReference: {fileID: 11400000, guid: ffeffd1b5bc4ad14298bab1c1e9f6883, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2687,6 +2691,7 @@ MonoBehaviour:
   ResourceUI: {fileID: 1743263897}
   MinimapUI: {fileID: 1681599941}
   AnimationManager: {fileID: 2026223072}
+  UIManager: {fileID: 0}
 --- !u!4 &1185786212
 Transform:
   m_ObjectHideFlags: 0

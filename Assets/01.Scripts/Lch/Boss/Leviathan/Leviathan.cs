@@ -10,6 +10,8 @@ public class Leviathan : Enemy
 
     public DamageCast _damgeCast;
 
+    [ field : SerializeField] public Transform DropPos; 
+
     protected override void AfterInitialize()
     {
         base.AfterInitialize();
