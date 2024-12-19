@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5829106816682203957
 Transform:
   m_ObjectHideFlags: 0
@@ -137,9 +137,30 @@ MonoBehaviour:
   _damge: 20
   _knockBackForce: {x: 5, y: 3}
   SoulPrefab: {fileID: 3993354691502283645, guid: ccfd62e9c7934f64ba7269d15e7b9a99, type: 3}
+  HitSound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
+  AttakSound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
+  Phase1Sound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
+  Phase2Sound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
+  Phase3Sound:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 5283649696095793030}
   isPhaseing: 0
   DropCoin: {fileID: 5581353378834596202, guid: cce3a0a40b91a6646980baece3229388, type: 3}
   ItemList: {fileID: 0}
+  BossDeadEvnet: {fileID: 0}
   _tankerFsm: {fileID: 11400000, guid: a197377ba82e28c44a9e32f9f7a36988, type: 2}
   AttackCompo: {fileID: 0}
 --- !u!114 &5306291015880947057

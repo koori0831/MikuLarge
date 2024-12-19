@@ -23,6 +23,8 @@ public abstract class Enemy : Entity
     [field:SerializeField] public Coin DropCoin;
     [field: SerializeField] public DropItemListSO ItemList;
 
+    [field : SerializeField] public VoidEventChannelSO BossDeadEvnet;
+
     protected override void Awake()
     {
         base.Awake();
