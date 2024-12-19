@@ -34,12 +34,15 @@ public class LeviathanChaseState : EntityState
             {
                 case 1:
                     _leviathan.ChangeState(StateName.Phase1);
+                    _leviathan.isPhaseing = true;
                     break;
                 case 2:
                     _leviathan.ChangeState(StateName.Phase2);
+                    _leviathan.isPhaseing = true;
                     break;
                 case 3:
                     _leviathan.ChangeState(StateName.Phase3);
+                    _leviathan.isPhaseing = true;
                     break;
                 default:
                     Debug.Log("이상한걸로감");
