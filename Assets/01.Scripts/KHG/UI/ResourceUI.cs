@@ -30,7 +30,7 @@ public class ResourceUI : MonoSingleton<ResourceUI>
         SetCoin();
       
         SetHealth(Mathf.FloorToInt(_player.PlayerSave.CurrentHealth));
-        SetNeail(_neail);
+        SetNeail(0);
     }
 
 
@@ -62,8 +62,6 @@ public class ResourceUI : MonoSingleton<ResourceUI>
 
         SetHealth(Mathf.FloorToInt(_player.health._currentHealth));
 
-        SetNeail(_neail);
-
         if(newFillAmount >= 1)
         {
             Manager.manager.ResourceManager.CanNeailUse = true;
@@ -73,6 +71,7 @@ public class ResourceUI : MonoSingleton<ResourceUI>
 
     private IEnumerator NeaerDown()
     {
+        yield return new WaitForSeconds(1f);
         while (newFillAmount <= 0)
         {
             newFillAmount = _neail.fillAmount - 0.1f;
@@ -96,11 +95,11 @@ public class ResourceUI : MonoSingleton<ResourceUI>
         }
     }
 
-    public void SetNeail(Image soul)
+    public void SetNeail(float soul)
     {
-        newFillAmount = soul.fillAmount + Manager.manager.ResourceManager.SoulGauge;
+        newFillAmount = _neail.fillAmount +soul;
 
-        soul.fillAmount = Mathf.Clamp(newFillAmount, 0f, 1f);
+        _neail.fillAmount = Mathf.Clamp(newFillAmount, 0f, 1f);
     }
 
     public void SetCoin()
