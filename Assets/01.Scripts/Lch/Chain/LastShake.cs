@@ -19,12 +19,6 @@ public class LastShake : Entity
     private List<IDamageable> damgeAble = new List<IDamageable>();
     [SerializeField] private float _enemyDamge;
 
-    protected override void Awake()
-    {
-        base.Awake();
-       
-    }
-
     private void Start()
     {
         _isShakeEnd = false;
@@ -68,7 +62,7 @@ public class LastShake : Entity
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void ChildrenCollisionEnter(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Enemy enemy))
         {
