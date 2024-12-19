@@ -959,12 +959,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01078631698a314eb53e9f47191a8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectSize: {x: 18, y: 8}
-  _origin: {fileID: 1345099372}
-  _enemyLayer:
+  detectSize: {x: 0, y: 0}
+  origin: {fileID: 0}
+  enemyLayer:
     serializedVersion: 2
-    m_Bits: 256
-  _door: {fileID: 1340409482}
+    m_Bits: 0
+  door: {fileID: 0}
 --- !u!61 &449177002
 BoxCollider2D:
   m_ObjectHideFlags: 0
