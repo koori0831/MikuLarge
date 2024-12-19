@@ -18,7 +18,7 @@ public class EnemyDeadState : EntityState
             {
                 GameObject.Instantiate(_enemy.DropCoin, _enemy.transform.position, Quaternion.identity);
             }
-            GameObject.Destroy(_entity.gameObject);
+            GameObject.Destroy(_enemy.gameObject);
         }
     }
 }

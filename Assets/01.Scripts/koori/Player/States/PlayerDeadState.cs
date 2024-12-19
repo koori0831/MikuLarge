@@ -4,6 +4,7 @@ public class PlayerDeadState : EntityState
 {
     protected Player _player;
     protected EntityMover _mover;
+    private readonly int _deadLayer = LayerMask.NameToLayer("PlayerDead");
     public PlayerDeadState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
     {
         _player = entity as Player;
@@ -14,6 +15,7 @@ public class PlayerDeadState : EntityState
     {
         base.Enter();
         _player.GetComponent<Collider2D>().excludeLayers = _player.dashExclude;
+        _player.gameObject.layer = _deadLayer;
         _player.HidingGun(false);
     }
 
@@ -23,7 +25,7 @@ public class PlayerDeadState : EntityState
         if (_isTriggerCall)
         {
             _player.IsDead = true;
-            Debug.Log("게이 오버");
+            Manager.manager.UIManager.Gameover();
         }
     }
 }
