@@ -19,13 +19,12 @@ public class ADIdleState : EntityState
         base.Enter();
         _mover.StopImmediately(true);
         _adEnemy.target = GameObject.FindWithTag("Player").GetComponent<Player>();
-        FacingToPlayer();
     }
 
     public override void Update()
     {
         base.Update();
-        
+        FacingToPlayer();
         if (_adEnemy.CheckAttackToPlayerRadius() && _adEnemy.AttackCompo.CanAttack() && _adEnemy.CheckPlayerInRadius())
         {
             _adEnemy.ChangeState(StateName.Attack);
