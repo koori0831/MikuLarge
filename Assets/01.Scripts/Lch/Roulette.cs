@@ -19,8 +19,7 @@ public class Roulette : MonoBehaviour, IInteractable
 
     public void Interact(Player player)
     {
-        Manager.manager.ResourceManager.Coin = 28;
-        if (Manager.manager.ResourceManager.Coin > 25)
+        if (Manager.manager.ResourceManager.Coin >= 10)
         {
             _animator.SetBool("Roll", true);
         }

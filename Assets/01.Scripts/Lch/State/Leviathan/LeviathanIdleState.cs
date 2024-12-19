@@ -1,11 +1,10 @@
 using UnityEngine;
-
+using Ami.BroAudio;
 public class LeviathanIdleState : EntityState
 {
 
     private Leviathan _leviathan;
     private EntityMover _mover;
-
     public LeviathanIdleState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
     {
         _leviathan = entity as Leviathan;
@@ -16,6 +15,7 @@ public class LeviathanIdleState : EntityState
     {
         base.Enter();
         _leviathan.target = GameObject.FindWithTag("Player").GetComponent<Player>();
+
         _mover.StopImmediately(true);
         FacingToPlayer();
         _leviathan.isPhaseing = false;
