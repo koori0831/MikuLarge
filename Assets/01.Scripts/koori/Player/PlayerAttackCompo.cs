@@ -51,6 +51,7 @@ public class PlayerAttackCompo : MonoBehaviour, IEntityComponent
 
     private void CastAttack()
     {
+        Manager.manager.CameraManager_K.ShakeCamera(0.1f, 0.1f);
         _damageCaster.CastDamage();
     }
 }

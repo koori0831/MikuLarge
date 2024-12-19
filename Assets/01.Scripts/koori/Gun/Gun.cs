@@ -65,6 +65,8 @@ public abstract class Gun : MonoBehaviour
         currentAmmo--;
         nextShotTime = Time.time + shotWaitTime;
 
+        Manager.manager.CameraManager_K.ShakeCamera(0.1f, 0.1f);
+
         if (shotCount > 1)
         {
             MultiShot();
