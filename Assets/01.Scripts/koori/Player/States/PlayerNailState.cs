@@ -14,11 +14,13 @@ public class PlayerNailState : EntityState
     {
         base.Enter();
         _player.PlayerInput.Controls.Disable();
+        _player.GetComponent<Collider2D>().excludeLayers = _player.dashExclude;
     }
 
     public override void Exit()
     {
         _player.isNailed = false;
+        _player.GetComponent<Collider2D>().excludeLayers = new LayerMask();
         base.Exit();
     }
 
