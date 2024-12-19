@@ -25,12 +25,11 @@ public class ResourceUI : MonoSingleton<ResourceUI>
     [SerializeField] private Player _player;
     private int _bulletCount;
 
-
     private void Start()
     {
         SetCoin();
-        SetupGun("장착된 무기 없음", 0);
-        SetHealth(Mathf.FloorToInt(_player.health.MaxHealth));
+      
+        SetHealth(Mathf.FloorToInt(_player.PlayerSave.CurrentHealth));
         SetNeail(_neail);
     }
 
@@ -41,8 +40,10 @@ public class ResourceUI : MonoSingleton<ResourceUI>
         {
             case WeaponType.handGun:
                 SetBullet(_player.Hands.currentHandGun.currentAmmo);
+                SetupGun(_player.Hands.currentHandGun.gameObject.name, _player.Hands.currentHandGun.ammo);
                 break;
             case WeaponType.handsGun:
+                SetupGun(_player.Hands.currentHandGun.gameObject.name, _player.Hands.currentHandGun.ammo);
                 SetBullet(_player.Hands.currentHandsGun.currentAmmo);
                 break;
         }
