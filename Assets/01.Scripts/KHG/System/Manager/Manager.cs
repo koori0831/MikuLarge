@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Manager : MonoBehaviour
@@ -13,6 +14,7 @@ public class Manager : MonoBehaviour
     public ResourceUI ResourceUI;
     public MinimapUI MinimapUI;
     public UIAnimationManager AnimationManager;
+    public UIManager UIManager;
 
 
 
@@ -22,5 +24,10 @@ public class Manager : MonoBehaviour
 
         if (manager == null) manager = this;
         else Destroy(this);
+    }
+
+    public void DestoryManager()
+    {
+        Destroy(gameObject);
     }
 }
