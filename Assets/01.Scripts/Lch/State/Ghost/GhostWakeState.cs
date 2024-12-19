@@ -17,7 +17,7 @@ public class GhostWakeState : EntityState
     {
         base.Enter();
         _ghost.StartCoroutine(ChangeToChase());
-        _ghost.AttackCompo.Attack();
+        FacingToPlayer();
     }
 
     private IEnumerator ChangeToChase()

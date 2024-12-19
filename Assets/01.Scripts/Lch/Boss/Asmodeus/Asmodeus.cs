@@ -8,8 +8,6 @@ public class Asmodeus : Enemy
     private EntityHealth _health;
     public EntityState CurrentState => _stateMachine.currentState;
 
-    public BoolEventChannelSO BossDeadEvnet;
-
     protected override void AfterInitialize()
     {
         base.AfterInitialize();
