@@ -18,7 +18,7 @@ public class RoomDivider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) return;
+        if (collision.CompareTag("Player") == false) return;
         if (_clearedRoom.Contains(Manager.manager.CameraManager_K.CurrentRoom)) return;
         if (_isClosed) return;
         PlayerEntered();
