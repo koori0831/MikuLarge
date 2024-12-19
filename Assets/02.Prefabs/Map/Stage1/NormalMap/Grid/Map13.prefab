@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 38403412434420446}
   - component: {fileID: 6960297557723854141}
   - component: {fileID: 2346440404089670179}
-  - component: {fileID: 5414857953473215258}
   - component: {fileID: 4040208165590733912}
-  m_Layer: 7
+  m_Layer: 21
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,8 +497,8 @@ TilemapCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_UsedByEffector: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
@@ -532,205 +531,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &5414857953473215258
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257965384320163303}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 6960297557723854141}
-    m_ColliderPaths:
-    - - X: 62999996
-        Y: 28000000
-      - X: 49000000
-        Y: 28000000
-      - X: 49000000
-        Y: 22750000
-      - X: 50750000
-        Y: 21000002
-      - X: 62999996
-        Y: 21000002
-    - - X: 84000008
-        Y: 22750000
-      - X: 84000008
-        Y: 28000000
-      - X: 63000000
-        Y: 28000000
-      - X: 63000000
-        Y: 21000002
-      - X: 82250000
-        Y: 21000002
-    - - X: -63000000
-        Y: 28000000
-      - X: -77000000
-        Y: 28000000
-      - X: -77000000
-        Y: 22750000
-      - X: -75250000
-        Y: 21000002
-      - X: -63000000
-        Y: 21000002
-    - - X: -49000000
-        Y: 28000000
-      - X: -62999996
-        Y: 28000000
-      - X: -62999996
-        Y: 21000002
-      - X: -49000000
-        Y: 21000002
-    - - X: -42000000
-        Y: 22750000
-      - X: -42000000
-        Y: 28000000
-      - X: -48999996
-        Y: 28000000
-      - X: -48999996
-        Y: 21000002
-      - X: -43749996
-        Y: 21000002
-    - - X: -49000000
-        Y: 7000000
-      - X: -56000000
-        Y: 7000000
-      - X: -56000000
-        Y: 1750000
-      - X: -54250000
-        Y: 0
-      - X: -49000000
-        Y: 0
-    - - X: -35000000
-        Y: 7000000
-      - X: -48999996
-        Y: 7000000
-      - X: -48999996
-        Y: 0
-      - X: -35000000
-        Y: 0
-    - - X: -21000002
-        Y: 7000000
-      - X: -34999996
-        Y: 7000000
-      - X: -34999996
-        Y: 0
-      - X: -21000002
-        Y: 0
-    - - X: 0
-        Y: 1750000
-      - X: 0
-        Y: 7000000
-      - X: -21000000
-        Y: 7000000
-      - X: -21000000
-        Y: 0
-      - X: -1750000
-        Y: 0
-    - - X: 21000000
-        Y: -6999999
-      - X: 14000000
-        Y: -6999999
-      - X: 14000000
-        Y: -12249999
-      - X: 15750000
-        Y: -14000000
-      - X: 21000000
-        Y: -14000000
-    - - X: 34999996
-        Y: -6999999
-      - X: 21000002
-        Y: -6999999
-      - X: 21000002
-        Y: -14000000
-      - X: 34999996
-        Y: -14000000
-    - - X: 48999996
-        Y: -6999999
-      - X: 35000000
-        Y: -6999999
-      - X: 35000000
-        Y: -14000000
-      - X: 48999996
-        Y: -14000000
-    - - X: 62999996
-        Y: -6999999
-      - X: 49000000
-        Y: -6999999
-      - X: 49000000
-        Y: -14000000
-      - X: 62999996
-        Y: -14000000
-    - - X: 84000008
-        Y: -12249999
-      - X: 84000008
-        Y: -6999999
-      - X: 63000000
-        Y: -6999999
-      - X: 63000000
-        Y: -14000000
-      - X: 82250000
-        Y: -14000000
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 8.224989, y: 2.1000001}
-      - {x: 8.400001, y: 2.2750108}
-      - {x: 8.399971, y: 2.8}
-      - {x: 4.9, y: 2.7999709}
-      - {x: 4.9000077, y: 2.2749925}
-      - {x: 5.075011, y: 2.1000001}
-    - - {x: -4.3750105, y: 2.1000001}
-      - {x: -4.2000003, y: 2.2750108}
-      - {x: -4.2000294, y: 2.8}
-      - {x: -7.7000003, y: 2.7999709}
-      - {x: -7.699992, y: 2.2749925}
-      - {x: -7.5249887, y: 2.1000001}
-    - - {x: -0.1750108, y: 0}
-      - {x: 0, y: 0.1750108}
-      - {x: -0.000029300001, y: 0.7}
-      - {x: -5.6, y: 0.6999707}
-      - {x: -5.5999923, y: 0.1749924}
-      - {x: -5.424989, y: 0}
-    - - {x: 8.224989, y: -1.4}
-      - {x: 8.400001, y: -1.224989}
-      - {x: 8.399971, y: -0.6999999}
-      - {x: 1.4, y: -0.7000292}
-      - {x: 1.4000076, y: -1.2250075}
-      - {x: 1.5750108, y: -1.4}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 1257965384320163303}
 --- !u!251 &4040208165590733912
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -5885,17 +5685,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7049328521044077626}
     m_Modifications:
+    - target: {fileID: 916941022779148111, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
+      propertyPath: _playercheckRadius
+      value: 5.75
+      objectReference: {fileID: 0}
     - target: {fileID: 1090963566695856224, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
     - target: {fileID: 4548159758917878876, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.0707116
+      value: -3.21
       objectReference: {fileID: 0}
     - target: {fileID: 4548159758917878876, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.0169716
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4548159758917878876, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5947,6 +5751,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7049328521044077626}
     m_Modifications:
+    - target: {fileID: 2765085229272105015, guid: 9cc4103304cdf1b4c9fec754e6bc309f, type: 3}
+      propertyPath: _playercheckRadius
+      value: 10.06
+      objectReference: {fileID: 0}
     - target: {fileID: 5283649696095793030, guid: 9cc4103304cdf1b4c9fec754e6bc309f, type: 3}
       propertyPath: m_Name
       value: Tanker
@@ -6009,6 +5817,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7049328521044077626}
     m_Modifications:
+    - target: {fileID: 916941022779148111, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
+      propertyPath: _playercheckRadius
+      value: 15.62
+      objectReference: {fileID: 0}
     - target: {fileID: 1090963566695856224, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_Name
       value: Ghost (1)
