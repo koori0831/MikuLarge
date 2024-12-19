@@ -224,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9150619023534696732
 Transform:
   m_ObjectHideFlags: 0
@@ -317,6 +317,7 @@ MonoBehaviour:
   _shot3: {fileID: 2717243859345002578}
   _shot4: {fileID: 515436312460234407}
   _shot5: {fileID: 160072721185014916}
+  _shots: []
   _enemyDamge: 10
 --- !u!61 &753244130285643142
 BoxCollider2D:

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public class ADEnemyAttackCompo : MonoBehaviour , IEntityComponent
 {
@@ -20,7 +21,7 @@ public class ADEnemyAttackCompo : MonoBehaviour , IEntityComponent
     public void Attack()
     {
         _lastAtkTime = Time.time;
-
+        BroAudio.Play(_adEnemys.AttakSound);
         float angle = _fireAngle * Mathf.Deg2Rad;
         float cos = Mathf.Cos(angle);
         if (Mathf.Approximately(cos, 0f))
