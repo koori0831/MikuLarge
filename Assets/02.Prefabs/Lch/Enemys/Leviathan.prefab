@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bdfed7e36b67046baf2e023d274c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 50
+  MaxHealth: 1500
   _currentHealth: 0
   _knockBackTime: 0.5
 --- !u!114 &1948637001344309169
@@ -492,6 +492,10 @@ MonoBehaviour:
   AttackCompo: {fileID: 0}
   _damgeCast: {fileID: 0}
   DropPos: {fileID: 3729466167833478936}
+  BossMuisc:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 8733385341891768083}
 --- !u!1001 &4659501816559101055
 PrefabInstance:
   m_ObjectHideFlags: 0

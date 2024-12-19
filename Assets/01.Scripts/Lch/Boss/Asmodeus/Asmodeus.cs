@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ami.BroAudio;
 
 public class Asmodeus : Enemy
 {
@@ -9,6 +10,8 @@ public class Asmodeus : Enemy
 
     private EntityHealth _health;
     public EntityState CurrentState => _stateMachine.currentState;
+
+    [field: SerializeField] public SoundID BossMuisc;
 
     protected override void AfterInitialize()
     {
