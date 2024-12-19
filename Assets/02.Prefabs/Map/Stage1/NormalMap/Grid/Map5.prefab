@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 38403412434420446}
   - component: {fileID: 6960297557723854141}
   - component: {fileID: 2346440404089670179}
-  - component: {fileID: 5414857953473215258}
   - component: {fileID: 4040208165590733912}
-  m_Layer: 7
+  m_Layer: 21
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,8 +287,8 @@ TilemapCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_UsedByEffector: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
@@ -322,128 +321,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &5414857953473215258
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257965384320163303}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 6960297557723854141}
-    m_ColliderPaths:
-    - - X: 48999996
-        Y: 7000000
-      - X: 42000000
-        Y: 7000000
-      - X: 42000000
-        Y: 1750000
-      - X: 43749996
-        Y: 0
-      - X: 48999996
-        Y: 0
-    - - X: 56000000
-        Y: 875000
-      - X: 56000000
-        Y: 0
-      - X: 60375000
-        Y: 0
-      - X: 62999996
-        Y: 875000
-      - X: 62999996
-        Y: 7000000
-      - X: 49000000
-        Y: 7000000
-      - X: 49000000
-        Y: 0
-      - X: 53375000
-        Y: 0
-    - - X: 70000000
-        Y: 875000
-      - X: 70000000
-        Y: 0
-      - X: 74375000
-        Y: 0
-      - X: 77000000
-        Y: 875000
-      - X: 77000000
-        Y: 0
-      - X: 81375000
-        Y: 0
-      - X: 84000000
-        Y: 874997
-      - X: 84000000
-        Y: 0
-      - X: 89250000
-        Y: 0
-      - X: 91000000
-        Y: 1750000
-      - X: 91000000
-        Y: 7000000
-      - X: 63000000
-        Y: 7000000
-      - X: 63000000
-        Y: 0
-      - X: 67375000
-        Y: 0
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 5.3374963, y: 0}
-      - {x: 5.6, y: 0.0874563}
-      - {x: 5.6000295, y: 0}
-      - {x: 6.037504, y: 0.0000013}
-      - {x: 6.3, y: 0.0874564}
-      - {x: 6.3000293, y: 0}
-      - {x: 6.737504, y: 0.0000013}
-      - {x: 7, y: 0.0874563}
-      - {x: 7.0000296, y: 0}
-      - {x: 7.4375043, y: 0.0000013}
-      - {x: 7.7000003, y: 0.0874563}
-      - {x: 7.70003, y: 0}
-      - {x: 8.137504, y: 0.0000013}
-      - {x: 8.400001, y: 0.087456}
-      - {x: 8.40003, y: 0}
-      - {x: 8.925008, y: 0.0000076}
-      - {x: 9.1, y: 0.1750108}
-      - {x: 9.099971, y: 0.7}
-      - {x: 4.2000003, y: 0.6999707}
-      - {x: 4.2000074, y: 0.1749924}
-      - {x: 4.3750105, y: 0}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 1257965384320163303}
 --- !u!251 &4040208165590733912
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -5587,6 +5464,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7049328521044077626}
     m_Modifications:
+    - target: {fileID: 2765085229272105015, guid: 9cc4103304cdf1b4c9fec754e6bc309f, type: 3}
+      propertyPath: _playercheckRadius
+      value: 17.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5283649696095793030, guid: 9cc4103304cdf1b4c9fec754e6bc309f, type: 3}
       propertyPath: m_Name
       value: Tanker
@@ -5649,6 +5530,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7049328521044077626}
     m_Modifications:
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: _attackRadius
+      value: 7.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706060158679598343, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
+      propertyPath: _playercheckRadius
+      value: 7.61
+      objectReference: {fileID: 0}
     - target: {fileID: 2916985699342177554, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.4246525
