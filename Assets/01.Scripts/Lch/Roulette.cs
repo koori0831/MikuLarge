@@ -44,7 +44,7 @@ public class Roulette : MonoBehaviour, IInteractable
     private IEnumerator DropItmeShot()
     {
         yield return new WaitForSeconds(1f);
-        Instantiate(_itmeList.DropItemList[ItemCount], _shotPos.position, Quaternion.identity);
+        Instantiate(_itmeList.DropItemList[ItemCount], _shotPos.position, Quaternion.identity,null);
         _animator.SetBool("Roll", false);
     }
 }
