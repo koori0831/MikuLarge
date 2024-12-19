@@ -13,6 +13,7 @@ public abstract class BulletParent : MonoBehaviour
         if (((1 << collisionLayer) & enemyLayer) != 0)
         {
             bulletEnterEvent.RaiseEvent(collision.gameObject.GetComponent<EntityHealth>());
+            Destroy(gameObject);
         }
 
         if (((1 << collisionLayer) & obstacleLayer) != 0)
