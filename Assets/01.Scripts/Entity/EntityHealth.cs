@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EntityHealth : MonoBehaviour, IEntityComponent, IDamageable
 {
-    [field:SerializeField] public float MaxHealth = 50f;
+    [field:SerializeField] public float MaxHealth;
     public float _currentHealth;
     [SerializeField] private float _knockBackTime = 0.5f;
     private Entity _entity;
