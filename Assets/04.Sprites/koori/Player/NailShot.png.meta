@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 1dd56fa3b2b6358428996dc089743d90
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4084171922104881162
+    second: NailShot_0
+  - first:
+      213: 5608523443895346714
+    second: NailShot_1
+  - first:
+      213: -3452649559197512096
+    second: NailShot_2
+  - first:
+      213: 8158504478318092813
+    second: NailShot_3
+  - first:
+      213: 5449546829937909625
+    second: NailShot_4
+  - first:
+      213: -1353406018850518446
+    second: NailShot_5
+  - first:
+      213: 4083655259016238413
+    second: NailShot_6
+  - first:
+      213: -2207493431824989010
+    second: NailShot_7
+  - first:
+      213: -6438640617095425946
+    second: NailShot_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NailShot_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 152
+        height: 187
+      alignment: 9
+      pivot: {x: 0.43421054, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff6055964b1257c0800000000000000
+      internalID: -4084171922104881162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NailShot_1
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 0
+        width: 152
+        height: 164
+      alignment: 9
+      pivot: {x: 0.4276316, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1625d36b5a75dd40800000000000000
+      internalID: 5608523443895346714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NailShot_2
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 0
+        width: 152
+        height: 164
+      alignment: 9
+      pivot: {x: 0.4276316, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e8f12d489b510d0800000000000000
+      internalID: -3452649559197512096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NailShot_3
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 0
+        width: 152
+        height: 164
+      alignment: 9
+      pivot: {x: 0.43421054, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d026590f894d83170800000000000000
+      internalID: 8158504478318092813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NailShot_4
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 0
+        width: 235
+        height: 152
+      alignment: 9
+      pivot: {x: 0.79148936, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f1e4908fda0ab40800000000000000
+      internalID: 5449546829937909625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NailShot_5
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 0
+        width: 175
+        height: 224
+      alignment: 9
+      pivot: {x: 0.48, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25a0a81856cb73de0800000000000000
+      internalID: -1353406018850518446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NailShot_6
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 0
+        width: 233
+        height: 203
+      alignment: 9
+      pivot: {x: 0.60944206, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4591da62de0ca830800000000000000
+      internalID: 4083655259016238413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NailShot_7
+      rect:
+        serializedVersion: 2
+        x: 1973
+        y: 0
+        width: 222
+        height: 184
+      alignment: 9
+      pivot: {x: 0.6081081, y: -0.016304348}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea440186b686d51e0800000000000000
+      internalID: -2207493431824989010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NailShot_8
+      rect:
+        serializedVersion: 2
+        x: 2332
+        y: 0
+        width: 144
+        height: 125
+      alignment: 9
+      pivot: {x: 0.47222224, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66010add87a55a6a0800000000000000
+      internalID: -6438640617095425946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d51bff52e444bc54287a3043a47df965
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      NailShot_0: -4084171922104881162
+      NailShot_1: 5608523443895346714
+      NailShot_2: -3452649559197512096
+      NailShot_3: 8158504478318092813
+      NailShot_4: 5449546829937909625
+      NailShot_5: -1353406018850518446
+      NailShot_6: 4083655259016238413
+      NailShot_7: -2207493431824989010
+      NailShot_8: -6438640617095425946
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
