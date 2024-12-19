@@ -12,6 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0345f6968f9c4241959624889b545dd, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  Entities: []
+  Entities:
+  - <Name>k__BackingField: Melee
+    <ID>k__BackingField: 1073741847
+    MulticlipsPlayMode: 3
+    Clips:
+    - AudioClip: {fileID: 8300000, guid: 40fdf73570e7e3e45ab427c91361dd0c, type: 3}
+      Volume: 1
+      Delay: 0
+      StartPosition: 0.166
+      EndPosition: 0.253
+      FadeIn: 0
+      FadeOut: 0
+      Weight: 0
+    - AudioClip: {fileID: 8300000, guid: 76d3398b43517e34ca3841d1f9a9139f, type: 3}
+      Volume: 1
+      Delay: 0
+      StartPosition: 0.162
+      EndPosition: 0.109
+      FadeIn: 0
+      FadeOut: 0
+      Weight: 0
+    - AudioClip: {fileID: 8300000, guid: 5c57e3bfc6ad22b46a8418536b6e6ec9, type: 3}
+      Volume: 1
+      Delay: 0
+      StartPosition: 0.188
+      EndPosition: 0.299
+      FadeIn: 0
+      FadeOut: 0
+      Weight: 0
+    <MasterVolume>k__BackingField: 1
+    <Loop>k__BackingField: 0
+    <SeamlessLoop>k__BackingField: 0
+    <TransitionTime>k__BackingField: 0
+    <SpatialSetting>k__BackingField: {fileID: 0}
+    <Priority>k__BackingField: 128
+    <Pitch>k__BackingField: 1
+    <PitchRandomRange>k__BackingField: 0
+    <VolumeRandomRange>k__BackingField: 0
+    <RandomFlags>k__BackingField: 0
+    SeamlessTransitionType: 0
+    TransitionTempo:
+      BPM: 0
+      Beats: 0
+    SnapToFullVolume: 0
   <AssetName>k__BackingField: Player
   _assetGUID: 356316d8e7edda544946ecf4c0ccfcc9
