@@ -1903,7 +1903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1110885513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2937,7 +2937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1506919981
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3333,7 +3333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1583779457
 Animator:
   serializedVersion: 7
@@ -5180,14 +5180,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
-      propertyPath: ItemList
-      value: 
-      objectReference: {fileID: 11400000, guid: d8da166a63e09d642887db7c14497455, type: 2}
-    - target: {fileID: 1948637001344309169, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
-      propertyPath: _itemList
-      value: 
-      objectReference: {fileID: 11400000, guid: d8da166a63e09d642887db7c14497455, type: 2}
     - target: {fileID: 4004048496761947724, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.54
@@ -5231,10 +5223,6 @@ PrefabInstance:
     - target: {fileID: 8733385341891768083, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
       propertyPath: m_Name
       value: Leviathan
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733385341891768083, guid: a89ac29a632dffa4a9196c4862f523ee, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
