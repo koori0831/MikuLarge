@@ -157,7 +157,10 @@ public class Player : Entity
         {
             StartCoroutine(RollBackPlayer());
         }
-        
+        if (health._currentHealth < 20)
+        {
+            health.DeathInvoke();
+        }
     }
 
     private IEnumerator RollBackPlayer()
