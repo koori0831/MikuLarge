@@ -20,7 +20,7 @@ public class AsmodeusDeadState : EntityState
         base.Update();
         if (_isTriggerCall)
         {
-            GameObject.Instantiate(_asmodeus.ItemList.DropItemList[_spawnItemCount], _asmodeus.transform.position, Quaternion.identity);
+            GameObject.Instantiate(_asmodeus.ItemList.DropItemList[_spawnItemCount], _asmodeus.DropPos.position, Quaternion.identity);
             _asmodeus.BossDeadEvnet.RaiseEvent();
             GameObject.Destroy(_asmodeus.gameObject);
         }

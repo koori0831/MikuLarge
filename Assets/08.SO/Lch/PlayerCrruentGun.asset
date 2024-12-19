@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1daa19a90d81afa4baeb59879ee0dfa8, type: 3}
-  m_Name: DropItemList
+  m_Script: {fileID: 11500000, guid: e9504383864eb384b8ec1fd4ff045e70, type: 3}
+  m_Name: PlayerCrruentGun
   m_EditorClassIdentifier: 
-  DropItemList:
-  - {fileID: 5692490657819004283, guid: 5de32d9c62f87b04cb54299fb38f8878, type: 3}
+  weaponType: 0
