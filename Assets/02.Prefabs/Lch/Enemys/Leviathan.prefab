@@ -297,7 +297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4004048496761947724
 Transform:
   m_ObjectHideFlags: 0
@@ -434,6 +434,7 @@ MonoBehaviour:
   _asmodeusFSM: {fileID: 11400000, guid: c32ef008d3d7fa54eb1591e56a8d3c8d, type: 2}
   AttackCompo: {fileID: 0}
   _damgeCast: {fileID: 0}
+  _bossDeadEvnet: {fileID: 11400000, guid: 575ccd4780723d448a909c7c2f392b97, type: 2}
 --- !u!1001 &4659501816559101055
 PrefabInstance:
   m_ObjectHideFlags: 0
