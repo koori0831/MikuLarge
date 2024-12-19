@@ -451,7 +451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoiseProfile: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
   PivotOffset: {x: 0, y: 0, z: 0}
-  AmplitudeGain: 0.7
+  AmplitudeGain: 0
   FrequencyGain: 0
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &126526976
@@ -2160,12 +2160,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3496863310525514606, guid: b85d5ccde55058e488db85795893c9f1, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 1bcb68c6e569c8b43a1d64846e80dd6f, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -4272,6 +4272,14 @@ MonoBehaviour:
   - {fileID: 1934716945892683851, guid: 07a123c95c9f65540994b004e9a2f3a2, type: 3}
   - {fileID: 1934716945892683851, guid: 1460383b68d3c9549919893a9075fe1e, type: 3}
   - {fileID: 1934716945892683851, guid: 296b9d8e036810e4da836492b28742e7, type: 3}
+  - {fileID: 7245285228004717251, guid: 9f62ad85f8c3dec45952afa61a4720c6, type: 3}
+  - {fileID: 7245285228004717251, guid: 9f62ad85f8c3dec45952afa61a4720c6, type: 3}
+  - {fileID: 7245285228004717251, guid: 9f62ad85f8c3dec45952afa61a4720c6, type: 3}
+  - {fileID: 7245285228004717251, guid: 9f62ad85f8c3dec45952afa61a4720c6, type: 3}
+  - {fileID: 7245285228004717251, guid: 9f62ad85f8c3dec45952afa61a4720c6, type: 3}
+  - {fileID: 7245285228004717251, guid: 31bcf447313ed18469513d1562317a9f, type: 3}
+  - {fileID: 7245285228004717251, guid: 31bcf447313ed18469513d1562317a9f, type: 3}
+  - {fileID: 7245285228004717251, guid: 31bcf447313ed18469513d1562317a9f, type: 3}
   _currentBossMap: {fileID: 2655975522696199164, guid: 13cb10a18d91c174f8fc13623de06c4c, type: 3}
 --- !u!4 &1258084089
 Transform:
@@ -5772,7 +5780,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1578410351}
-  - component: {fileID: 1578410350}
+  - component: {fileID: 1578410352}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5780,19 +5788,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1578410350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578410349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a72dc8382ea53408cb91e877d06b99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDontDestroy: 1
 --- !u!4 &1578410351
 Transform:
   m_ObjectHideFlags: 0
@@ -5808,6 +5803,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1578410352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578410349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26d59b627eb4dc4a83bce17b459cd91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDontDestroy: 1
+  SaveSo: {fileID: 11400000, guid: ffeffd1b5bc4ad14298bab1c1e9f6883, type: 2}
+  _saveEvent: {fileID: 11400000, guid: a69142c9661b8ea42b09674d89427070, type: 2}
 --- !u!1 &1604064090
 GameObject:
   m_ObjectHideFlags: 0
@@ -7650,7 +7660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2122008785
 RectTransform:
   m_ObjectHideFlags: 0

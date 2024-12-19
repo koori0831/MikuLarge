@@ -36,17 +36,26 @@ public class ResourceUI : MonoSingleton<ResourceUI>
 
     private void Update()
     {
-        switch (_player.Hands.nowWeapon)
+        switch (_player.Hands.nowWeapon)    
         {
             case WeaponType.handGun:
-                SetBullet(_player.Hands.currentHandGun.currentAmmo);
                 SetupGun(_player.Hands.currentHandGun.gameObject.name, _player.Hands.currentHandGun.ammo);
                 break;
             case WeaponType.handsGun:
-                SetupGun(_player.Hands.currentHandGun.gameObject.name, _player.Hands.currentHandGun.ammo);
-                SetBullet(_player.Hands.currentHandsGun.currentAmmo);
+                SetupGun(_player.Hands.currentHandsGun.gameObject.name, _player.Hands.currentHandsGun.ammo);
                 break;
         }
+        
+        if(_player.Hands.currentHandsGun != null)
+        {
+            SetBullet(_player.Hands.currentHandGun.currentAmmo);
+        }
+
+        if(_player.Hands.currentHandGun != null)
+        {
+            SetBullet(_player.Hands.currentHandsGun.currentAmmo);
+        }
+        
 
         SetHealth(Mathf.FloorToInt(_player.health._currentHealth));
 
@@ -75,12 +84,12 @@ public class ResourceUI : MonoSingleton<ResourceUI>
     {
         for (int i = 0; i < _bulletUI.childCount; i++)
         {
-            _bulletUI.GetChild(i).GetComponent<SpriteRenderer>().color = Color.gray;
+            _bulletUI.GetChild(i).GetComponent<Image>().color = Color.gray;
         }
 
         for (int i = 0; i < amount; i++)
         {
-            _bulletUI.GetChild(i).GetComponent<SpriteRenderer>().color = new Color(122, 122, 0);
+            _bulletUI.GetChild(i).GetComponent<Image>().color = new Color(122, 122, 0);
         }
     }
 
