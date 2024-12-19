@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: DropItemList
   m_EditorClassIdentifier: 
   DropItemList:
-  - {fileID: 4770884095627985043, guid: 1cb61027fdfddf145b80d7bf81507a21, type: 3}
-  - {fileID: 7877074899859489947, guid: 4360ee7af7ac84b40b1ce895875d9514, type: 3}
+  - {fileID: 5692490657819004283, guid: 5de32d9c62f87b04cb54299fb38f8878, type: 3}

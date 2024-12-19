@@ -1,9 +1,12 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using UnityEditor.Media;
 using JetBrains.Annotations;
+using UnityEngine.UI;
+using System;
 
-public class ResourceUI : MonoBehaviour
+public class ResourceUI : MonoSingleton<ResourceUI>
 {
     //[SerializeField] private Manager _manager;
     [Header("Gun")]
@@ -16,23 +19,56 @@ public class ResourceUI : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private GameObject _heartPrefab;
 
-    [SerializeField] private Player _player;
+    [SerializeField] private Image _neail;
+    private float newFillAmount = 0;
 
+    [SerializeField] private Player _player;
+    private int _bulletCount;
 
     private void Start()
     {
         SetCoin();
-        SetupGun("장착된 무기 없음", 0);
-        SetHealth(Manager.manager.ResourceManager.Health);
+      
+        SetHealth(Mathf.FloorToInt(_player.PlayerSave.CurrentHealth));
+        SetNeail(_neail);
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        switch (_player.Hands.nowWeapon)
         {
-            SetupGun("이창호씨의 머리카락",15);
+            case WeaponType.handGun:
+                SetBullet(_player.Hands.currentHandGun.currentAmmo);
+                SetupGun(_player.Hands.currentHandGun.gameObject.name, _player.Hands.currentHandGun.ammo);
+                break;
+            case WeaponType.handsGun:
+                SetupGun(_player.Hands.currentHandGun.gameObject.name, _player.Hands.currentHandGun.ammo);
+                SetBullet(_player.Hands.currentHandsGun.currentAmmo);
+                break;
         }
+
+        SetHealth(Mathf.FloorToInt(_player.health._currentHealth));
+
+        SetNeail(_neail);
+
+        if(newFillAmount >= 1)
+        {
+            Manager.manager.ResourceManager.CanNeailUse = true;
+            StartCoroutine(NeaerDown());
+        }
+    }
+
+    private IEnumerator NeaerDown()
+    {
+        while (newFillAmount <= 0)
+        {
+            newFillAmount = _neail.fillAmount - 0.1f;
+            _neail.fillAmount = Mathf.Clamp(newFillAmount, 0, 1f);
+            Manager.manager.ResourceManager.CanNeailUse = false;    
+            yield return new WaitForSeconds(1);
+        }
+        yield return null;
     }
 
     private void SetBullet(int amount)
@@ -48,6 +84,12 @@ public class ResourceUI : MonoBehaviour
         }
     }
 
+    public void SetNeail(Image soul)
+    {
+        newFillAmount = soul.fillAmount + Manager.manager.ResourceManager.SoulGauge;
+
+        soul.fillAmount = Mathf.Clamp(newFillAmount, 0f, 1f);
+    }
 
     public void SetCoin()
     {
@@ -68,17 +110,10 @@ public class ResourceUI : MonoBehaviour
         }
     }
 
-    public void AddHealth(int value)
-    {
-        Manager.manager.ResourceManager.Health += value * 20;
-        SetHealth(Manager.manager.ResourceManager.Health);
-    }
-
-
     public void SetHealth(int value)
     {
         int currentHealth = 0;
-        currentHealth = Manager.manager.ResourceManager.Health / 20;
+        currentHealth = value / 20;
 
         if (_healthUI.childCount > 0)
         {

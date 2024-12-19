@@ -8,6 +8,7 @@ public class Roulette : MonoBehaviour, IInteractable
 {
     [SerializeField] private DropItemListSO _itmeList;
     [SerializeField] private SpriteRenderer _showRenderer;
+    [SerializeField] private Transform _shotPos;
     private Animator _animator;
     private int ItemCount;
 
@@ -40,7 +41,7 @@ public class Roulette : MonoBehaviour, IInteractable
     private IEnumerator DropItmeShot()
     {
         yield return new WaitForSeconds(1f);
-        Instantiate(_itmeList.DropItemList[ItemCount], transform.position, Quaternion.identity);
+        Instantiate(_itmeList.DropItemList[ItemCount], _shotPos.position, Quaternion.identity);
         _animator.SetBool("Roll", false);
     }
 }

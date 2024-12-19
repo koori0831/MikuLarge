@@ -9,6 +9,8 @@ public class Player : Entity
 {
     [Header("FSM")]
     [SerializeField] private EntityFSMSO _playerFSM;
+    [field :SerializeField] public PlayerSavesSO PlayerSave;
+    [SerializeField] private PlayerSaveSoEventChannelSO _soEvent;
 
     [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
     public float jumpPower = 12f;
@@ -71,6 +73,11 @@ public class Player : Entity
         _mover.IsPlayer();
 
         NailEvent.OnValueEvent += RevertInput;
+        PlayerSave.CurrentHealth = health._currentHealth;
+        PlayerSave.nowWeaponType = Hands.nowWeapon;
+        PlayerSave.currentHandGun = Hands.currentHandGun;
+        PlayerSave.currentHandsGun = Hands.currentHandsGun;
+        PlayerSave.NowCoin = Manager.manager.ResourceManager.Coin;
     }
 
     private void RevertInput(bool obj)
@@ -83,6 +90,8 @@ public class Player : Entity
 
     private void HandleNailEvent()
     {
+        if (!Manager.manager.ResourceManager.CanNeailUse)
+            return;
         ChangeState(StateName.Nail);  
     }
 
@@ -110,6 +119,12 @@ public class Player : Entity
         PlayerInput.NailEvent -= HandleNailEvent;
         health.OnHit -= HandleHit;
         health.OnDeath -= HandleDeath;
+        PlayerSave.CurrentHealth = health._currentHealth;
+        PlayerSave.nowWeaponType = Hands.nowWeapon;
+        PlayerSave.currentHandGun = Hands.currentHandGun;
+        PlayerSave.currentHandsGun = Hands.currentHandsGun;
+        PlayerSave.NowCoin = Manager.manager.ResourceManager.Coin;
+        _soEvent.RaiseEvent(PlayerSave);
     }
 
     protected void Start()

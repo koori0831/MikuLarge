@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 38403412434420446}
   - component: {fileID: 6960297557723854141}
   - component: {fileID: 2346440404089670179}
-  - component: {fileID: 5414857953473215258}
   - component: {fileID: 4040208165590733912}
-  m_Layer: 7
+  m_Layer: 21
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,8 +337,8 @@ TilemapCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_UsedByEffector: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
@@ -372,103 +371,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!66 &5414857953473215258
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257965384320163303}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 6960297557723854141}
-    m_ColliderPaths:
-    - - X: 21000000
-        Y: 14000000
-      - X: -21000000
-        Y: 14000000
-      - X: -21000000
-        Y: 6999999
-      - X: 21000000
-        Y: 6999999
-    - - X: 34999996
-        Y: 14000000
-      - X: 21000002
-        Y: 14000000
-      - X: 21000002
-        Y: 6999999
-      - X: 34999996
-        Y: 6999999
-    - - X: 48999996
-        Y: 14000000
-      - X: 35000000
-        Y: 14000000
-      - X: 35000000
-        Y: 6999999
-      - X: 48999996
-        Y: 6999999
-    - - X: 56000000
-        Y: 8749999
-      - X: 56000000
-        Y: 14000000
-      - X: 49000000
-        Y: 14000000
-      - X: 49000000
-        Y: 6999999
-      - X: 54250000
-        Y: 6999999
-    - - X: -21000002
-        Y: 14000000
-      - X: -28000000
-        Y: 14000000
-      - X: -28000000
-        Y: 8749999
-      - X: -26250000
-        Y: 6999999
-      - X: -21000002
-        Y: 6999999
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 5.424989, y: 0.6999999}
-      - {x: 5.6, y: 0.8750107}
-      - {x: 5.599971, y: 1.4}
-      - {x: -2.8, y: 1.3999708}
-      - {x: -2.7999923, y: 0.8749923}
-      - {x: -2.6249893, y: 0.6999999}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 1257965384320163303}
 --- !u!251 &4040208165590733912
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -5623,6 +5525,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7049328521044077626}
     m_Modifications:
+    - target: {fileID: 916941022779148111, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
+      propertyPath: _playercheckRadius
+      value: 10.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1090963566695856224, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_Name
       value: Ghost (1)
@@ -5685,6 +5591,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7049328521044077626}
     m_Modifications:
+    - target: {fileID: 2765085229272105015, guid: 9cc4103304cdf1b4c9fec754e6bc309f, type: 3}
+      propertyPath: _playercheckRadius
+      value: 11.02
+      objectReference: {fileID: 0}
     - target: {fileID: 5283649696095793030, guid: 9cc4103304cdf1b4c9fec754e6bc309f, type: 3}
       propertyPath: m_Name
       value: Tanker
@@ -5747,6 +5657,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7049328521044077626}
     m_Modifications:
+    - target: {fileID: 916941022779148111, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
+      propertyPath: _playercheckRadius
+      value: 8.27
+      objectReference: {fileID: 0}
     - target: {fileID: 1090963566695856224, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_Name
       value: Ghost

@@ -27,7 +27,7 @@ public class LeviathenDeadState : EntityState
         base.Update();
         if (_isTriggerCall)
         {
-            GameObject.Instantiate(_leviathan.ItemList.DropItemList[_spawnItemCount], _leviathan.transform.position, Quaternion.identity);
+            GameObject.Instantiate(_leviathan.ItemList.DropItemList[_spawnItemCount], _leviathan.DropPos.position, Quaternion.identity);
             _renderer.enabled = false;
             _mover.enabled = false;
             _spriteRenderer.color = Color.gray;
