@@ -28,6 +28,8 @@ public class PlayerNailState : EntityState
         _mover.enabled = true;
         _player.GetComponent<Collider2D>().excludeLayers = new LayerMask();
         _player.gameObject.layer = player;
+        Manager.manager.ResourceUI.SetNeail(0);
+        Manager.manager.ResourceManager.CanNeailUse = false;
         base.Exit();
     }
 
