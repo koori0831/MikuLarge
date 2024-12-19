@@ -47,6 +47,7 @@ public class Player : Entity
         _mover.OnGroundStatusChange += HandleGroundStatusChange;
         PlayerInput.JumpEvent += HandleJumpEvent;
         PlayerInput.InteractEvent += HadleInteractEvent;
+        PlayerInput.NailEvent += HandleNailEvent;
 
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
 
@@ -58,11 +59,17 @@ public class Player : Entity
         _health.OnDeath += HandleDeath;
 
         ReLoadOb.SetActive(false);
+        _mover.IsPlayer();
+    }
+
+    private void HandleNailEvent()
+    {
+        ChangeState(StateName.Nail);  
     }
 
     private void HandleDeath()
     {
-        _stateMachine.ChageState(StateName.Dead);
+        ChangeState(StateName.Dead);
     }
 
     private void HandleHit(Entity entity)
@@ -80,6 +87,9 @@ public class Player : Entity
         PlayerInput.DashEvent -= HandleDashEvent;
         PlayerInput.InteractEvent -= HadleInteractEvent;
         PlayerInput.ShotEvent -= HandleShotEvent;
+        PlayerInput.NailEvent -= HandleNailEvent;
+        _health.OnHit -= HandleHit;
+        _health.OnDeath -= HandleDeath;
     }
 
     protected void Start()
