@@ -91,6 +91,8 @@ MonoBehaviour:
   _attackRadius: 0
   _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  SoulPrefab: {fileID: 3993354691502283645, guid: ccfd62e9c7934f64ba7269d15e7b9a99, type: 3}
+  isPhaseing: 0
   DropCoin: {fileID: 0}
   ItemList: {fileID: 0}
   _asmodeusFSM: {fileID: 11400000, guid: c58fc518cbc1d6147a6d0dab59eca34f, type: 2}
