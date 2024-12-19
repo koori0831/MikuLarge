@@ -38,7 +38,7 @@ public class Player : Entity
     private int _currentJumpCount = 0;
     private EntityMover _mover;
     private PlayerAttackCompo _atkCompo;
-    private EntityHealth _health;
+    public EntityHealth health;
 
     [SerializeField] private StateMachine _stateMachine;
 
@@ -51,7 +51,7 @@ public class Player : Entity
 
         _mover = GetCompo<EntityMover>();
         Hands = GetCompo<Hands>();
-        _health = GetCompo<EntityHealth>();
+        health = GetCompo<EntityHealth>();
         _mover.OnGroundStatusChange += HandleGroundStatusChange;
         PlayerInput.JumpEvent += HandleJumpEvent;
         PlayerInput.InteractEvent += HadleInteractEvent;
@@ -64,8 +64,8 @@ public class Player : Entity
         PlayerInput.MeleeEvent += HandleAttackKeyEvent;
         PlayerInput.DashEvent += HandleDashEvent;
         PlayerInput.ShotEvent += HandleShotEvent;
-        _health.OnHit += HandleHit;
-        _health.OnDeath += HandleDeath;
+        health.OnHit += HandleHit;
+        health.OnDeath += HandleDeath;
 
         ReLoadOb.SetActive(false);
         _mover.IsPlayer();
@@ -76,7 +76,7 @@ public class Player : Entity
     private void RevertInput(bool obj)
     {
         PlayerInput.Controls.Enable();
-        _health._currentHealth = 20;
+        health._currentHealth = 20;
 
         isNailed = obj;
     }
@@ -108,8 +108,8 @@ public class Player : Entity
         PlayerInput.InteractEvent -= HadleInteractEvent;
         PlayerInput.ShotEvent -= HandleShotEvent;
         PlayerInput.NailEvent -= HandleNailEvent;
-        _health.OnHit -= HandleHit;
-        _health.OnDeath -= HandleDeath;
+        health.OnHit -= HandleHit;
+        health.OnDeath -= HandleDeath;
     }
 
     protected void Start()

@@ -18,7 +18,7 @@ public class ChainShot4 : Entity
     [SerializeField] private LayerMask _wathIsWalls;
 
 
-    [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
+    [SerializeField] private Vector2 _knockBackForce;
 
     private List<IDamageable> damgeAble = new List<IDamageable>();
     [SerializeField] private float _enemyDamge;
