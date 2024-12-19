@@ -36,11 +36,13 @@ public class RoomDivider : MonoBehaviour
         if(value) //open
         {
             _isClosed = false;
+            Manager.manager.RoomManager.DoorStatus = true;
             DoorOpen();
         }
         else //close
         {
             _isClosed = true;
+            Manager.manager.RoomManager.DoorStatus = false;
             Detect();
             DoorClose();
         }
@@ -53,7 +55,7 @@ public class RoomDivider : MonoBehaviour
     }
     private void DoorOpen()
     {
-        _door.DOMoveY(_door.position.y + 4f, 0.1f);
+        _door.DOMoveY(_door.position.y + 4f, 0.1f).OnComplete(()=>Destroy(gameObject));
     }
 
     private void Detect()
