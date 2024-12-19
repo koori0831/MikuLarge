@@ -6,8 +6,8 @@ public abstract class Enemy : Entity
     [SerializeField] protected float _sightRange = 10f, _wallCheckRange = 1f;
     [SerializeField] protected LayerMask _whatIsPlayer, _whatIsObstacle;
     [SerializeField] private float _playercheckRadius = 10f , _attackRadius;
-    [SerializeField] private float _damge;
-    [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
+    [SerializeField] protected float _damge;
+    [SerializeField] protected Vector2 _knockBackForce = new Vector2(5f, 3f);
     public Rigidbody2D RbCompo { get; protected set; }
 
     protected override void Awake()
@@ -28,7 +28,19 @@ public abstract class Enemy : Entity
         return _stateMachine.GetState(state.stateName);
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Player player))
+        {
+            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
+            {
+                Vector2 atkDirection = gameObject.transform.right;
+                Vector2 knockBackForce = _knockBackForce;
+                knockBackForce.x *= atkDirection.x;
+                damageable.ApplyDamage(_damge, atkDirection, knockBackForce, this);
+            }
+        }
+    }
 
     protected virtual void Update()
     {
@@ -55,20 +67,6 @@ public abstract class Enemy : Entity
             return true;
         }
         return false;
-    }
-
-    protected virtual void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (other.gameObject.TryGetComponent(out IDamageable damageable))
-            {
-                Vector2 atkDirection = gameObject.transform.right;
-                Vector2 knockBackForce = _knockBackForce;
-                knockBackForce.x *= atkDirection.x;
-                damageable.ApplyDamage(_damge, atkDirection, -knockBackForce, this);
-            }
-        }
     }
 
     public void DestroyEnemy()

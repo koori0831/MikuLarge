@@ -19,12 +19,12 @@ public class AsmodeusIdleState : EntityState
         base.Enter();
         _mover.StopImmediately(true);
         _asmodeus.target = GameObject.FindWithTag("Player").GetComponent<Player>();
-        FacingToPlayer();
     }
 
     public override void Update()
     {
         base.Update();
+        FacingToPlayer();
         if (_asmodeus.AttackCompo.CanAttack())
         {
             _phaseSelect = Random.Range(1, 4);

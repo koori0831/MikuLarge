@@ -14,5 +14,10 @@ public class EnemyAttackCompo : MonoBehaviour, IEntityComponent
 
     public bool CanAttack() => _lastAtkTime + _cooldown < Time.time;
 
+    public void Attack()
+    {
+        _lastAtkTime = Time.time;
+    }
+
    
 }
