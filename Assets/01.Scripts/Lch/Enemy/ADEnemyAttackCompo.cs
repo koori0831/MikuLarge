@@ -8,6 +8,7 @@ public class ADEnemyAttackCompo : MonoBehaviour , IEntityComponent
     private float _lastAtkTime;
     private ADEnemy _adEnemys;
     [SerializeField] private Bullet _bulletPrefab;
+    Vector2 velocity;
 
     public void Initialize(Entity entity)
     {
@@ -20,9 +21,14 @@ public class ADEnemyAttackCompo : MonoBehaviour , IEntityComponent
     {
         _lastAtkTime = Time.time;
 
-        // (1 / CosΘ) * Mathf.Sqrt( (0.5f * g * distance^2) / (distance * TanΘ + yOffset) );
         float angle = _fireAngle * Mathf.Deg2Rad;
         float cos = Mathf.Cos(angle);
+        if (Mathf.Approximately(cos, 0f))
+        {
+            Debug.LogError("Cosine of angle is zero, division by zero detected!");
+            return;
+        }
+
         float tan = Mathf.Tan(angle);
         float gravity = Physics2D.gravity.magnitude;
         Vector2 direction = transform.position - _adEnemys.target.transform.position;
@@ -30,13 +36,49 @@ public class ADEnemyAttackCompo : MonoBehaviour , IEntityComponent
         float distance = Mathf.Abs(direction.x);
         float yOffset = direction.y;
 
-        float vZero = (1 / cos) * Mathf.Sqrt((0.5f * gravity * Mathf.Pow(distance, 2)) / (distance * tan + yOffset));
+        // 플레이어가 적 바로 위에 있는 경우 처리
+        if (Mathf.Approximately(distance, 0f))
+        {
+            Debug.LogWarning("Player is directly above the enemy. Adjusting attack behavior.");
+            velocity = new Vector2(0f, Mathf.Sqrt(2 * gravity * Mathf.Abs(yOffset))); // 수직 발사 속도 계산
+            Bullet bullet = Instantiate(_bulletPrefab, _shotPos.position, Quaternion.identity);
+            bullet.ThrowBullet(velocity, 4f);
+            return;
+        }
+        float denominator = distance * tan + yOffset;
+        if (denominator <= 0f)
+        {
+            Debug.LogWarning($"Adjusting attack: Invalid denominator: {denominator}. Adjusting target angle or velocity.");
+            // 대체 로직 추가
+            AdjustVerticalAttack(yOffset, gravity);
+            return;
+        }
+
+        float sqrtInput = (0.5f * gravity * Mathf.Pow(distance, 2)) / denominator;
+        if (sqrtInput < 0f)
+        {
+            Debug.LogError("Invalid square root input: " + sqrtInput);
+            return;
+        }
+
+        float vZero = (1 / cos) * Mathf.Sqrt(sqrtInput);
 
         float xDirection = -Mathf.Sign(direction.x);
-        Vector2 velocity = new Vector3(xDirection * vZero * Mathf.Cos(angle), vZero * Mathf.Sin(angle));
+        velocity = new Vector3(xDirection * vZero * Mathf.Cos(angle), vZero * Mathf.Sin(angle));
+        Bullet bulletNormal = Instantiate(_bulletPrefab, _shotPos.position, Quaternion.identity);
 
-        Bullet Bullet = Instantiate(_bulletPrefab, _shotPos.position, Quaternion.identity);
+        bulletNormal.ThrowBullet(velocity, 4f);
+    }
 
-        Bullet.ThrowBullet(velocity, 4f);
+    private void AdjustVerticalAttack(float yOffset, float gravity)
+    {
+        // 수직으로 발사할 속도 계산
+        float verticalSpeed = Mathf.Sqrt(2 * gravity * Mathf.Abs(yOffset));
+        velocity = new Vector2(0, verticalSpeed);
+
+        Bullet bullet = Instantiate(_bulletPrefab, _shotPos.position, Quaternion.identity);
+        bullet.ThrowBullet(velocity, 4f);
+
+        Debug.Log($"Adjusted vertical attack with velocity: {velocity}");
     }
 }

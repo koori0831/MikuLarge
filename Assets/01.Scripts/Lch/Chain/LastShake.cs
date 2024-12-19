@@ -12,7 +12,8 @@ public class LastShake : Entity
     [SerializeField] private ChainShot3 _shot3;
     [SerializeField] private ChainShot4 _shot4;
     [SerializeField] private ChainShot5 _shot5;
-    [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
+    [SerializeField]private GameObject[] _shots;
+    private Vector2 _knockBackForce = new Vector2(5f, 3f);
     private bool _isShakeEnd = false;   
     private List<IDamageable> damgeAble = new List<IDamageable>();
     [SerializeField] private float _enemyDamge;
@@ -20,23 +21,28 @@ public class LastShake : Entity
     protected override void Awake()
     {
         base.Awake();
+       
     }
 
     private void Update()
     {
         if (_shot1.isEnd && _shot2.isEnd && _shot3.isEnd && _shot4.isEnd && _shot5.isEnd && !_isShakeEnd)
         {
-            CameraShake();
-
+           StartCoroutine(CameraShake());
         }
     }
 
-    private void CameraShake()
+    private IEnumerator CameraShake()
     {
         Manager.manager.CameraManager_K.ShakeCamera(1.5f, 6, 6);
-
-        _isShakeEnd = true;
+        _shots = GameObject.FindGameObjectsWithTag("ShotPos");
+        yield return new WaitForSeconds(1.5f);
         EnemyDamge();
+        _isShakeEnd = false;
+        for(int i = 0; i< _shots.Length; i++)
+        {
+            Destroy(_shots[i].gameObject);
+        }
         Destroy(gameObject);
     }
 
