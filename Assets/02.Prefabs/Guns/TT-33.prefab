@@ -134,6 +134,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletEnterEvent: {fileID: 11400000, guid: 5a4f1cabfd0ce884587230a338ff54cc, type: 2}
   bulletPrefab: {fileID: 6795840553651300307, guid: 47996a4a0c95a8a4c8e8d24ca6673c43, type: 3}
+  reload:
+    ID: 1073741849
+    _sourceAsset: {fileID: 11400000, guid: 356316d8e7edda544946ecf4c0ccfcc9, type: 2}
+    <DebugObject>k__BackingField: {fileID: 7877074899859489947}
   firePos: {fileID: 2389405432954822826}
   type: 0
   damage: 10
@@ -144,3 +148,4 @@ MonoBehaviour:
   ammo: 8
   shotCount: 1
   spreadAngle: 0
+  currentAmmo: 0
