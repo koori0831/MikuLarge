@@ -6,7 +6,6 @@ public abstract class Gun : MonoBehaviour
 {
     [SerializeField] private EntityHealthEventChannelSO bulletEnterEvent;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private SoundID reload;
     public Transform firePos;
     public WeaponType type;
     public float damage;
@@ -106,7 +105,6 @@ public abstract class Gun : MonoBehaviour
         isReloading = true;
         _player.isReloading = true;
         _player.ReLoadOb.SetActive(true);
-        BroAudio.Play(reload);
         reloadCoroutine = StartCoroutine(Reload());
     }
 
