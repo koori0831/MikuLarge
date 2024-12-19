@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 542563363}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -433,7 +433,7 @@ MonoBehaviour:
   Hands: {fileID: 0}
   dashExclude:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   charmed: 0
 --- !u!114 &542563363
 MonoBehaviour:

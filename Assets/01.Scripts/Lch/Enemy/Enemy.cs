@@ -10,6 +10,9 @@ public abstract class Enemy : Entity
     [SerializeField] protected Vector2 _knockBackForce = new Vector2(5f, 3f);
     public Rigidbody2D RbCompo { get; protected set; }
 
+    [field:SerializeField] public Coin DropCoin;
+    [field: SerializeField] public DropItemListSO ItemList;
+
     protected override void Awake()
     {
         base.Awake();
