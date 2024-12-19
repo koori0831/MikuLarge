@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shotSpeed: 5
   _knockBackForce: {x: 5, y: 3}
-  _damge: 0
+  _damge: 20
 --- !u!61 &5663916942605059373
 BoxCollider2D:
   m_ObjectHideFlags: 0
