@@ -21,10 +21,11 @@ public class PlayerDashState : EntityState
 
         Vector2 speed = new Vector2(_renderer.FacingDirection * _player.dashSpeed, 0);
         _mover.AddForceToEntity(speed);
-        //원래는 거리 측정하고 레이캐스트 쏴야해. 근데 지금은 간략하게. 중급이니까.
+
         _dashStartTime = Time.time;
 
         _player.GetComponent<Collider2D>().excludeLayers = _player.dashExclude;
+        _player.HidingGun(false);
     }
 
     public override void Update()
@@ -42,6 +43,7 @@ public class PlayerDashState : EntityState
         _mover.CanManualMove = true;
         _mover.SetGravityScale(1f);
         _player.GetComponent<Collider2D>().excludeLayers = new LayerMask();
+        _player.HidingGun(true);
         base.Exit();
     }
 }

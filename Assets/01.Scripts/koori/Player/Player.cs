@@ -1,6 +1,9 @@
+using Ami.BroAudio;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : Entity
 {
@@ -19,9 +22,14 @@ public class Player : Entity
 
     public bool charmed;
 
+    public bool isReloading;
+
+    public bool isHit;
+
     private int _currentJumpCount = 0;
     private EntityMover _mover;
     private PlayerAttackCompo _atkCompo;
+    private EntityHealth _health;
 
     [SerializeField] private StateMachine _stateMachine;
 
@@ -34,6 +42,7 @@ public class Player : Entity
 
         _mover = GetCompo<EntityMover>();
         Hands = GetCompo<Hands>();
+        _health = GetCompo<EntityHealth>();
         _mover.OnGroundStatusChange += HandleGroundStatusChange;
         PlayerInput.JumpEvent += HandleJumpEvent;
         PlayerInput.InteractEvent += HadleInteractEvent;
@@ -43,6 +52,20 @@ public class Player : Entity
         _atkCompo = GetCompo<PlayerAttackCompo>();
         PlayerInput.MeleeEvent += HandleAttackKeyEvent;
         PlayerInput.DashEvent += HandleDashEvent;
+        PlayerInput.ShotEvent += HandleShotEvent;
+        _health.OnHit += HandleHit;
+        _health.OnDeath += HandleDeath;
+    }
+
+    private void HandleDeath()
+    {
+        _stateMachine.ChageState(StateName.Dead);
+    }
+
+    private void HandleHit(Entity entity)
+    {
+        if (IsDead) return;
+        ChangeState(StateName.Hit);
     }
 
     private void OnDestroy()
@@ -53,6 +76,7 @@ public class Player : Entity
         PlayerInput.MeleeEvent -= HandleAttackKeyEvent;
         PlayerInput.DashEvent -= HandleDashEvent;
         PlayerInput.InteractEvent -= HadleInteractEvent;
+        PlayerInput.ShotEvent -= HandleShotEvent;
     }
 
     protected void Start()
@@ -89,7 +113,7 @@ public class Player : Entity
     private void HadleInteractEvent()
     {
         Collider2D obj = Physics2D.OverlapCircle(transform.position, _interactRange, _interatable);
-        if (obj != null)
+        if (obj != null && !isReloading && !isHit)
         {
             if (obj.TryGetComponent(out IInteractable target))
             {
@@ -100,11 +124,10 @@ public class Player : Entity
 
     private void HandleJumpEvent()
     {
-        if (_mover.IsGrounded || _currentJumpCount > 0)
+        if (_mover.IsGrounded || _currentJumpCount > 0 && !isHit)
         {
             _currentJumpCount--;
-            StateName nextState = _mover.IsGrounded ? StateName.Jump : StateName.DoubleJump;
-            ChangeState(nextState);
+            ChangeState(StateName.Jump);
         }
     }
 
@@ -122,7 +145,7 @@ public class Player : Entity
 
     private void HandleAttackKeyEvent()
     {
-        if (_atkCompo.AttemptAttack())
+        if (_atkCompo.AttemptAttack() && !isReloading&& !isHit)
         {
             ChangeState(StateName.Melee);
         }
@@ -130,9 +153,32 @@ public class Player : Entity
 
     private void HandleDashEvent()
     {
-        if (_atkCompo.AttemptDash())
+        if (_atkCompo.AttemptDash() && !isHit)
         {
             ChangeState(StateName.Dash);
+        }
+    }
+
+    private void HandleShotEvent()
+    {
+        if (_atkCompo.AttemptShot() && !isReloading && !isHit)
+        {
+            switch (Hands.nowWeapon)
+            {
+                case WeaponType.handGun:Hands.currentHandGun.Shot();  break;
+                case WeaponType.handsGun: Hands.currentHandGun.Shot(); break;
+                case WeaponType.melee: HandleAttackKeyEvent(); break;
+            }
+        }
+    }
+    public void HidingGun(bool value)
+    {
+        switch (Hands.nowWeapon)
+        {
+            case WeaponType.handGun:
+                Hands.currentHandGun.gameObject.GetComponent<SpriteRenderer>().enabled = value; break;
+            case WeaponType.handsGun:
+                Hands.currentHandsGun.gameObject.GetComponent<SpriteRenderer>().enabled = value; break;
         }
     }
 
@@ -140,5 +186,14 @@ public class Player : Entity
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, _interactRange);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out ICollectable collectable))
+        {
+            collectable.Collect();
+        }
     }
 }
