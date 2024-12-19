@@ -54,7 +54,6 @@ MonoBehaviour:
   _wathIsWalls:
     serializedVersion: 2
     m_Bits: 2176
-  _cameraShake: {fileID: 0}
   _knockBackForce: {x: 5, y: 3}
   _enemyDamge: 10
   isEnd: 0
@@ -158,7 +157,6 @@ MonoBehaviour:
   _wathIsWalls:
     serializedVersion: 2
     m_Bits: 2176
-  _cameraShake: {fileID: 0}
   _knockBackForce: {x: 5, y: 3}
   _enemyDamge: 10
   isEnd: 0
@@ -226,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9150619023534696732
 Transform:
   m_ObjectHideFlags: 0
@@ -314,13 +312,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2542472d96ada542af6d1b1e5060fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraShake: {fileID: 0}
   _shot1: {fileID: 1728108604460319416}
   _shot2: {fileID: 4731904464576765397}
   _shot3: {fileID: 2717243859345002578}
   _shot4: {fileID: 515436312460234407}
   _shot5: {fileID: 160072721185014916}
-  _knockBackForce: {x: 5, y: 3}
   _enemyDamge: 10
 --- !u!61 &753244130285643142
 BoxCollider2D:
@@ -422,7 +418,6 @@ MonoBehaviour:
   _wathIsWalls:
     serializedVersion: 2
     m_Bits: 2176
-  _cameraShake: {fileID: 0}
   _knockBackForce: {x: 5, y: 3}
   _enemyDamge: 10
   isEnd: 0
@@ -526,7 +521,6 @@ MonoBehaviour:
   _wathIsWalls:
     serializedVersion: 2
     m_Bits: 2176
-  _cameraShake: {fileID: 0}
   _knockBackForce: {x: 5, y: 3}
   _enemyDamge: 10
   isEnd: 0
@@ -692,6 +686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotPos (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2230352051525973701, guid: 455009dbc2e2ae34aa72fcb62298588d, type: 3}
+      propertyPath: m_TagString
+      value: ShotPos
+      objectReference: {fileID: 0}
     - target: {fileID: 8741316251971208899, guid: 455009dbc2e2ae34aa72fcb62298588d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.493
@@ -758,6 +756,10 @@ PrefabInstance:
     - target: {fileID: 1297412554444842002, guid: 510cc071686e1a2458535a6c2a61b654, type: 3}
       propertyPath: m_Name
       value: ShotPos3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297412554444842002, guid: 510cc071686e1a2458535a6c2a61b654, type: 3}
+      propertyPath: m_TagString
+      value: ShotPos
       objectReference: {fileID: 0}
     - target: {fileID: 6578948302830884165, guid: 510cc071686e1a2458535a6c2a61b654, type: 3}
       propertyPath: m_LocalPosition.x
@@ -866,6 +868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotPos
       objectReference: {fileID: 0}
+    - target: {fileID: 8966651523032768814, guid: 992c00c4ccfee604f9f0e089e30f9833, type: 3}
+      propertyPath: m_TagString
+      value: ShotPos
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -933,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotPos5
       objectReference: {fileID: 0}
+    - target: {fileID: 5642770363900746604, guid: 39f39d8dbff02d843b94170521121fb4, type: 3}
+      propertyPath: m_TagString
+      value: ShotPos
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -999,6 +1009,10 @@ PrefabInstance:
     - target: {fileID: 5237342970574664554, guid: edc6a3a0f88fcbc47a26f9c4ae673606, type: 3}
       propertyPath: m_Name
       value: ShotPos4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237342970574664554, guid: edc6a3a0f88fcbc47a26f9c4ae673606, type: 3}
+      propertyPath: m_TagString
+      value: ShotPos
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
