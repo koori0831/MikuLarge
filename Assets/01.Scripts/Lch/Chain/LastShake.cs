@@ -14,7 +14,7 @@ public class LastShake : Entity
     [SerializeField] private ChainShot5 _shot5;
     [SerializeField] private GameObject[] _shots;
     [SerializeField] private BoolEventChannelSO evenetChannel; 
-    private Vector2 _knockBackForce = new Vector2(5f, 3f);
+    private Vector2 _knockBackForce = new Vector2(0, 0);
     private bool _isShakeEnd = false;   
     private List<IDamageable> damgeAble = new List<IDamageable>();
     [SerializeField] private float _enemyDamge;
@@ -25,11 +25,16 @@ public class LastShake : Entity
        
     }
 
+    private void Start()
+    {
+        _isShakeEnd = false;
+    }
+
     private void Update()
     {
         if (_shot1.isEnd && _shot2.isEnd && _shot3.isEnd && _shot4.isEnd && _shot5.isEnd && !_isShakeEnd)
         {
-           StartCoroutine(CameraShake());
+            StartCoroutine(CameraShake());
         }
     }
 
@@ -39,7 +44,11 @@ public class LastShake : Entity
         _shots = GameObject.FindGameObjectsWithTag("ShotPos");
         yield return new WaitForSeconds(1.5f);
         EnemyDamge();
-        _isShakeEnd = false;
+        _isShakeEnd = true;
+        _shot1.isEnd = false;
+        _shot2.isEnd = false;
+        _shot3.isEnd = false;
+        _shot4.isEnd = false;
         for(int i = 0; i< _shots.Length; i++)
         {
             Destroy(_shots[i].gameObject);
