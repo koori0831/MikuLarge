@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4151075255568623431}
   m_Layer: 8
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,8 +62,10 @@ MonoBehaviour:
     m_Bits: 0
   _playercheckRadius: 10
   _attackRadius: 1.34
-  _damge: 0
+  _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  DropCoin: {fileID: 5581353378834596202, guid: cce3a0a40b91a6646980baece3229388, type: 3}
+  ItemList: {fileID: 0}
   _ghostFSM: {fileID: 11400000, guid: 1dd3c3a5eeecd8b43bcf374495817b8a, type: 2}
   AttackCompo: {fileID: 0}
 --- !u!50 &5446715913247688265
@@ -171,7 +173,7 @@ Transform:
   m_GameObject: {fileID: 1537685087539771418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.02, y: -0.055, z: 0}
+  m_LocalPosition: {x: 0.914, y: -0.055, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -191,14 +193,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _contactFilter:
     useTriggers: 0
-    useLayerMask: 0
+    useLayerMask: 1
     useDepth: 0
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 64
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0

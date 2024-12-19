@@ -16,14 +16,25 @@ public class TankerIdleState : EntityState
     {
         base.Enter();
         _mover.StopImmediately(true);
+        _tanker.target = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
 
     public override void Update()
     {
         base.Update();
+        FacingToPlayer();
         if (_tanker.CheckPlayerInRadius() && _tanker.AttackCompo.CanAttack())
         {
             _tanker.ChangeState(StateName.Attack);
         }
     }
+
+
+    private void FacingToPlayer()
+    {
+        float xDirection = _tanker.target.transform.position.x - _tanker.transform.position.x;
+        _renderer.FlipController(Mathf.Sign(xDirection));
+    }
+
+
 }

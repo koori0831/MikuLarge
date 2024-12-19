@@ -31,11 +31,6 @@ public class Tanker : Enemy
         ChangeState(StateName.Hit);
     }
 
-    protected override void OnCollisionEnter2D(Collision2D other)
-    {
-        base.OnCollisionEnter2D(other);
-    }
-
     private void HandleAnimationEnd()
     {
         CurrentState.AnimationEndTrigger();
