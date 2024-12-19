@@ -148,6 +148,18 @@ MonoBehaviour:
   _playerFSM: {fileID: 11400000, guid: 0395c6057de80124ba48e1817f05c828, type: 2}
   PlayerSave: {fileID: 11400000, guid: ffeffd1b5bc4ad14298bab1c1e9f6883, type: 2}
   _soEvent: {fileID: 11400000, guid: a69142c9661b8ea42b09674d89427070, type: 2}
+  melee:
+    ID: 1073741847
+    _sourceAsset: {fileID: 11400000, guid: 356316d8e7edda544946ecf4c0ccfcc9, type: 2}
+    <DebugObject>k__BackingField: {fileID: 2235842860719263181}
+  shot:
+    ID: 1073741848
+    _sourceAsset: {fileID: 11400000, guid: 356316d8e7edda544946ecf4c0ccfcc9, type: 2}
+    <DebugObject>k__BackingField: {fileID: 2235842860719263181}
+  hit:
+    ID: 1073741838
+    _sourceAsset: {fileID: 11400000, guid: b5a055b05f417e84f97f551468c08be5, type: 2}
+    <DebugObject>k__BackingField: {fileID: 2235842860719263181}
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: a5c494b899c18b648a01988b6958eec5, type: 2}
   jumpPower: 6
   jumpCount: 1
@@ -346,7 +358,7 @@ MonoBehaviour:
   _dashState: {fileID: 11400000, guid: 8efdff73010357c4495950eac33c4360, type: 2}
   _jumpState: {fileID: 11400000, guid: 60d2083dc318e8543a45592d6c3300a4, type: 2}
   _fallState: {fileID: 11400000, guid: 16e1f8611b736b340a7f3e50ab1d6df0, type: 2}
-  _damageCaster: {fileID: 1366593752833407557}
+  _damageCaster: {fileID: 7269051689427818880}
 --- !u!1 &6078162602321835980
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3475252611975748698}
-  - component: {fileID: 1366593752833407557}
+  - component: {fileID: 7269051689427818880}
   m_Layer: 6
   m_Name: DamageCaster
   m_TagString: Untagged
@@ -520,7 +532,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8352993066688745129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1366593752833407557
+--- !u!114 &7269051689427818880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -529,7 +541,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7376532569195561710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47be9d58e9620c948afcd896ba291f93, type: 3}
+  m_Script: {fileID: 11500000, guid: 1832eabd60137a44fb9e1907513eb352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _contactFilter:
@@ -547,7 +559,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   _maxAvailableCount: 4
-  _castSize: {x: 1.6, y: 2}
+  _castSize: {x: 2.3, y: 2}
   _damage: 40
   _knockBackForce: {x: 5, y: 3}
 --- !u!1 &7616840659759004729

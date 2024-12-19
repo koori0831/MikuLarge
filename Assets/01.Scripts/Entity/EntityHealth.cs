@@ -42,4 +42,9 @@ public class EntityHealth : MonoBehaviour, IEntityComponent, IDamageable
         yield return new WaitForSeconds(_knockBackTime);
         _mover.CanManualMove = true;
     }
+
+    public void DeathInvoke()
+    {
+        OnDeath?.Invoke();
+    }
 }

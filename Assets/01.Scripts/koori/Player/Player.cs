@@ -1,9 +1,6 @@
 using Ami.BroAudio;
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player : Entity
 {
@@ -12,6 +9,8 @@ public class Player : Entity
     [field :SerializeField] public PlayerSavesSO PlayerSave;
     [SerializeField] private PlayerSaveSoEventChannelSO _soEvent;
     [SerializeField] private SoundID melee;
+    [SerializeField] private SoundID shot;
+    [SerializeField] private SoundID hit;
 
     [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
     public float jumpPower = 12f;
@@ -115,6 +114,13 @@ public class Player : Entity
     private void HandleHit(Entity entity)
     {
         if (IsDead) return;
+        BroAudio.Play(hit);
+        if (health._currentHealth < 20)
+        {
+            health.DeathInvoke();
+            return;
+        }
+
         ChangeState(StateName.Hit);
     }
 
@@ -151,7 +157,7 @@ public class Player : Entity
         {
             StartCoroutine(RollBackPlayer());
         }
-
+        
     }
 
     private IEnumerator RollBackPlayer()
@@ -225,8 +231,8 @@ public class Player : Entity
         {
             switch (Hands.nowWeapon)
             {
-                case WeaponType.handGun:Hands.currentHandGun.Shot();  break;
-                case WeaponType.handsGun: Hands.currentHandsGun.Shot(); break;
+                case WeaponType.handGun:Hands.currentHandGun.Shot(); BroAudio.Play(shot);  break;
+                case WeaponType.handsGun: Hands.currentHandsGun.Shot(); BroAudio.Play(shot); break;
                 case WeaponType.melee: HandleAttackKeyEvent(); break;
             }
         }
