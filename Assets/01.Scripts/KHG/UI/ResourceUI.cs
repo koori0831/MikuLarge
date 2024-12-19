@@ -71,15 +71,22 @@ public class ResourceUI : MonoSingleton<ResourceUI>
 
     private IEnumerator NeaerDown()
     {
-        yield return new WaitForSeconds(1f);
-        while (newFillAmount <= 0)
+        yield return new WaitForSeconds(1f); 
+        Manager.manager.ResourceManager.CanNeailUse = false;
+
+        float decreaseRate = 0.01f;
+        float decreaseInterval = 15f; 
+
+        while (newFillAmount > 0)
         {
-            newFillAmount = _neail.fillAmount - 0.1f;
-            _neail.fillAmount = Mathf.Clamp(newFillAmount, 0, 1f);
-            Manager.manager.ResourceManager.CanNeailUse = false;    
-            yield return new WaitForSeconds(1);
+            SetNeail(-decreaseRate); // 조금씩 감소
+            Debug.Log($"네일 감소 중: {newFillAmount}");
+
+            // 대기 후 다음 감소
+            yield return new WaitForSeconds(decreaseInterval);
         }
-        yield return null;
+
+        Debug.Log("네일 감소 완료");
     }
 
     private void SetBullet(int amount)
@@ -97,9 +104,8 @@ public class ResourceUI : MonoSingleton<ResourceUI>
 
     public void SetNeail(float soul)
     {
-        newFillAmount = _neail.fillAmount +soul;
-
-        _neail.fillAmount = Mathf.Clamp(newFillAmount, 0f, 1f);
+        newFillAmount = Mathf.Clamp(_neail.fillAmount + soul, 0f, 1f);
+        _neail.fillAmount = newFillAmount;
     }
 
     public void SetCoin()
