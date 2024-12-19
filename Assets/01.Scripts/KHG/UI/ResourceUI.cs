@@ -78,7 +78,6 @@ public class ResourceUI : MonoBehaviour
     public void SetHealth(int value)
     {
         int currentHealth = 0;
-        currentHealth = (int)_player.GetComponent<EntityHealth>()._currentHealth;
         currentHealth = Manager.manager.ResourceManager.Health / 20;
 
         if (_healthUI.childCount > 0)
