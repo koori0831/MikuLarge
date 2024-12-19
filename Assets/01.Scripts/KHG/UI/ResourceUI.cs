@@ -44,6 +44,9 @@ public class ResourceUI : MonoSingleton<ResourceUI>
             case WeaponType.handsGun:
                 SetupGun(_player.Hands.currentHandsGun.gameObject.name, _player.Hands.currentHandsGun.ammo);
                 break;
+            case WeaponType.melee:
+                SetupGun("ÀåÂø ¾ÈÇÔ",0);
+                break;
         }
         
         if(_player.Hands.currentHandsGun != null)

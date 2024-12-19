@@ -717,21 +717,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1366593752833407557, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
+      propertyPath: _castSize.x
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2235842860719263181, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3609457733221801018, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
-      propertyPath: PlayerSave
-      value: 
-      objectReference: {fileID: 11400000, guid: ffeffd1b5bc4ad14298bab1c1e9f6883, type: 2}
-    - target: {fileID: 4464803417060981899, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
-      propertyPath: MaxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149465915934329481, guid: a95e5af2250db884689e568d3b7eb1e0, type: 3}
-      propertyPath: _dashCooltime
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
