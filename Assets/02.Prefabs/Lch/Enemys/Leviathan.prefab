@@ -78,7 +78,7 @@ Transform:
   m_GameObject: {fileID: 2902953900711372718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.88, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -361,7 +361,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -431,6 +431,8 @@ MonoBehaviour:
   _attackRadius: 1.28
   _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  SoulPrefab: {fileID: 3993354691502283645, guid: ccfd62e9c7934f64ba7269d15e7b9a99, type: 3}
+  isPhaseing: 0
   DropCoin: {fileID: 0}
   ItemList: {fileID: 11400000, guid: d8da166a63e09d642887db7c14497455, type: 2}
   _asmodeusFSM: {fileID: 11400000, guid: c32ef008d3d7fa54eb1591e56a8d3c8d, type: 2}

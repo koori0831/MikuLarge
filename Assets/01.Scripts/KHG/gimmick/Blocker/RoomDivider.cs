@@ -15,10 +15,15 @@ public class RoomDivider : MonoBehaviour
     private List<int> _clearedRoom = new List<int>();
     private bool _isClosed;
 
+    private void Start()
+    {
+        _clearedRoom.Add(0);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) return;
+        if (collision.CompareTag("Player") == false) return;
         if (_clearedRoom.Contains(Manager.manager.CameraManager_K.CurrentRoom)) return;
         if (_isClosed) return;
         PlayerEntered();
@@ -27,7 +32,7 @@ public class RoomDivider : MonoBehaviour
 
     public void PlayerEntered()
     {
-        if(_isClosed == false)
+        if(_isClosed == false) //열려있다 ->
         {
             SetDoor(false);
         }
@@ -37,14 +42,14 @@ public class RoomDivider : MonoBehaviour
     {
         if(value) //open
         {
-            _isClosed = false;
-            Manager.manager.RoomManager.DoorStatus = true;
+            _isClosed = true;
+            Manager.manager.RoomManager.DoorStatus = false;
             DoorOpen();
         }
         else //close
         {
-            _isClosed = true;
-            Manager.manager.RoomManager.DoorStatus = false;
+            _isClosed = false;
+            Manager.manager.RoomManager.DoorStatus = true;
             Detect();
             DoorClose();
         }
