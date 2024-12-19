@@ -136,6 +136,7 @@ MonoBehaviour:
   _attackRadius: 0.71
   _damge: 5
   _knockBackForce: {x: 5, y: 3}
+  DropCoin: {fileID: 5581353378834596202, guid: cce3a0a40b91a6646980baece3229388, type: 3}
   _tankerFsm: {fileID: 11400000, guid: a197377ba82e28c44a9e32f9f7a36988, type: 2}
   AttackCompo: {fileID: 0}
 --- !u!114 &5306291015880947057
