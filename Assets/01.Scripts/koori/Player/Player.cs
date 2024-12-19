@@ -25,7 +25,15 @@ public class Player : Entity
 
     public bool isReloading;
 
+    public Transform nailPos;
+
+    public GameObject Chain;
+
+    public BoolEventChannelSO  NailEvent;
+
     public bool isHit;
+
+    public bool isNailed;
 
     private int _currentJumpCount = 0;
     private EntityMover _mover;
@@ -50,6 +58,7 @@ public class Player : Entity
         PlayerInput.NailEvent += HandleNailEvent;
 
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
+        GetCompo<EntityAnimator>(true).OnNailShot += Nail;
 
         _atkCompo = GetCompo<PlayerAttackCompo>();
         PlayerInput.MeleeEvent += HandleAttackKeyEvent;
@@ -60,6 +69,16 @@ public class Player : Entity
 
         ReLoadOb.SetActive(false);
         _mover.IsPlayer();
+
+        NailEvent.OnValueEvent += RevertInput;
+    }
+
+    private void RevertInput(bool obj)
+    {
+        PlayerInput.Controls.Enable();
+        _health._currentHealth = 20;
+
+        isNailed = obj;
     }
 
     private void HandleNailEvent()
@@ -83,6 +102,7 @@ public class Player : Entity
         _mover.OnGroundStatusChange -= HandleGroundStatusChange;
         PlayerInput.JumpEvent -= HandleJumpEvent;
         GetCompo<EntityAnimator>(true).OnAnimationEnd -= HandleAnimationEnd;
+        GetCompo<EntityAnimator>(true).OnNailShot -= Nail;
         PlayerInput.MeleeEvent -= HandleAttackKeyEvent;
         PlayerInput.DashEvent -= HandleDashEvent;
         PlayerInput.InteractEvent -= HadleInteractEvent;
@@ -193,6 +213,10 @@ public class Player : Entity
             case WeaponType.handsGun:
                 Hands.currentHandsGun.gameObject.GetComponent<SpriteRenderer>().enabled = value; break;
         }
+    }
+    private void Nail()
+    {
+        Instantiate(Chain, nailPos.position, Quaternion.identity);
     }
 
     private void OnDrawGizmos()
