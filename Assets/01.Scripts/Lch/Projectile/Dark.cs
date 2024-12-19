@@ -51,7 +51,10 @@ public class Dark : Entity
             Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        if (!TryGetComponent(out Enemy enemy))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FacingToPlayer()
