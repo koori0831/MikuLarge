@@ -47,11 +47,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Structure
+    uniqueID: 3744385917
+    locked: 0
   - name: Map
     uniqueID: 101868949
     locked: 0
-  - name: Structure
-    uniqueID: 3744385917
+  - name: Decoration
+    uniqueID: 4049948297
     locked: 0
   - name: Player
     uniqueID: 1863295375
