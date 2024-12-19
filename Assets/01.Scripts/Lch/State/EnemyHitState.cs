@@ -17,16 +17,17 @@ public class EnemyHitState : EntityState
         _enemy.target = GameObject.FindWithTag("Player").GetComponent<Player>();
         Vector3 dir = _enemy.target.transform.position - _enemy.transform.position;
         _renderer.FlipController(dir.x);
-        _soulDropRnage = Random.Range(1, 6);
+        _soulDropRnage = Random.Range(1, 51);
+         if (_soulDropRnage <= 5)
+        {
+            GameObject.Instantiate(_enemy.SoulPrefab, _enemy.transform.position, Quaternion.identity);
+        }
     }
 
     public override void Update()
     {
         base.Update();
-        if(_soulDropRnage <= 2)
-        {
-            GameObject.Instantiate(_enemy.SoulPrefab, _enemy.transform.position, Quaternion.identity);
-        }
+       
         if (_isTriggerCall)
         {
             _enemy.ChangeState(StateName.Idle);
