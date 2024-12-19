@@ -16,7 +16,6 @@ public class ChainShot5 : Entity
     private Vector3 endPos4 = Vector2.zero;
     private Vector3 endPos5 = Vector2.zero;
     [SerializeField] private LayerMask _wathIsWalls;
-    [SerializeField] private CinemachineBasicMultiChannelPerlin _cameraShake;
 
     [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
 
@@ -97,26 +96,12 @@ public class ChainShot5 : Entity
         line.SetPosition(0, startPos);
         line.SetPosition(1, endPos);
         EnemyDamge();
-        StartCoroutine(CameraShake(0.2f, 0.1f));
+       CameraShake(0.2f, 0.1f);
     }
 
-    IEnumerator CameraShake(float duration, float magnitude)
+    void CameraShake(float duration, float magnitude)
     {
-        float _amplitudeGain = 0;
-        float _frequencyGain = 0;
-        float elapsed = 0.0f;
-
-        while (elapsed < duration)
-        {
-            _cameraShake.AmplitudeGain = 5f;
-            _cameraShake.FrequencyGain = 5f;
-            elapsed += Time.deltaTime;
-
-            yield return null;
-        }
-
-        _cameraShake.AmplitudeGain = _amplitudeGain;
-        _cameraShake.FrequencyGain = _frequencyGain; 
+        Manager.manager.CameraManager_K.ShakeCamera(duration, 5, 5);
     }
 
     private void EnemyDamge()
