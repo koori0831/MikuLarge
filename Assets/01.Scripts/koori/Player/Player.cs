@@ -199,7 +199,7 @@ public class Player : Entity
             switch (Hands.nowWeapon)
             {
                 case WeaponType.handGun:Hands.currentHandGun.Shot();  break;
-                case WeaponType.handsGun: Hands.currentHandGun.Shot(); break;
+                case WeaponType.handsGun: Hands.currentHandsGun.Shot(); break;
                 case WeaponType.melee: HandleAttackKeyEvent(); break;
             }
         }
