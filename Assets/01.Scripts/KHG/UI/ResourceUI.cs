@@ -31,12 +31,6 @@ public class ResourceUI : MonoBehaviour
         {
             SetupGun("이창호씨의 머리카락",15);
         }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Manager.manager.ResourceManager.Coin += 1;
-            AddHealth(1);
-            SetCoin();
-        }
     }
 
     private void SetBullet(int amount)
