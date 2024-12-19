@@ -16,6 +16,8 @@ public class ResourceUI : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private GameObject _heartPrefab;
 
+    [SerializeField] private Player _player;
+
 
     private void Start()
     {
