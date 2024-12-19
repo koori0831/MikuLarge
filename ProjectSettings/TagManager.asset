@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - ADEnemy
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -25,11 +27,6 @@ TagManager:
   - 
   - 
   - Interatable
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 

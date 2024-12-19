@@ -25,11 +25,6 @@ public class Ghost : Enemy
         _health.OnDeath += HandleDead;
     }
 
-    protected override void OnCollisionEnter2D(Collision2D other)
-    {
-        base.OnCollisionEnter2D(other);
-    }
-
     private void HandleDead()
     {
         _stateMachine.ChageState(StateName.Dead);
@@ -41,6 +36,8 @@ public class Ghost : Enemy
         target = dealer as Player;
         ChangeState(StateName.Hit);
     }
+
+   
 
     public void HandleAttack()
     {
