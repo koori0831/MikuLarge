@@ -42,13 +42,13 @@ public class RoomDivider : MonoBehaviour
     {
         if(value) //open
         {
-            _isClosed = true;
+            _isClosed = false; ;
             Manager.manager.RoomManager.DoorStatus = false;
             DoorOpen();
         }
         else //close
         {
-            _isClosed = false;
+            _isClosed = true;
             Manager.manager.RoomManager.DoorStatus = true;
             Detect();
             DoorClose();
@@ -58,17 +58,20 @@ public class RoomDivider : MonoBehaviour
 
     private void DoorClose()
     {
+        if (_door.position.y > 1f) return;
         _door.DOMoveY(_door.position.y - 4f, 0.1f).OnComplete(()=>Manager.manager.CameraManager_K.ShakeCamera(0.2f,2f));
     }
     private void DoorOpen()
     {
-        _door.DOMoveY(_door.position.y + 4f, 0.1f).OnComplete(()=>Destroy(gameObject));
+        if (_door.position.y < 3f) return;
+        _door.DOMoveY(_door.position.y + 4f, 0.1f);
     }
 
     private void Detect()
     {
         Collider2D[] enemys = Physics2D.OverlapBoxAll(_origin.position , _detectSize,0, _enemyLayer);
-        if(enemys.Length <= 0 && _isClosed) //감지된 적이 0보다 작고 문이 닫혀있을떄
+        print(enemys.Length + _isClosed.ToString());
+        if(enemys.Length <= 0 && _isClosed == false) //감지된 적이 0보다 작고 문이 닫혀있을떄
         {
             SetDoor(true);
             _clearedRoom.Add(Manager.manager.CameraManager_K.CurrentRoom);

@@ -96,7 +96,6 @@ public class CameraManager_K : MonoBehaviour
     {
         Manager.manager.MinimapUI.SetMinimapPosistion(GetCamPos());
         PlayerXPosition = _player.position.x;
-        print(GetCamPos());
         Manager.manager.CameraManager_K.SetCamera((GetCamPos() * Manager.manager.MapManager_K._mapScale.x));
     }
 
