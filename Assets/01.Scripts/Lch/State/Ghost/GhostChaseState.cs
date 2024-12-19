@@ -24,7 +24,7 @@ public class GhostChaseState : EntityState
 
         _mover.SetMovement(targetDir.normalized.x);
 
-        if (_ghost.CheckAttackToPlayerRadius()&& _ghost.AttackCompo.CanAttack())
+        if (_ghost.CheckAttackToPlayerRadius()&& _ghost.AttackCompo.CanAttack() && !_ghost.IsDead)
         {
             _mover.StopImmediately(true);
             _ghost.ChangeState(StateName.Attack);
