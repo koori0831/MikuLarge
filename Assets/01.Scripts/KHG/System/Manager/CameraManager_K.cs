@@ -1,10 +1,13 @@
 using UnityEngine;
 using DG.Tweening;
+using Unity.Cinemachine;
+using System.Collections;
 
 public class CameraManager_K : MonoBehaviour
 {
     //[SerializeField] private Manager _manager;
     [SerializeField] private Transform _mainCamObj;
+    [SerializeField] private CinemachineCamera _virtualCamera;
 
 
     private int _currentRoom;
@@ -41,8 +44,24 @@ public class CameraManager_K : MonoBehaviour
         //_mainCamObj.DOMoveX(-_mainCamObj.position.x + _moveAmount, 0.5f);
     }
 
+
+    public void ShakeCamera( float duration, float frequencyAmount, float AmplitudeAmount = 0.7f)
+    {
+        StartCoroutine(CamShake(duration, frequencyAmount, AmplitudeAmount));
+    }
+
     private void SetMinimap()
     {
         Manager.manager.MinimapUI.SetMinimapPosistion(_currentRoom);
+    }
+
+    private IEnumerator CamShake(float duration, float frequencyAmount, float AmplitudeAmount)
+    {
+        CinemachineBasicMultiChannelPerlin vCam = _virtualCamera.GetComponent<CinemachineBasicMultiChannelPerlin>();
+        vCam.FrequencyGain = frequencyAmount;
+        vCam.AmplitudeGain = AmplitudeAmount;
+        yield return new WaitForSeconds(duration);
+        vCam.FrequencyGain = 0;
+        vCam.AmplitudeGain = 0;
     }
 }
