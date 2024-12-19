@@ -2,18 +2,29 @@ using UnityEngine;
 using DG.Tweening;
 using Unity.Cinemachine;
 
-public class Item : MonoBehaviour, IInteractable
+public class HealtItem : MonoBehaviour, IInteractable
 {
     //[SerializeField] private Manager _manager;
     [SerializeField] private ItemSO _item;
 
+     public bool IsShop;
+
     private bool isHighLight;
+
+    private Player _player;
     public void Interact(Player player)
     {
-        if (Manager.manager.ResourceManager.Coin >= _item.Cost)
+        _player = player;
+        if (Manager.manager.ResourceManager.Coin >= _item.Cost && IsShop)
         {
             Manager.manager.ResourceManager.Coin -= _item.Cost;
             Manager.manager.ResourceUI.SetCoin();
+            GetItem();
+            Destroy(gameObject);
+        }
+
+        if (!IsShop)
+        {
             GetItem();
             Destroy(gameObject);
         }
@@ -41,6 +52,6 @@ public class Item : MonoBehaviour, IInteractable
 
     private void GetItem()
     {
-        print("æ∆¿Ã≈€ »π!µÊ");
+        _player.health._currentHealth += 20;
     }
 }
