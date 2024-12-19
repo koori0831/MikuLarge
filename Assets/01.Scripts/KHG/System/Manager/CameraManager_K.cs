@@ -99,4 +99,15 @@ public class CameraManager_K : MonoBehaviour
         Manager.manager.CameraManager_K.SetCamera((GetCamPos() * Manager.manager.MapManager_K._mapScale.x));
     }
 
+
+    public void SetCameraAim(float time)
+    {
+        _virtualCamera.Lens.OrthographicSize = 4f;
+        StartCoroutine(ChangeSize(time));
+    }
+    private IEnumerator ChangeSize(float time)
+    {
+        yield return new WaitForSeconds(time);
+        _virtualCamera.Lens.OrthographicSize = 6f;
+    }
 }
