@@ -1,33 +1,24 @@
 using System;
 using UnityEngine;
 
-public abstract class BulletParent : MonoBehaviour, IPoolable
+public abstract class BulletParent : MonoBehaviour
 {
     [SerializeField] private LayerMask enemyLayer, obstacleLayer;
-    [SerializeField] private int damage;
     [SerializeField] private EntityHealthEventChannelSO bulletEnterEvent;
 
-    public string PoolName => "Bullet";
-
-    public GameObject ObjectPrefab => gameObject;
-
-    public void ResetItem()
-    {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         int collisionLayer = collision.gameObject.layer;
 
         if (((1 << collisionLayer) & enemyLayer) != 0)
         {
             bulletEnterEvent.RaiseEvent(collision.gameObject.GetComponent<EntityHealth>());
+            Destroy(gameObject);
         }
 
         if (((1 << collisionLayer) & obstacleLayer) != 0)
         {
-
+            Destroy(gameObject);
         }
     }
 }

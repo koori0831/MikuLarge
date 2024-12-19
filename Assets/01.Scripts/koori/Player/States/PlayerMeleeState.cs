@@ -14,5 +14,11 @@ public class PlayerMeleeState : EntityState
     {
         base.Enter();
         _mover.StopImmediately();
+        _player.HidingGun(false);
+    }
+    public override void Exit()
+    {
+        _player.HidingGun(true);
+        base.Exit();
     }
 }
