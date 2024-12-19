@@ -8,7 +8,7 @@ public class PlayerAttackCompo : MonoBehaviour, IEntityComponent
     [SerializeField] private StateSO _dashState;
     [SerializeField] private StateSO _jumpState;
     [SerializeField] private StateSO _fallState;
-    [SerializeField] private DamageCast _damageCaster;
+    [SerializeField] private PlayerDamageCast _damageCaster;
     private Player _player;
     private float _lastAtkTime;
     private float _lastDashTime;
@@ -51,7 +51,6 @@ public class PlayerAttackCompo : MonoBehaviour, IEntityComponent
 
     private void CastAttack()
     {
-        Manager.manager.CameraManager_K.ShakeCamera(0.1f, 0.1f);
         _damageCaster.CastDamage();
     }
 }
