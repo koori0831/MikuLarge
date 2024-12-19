@@ -77,7 +77,7 @@ public class Player : Entity
         PlayerSave.nowWeaponType = Hands.nowWeapon;
         PlayerSave.currentHandGun = Hands.currentHandGun;
         PlayerSave.currentHandsGun = Hands.currentHandsGun;
-        PlayerSave.NowCoin = Manager.manager.ResourceManager.Coin;
+        //PlayerSave.NowCoin = Manager.manager.ResourceManager.Coin;
     }
 
     private void RevertInput(bool obj)
@@ -90,7 +90,7 @@ public class Player : Entity
 
     private void HandleNailEvent()
     {
-        if (!Manager.manager.ResourceManager.CanNeailUse)
+        if (Manager.manager.ResourceManager.CanNeailUse)
             return;
         ChangeState(StateName.Nail);  
     }
@@ -172,7 +172,7 @@ public class Player : Entity
 
     private void HandleJumpEvent()
     {
-        if (_mover.IsGrounded || _currentJumpCount > 0 && !isHit)
+        if (_mover.IsGrounded || _currentJumpCount > 0 && !isHit && !IsDead)
         {
             _currentJumpCount--;
             ChangeState(StateName.Jump);
@@ -188,12 +188,11 @@ public class Player : Entity
     private void HandleAnimationEnd()
     {
         _stateMachine.currentState.AnimationEndTrigger();
-        _stateMachine.ChageState(StateName.Idle);
     }
 
     private void HandleAttackKeyEvent()
     {
-        if (_atkCompo.AttemptAttack() && !isReloading&& !isHit)
+        if (_atkCompo.AttemptAttack() && !isReloading&& !isHit && !IsDead)
         {
             ChangeState(StateName.Melee);
         }
@@ -201,7 +200,7 @@ public class Player : Entity
 
     private void HandleDashEvent()
     {
-        if (_atkCompo.AttemptDash() && !isHit)
+        if (_atkCompo.AttemptDash() && !isHit && !IsDead)
         {
             ChangeState(StateName.Dash);
         }
@@ -209,7 +208,7 @@ public class Player : Entity
 
     private void HandleShotEvent()
     {
-        if (_atkCompo.AttemptShot() && !isReloading && !isHit)
+        if (_atkCompo.AttemptShot() && !isReloading && !isHit && !IsDead)
         {
             switch (Hands.nowWeapon)
             {
