@@ -47,6 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Map
+    uniqueID: 101868949
+    locked: 0
+  - name: Structure
+    uniqueID: 3744385917
+    locked: 0
   - name: Player
     uniqueID: 1863295375
     locked: 0
@@ -55,6 +61,9 @@ TagManager:
     locked: 0
   - name: Hands
     uniqueID: 2269940523
+    locked: 0
+  - name: Item
+    uniqueID: 1699648059
     locked: 0
   m_RenderingLayers:
   - Default
