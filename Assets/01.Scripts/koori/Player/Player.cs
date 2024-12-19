@@ -77,6 +77,16 @@ public class Player : Entity
         PlayerSave.nowWeaponType = Hands.nowWeapon;
         PlayerSave.currentHandGun = Hands.currentHandGun;
         PlayerSave.currentHandsGun = Hands.currentHandsGun;
+
+        if (GameManger.Instance.SaveSo != null)
+        {
+            health._currentHealth = GameManger.Instance.SaveSo.CurrentHealth;
+            Hands.nowWeapon = GameManger.Instance.SaveSo.nowWeaponType;
+            Hands.currentHandGun = GameManger.Instance.SaveSo.currentHandGun;
+            Hands.currentHandsGun = GameManger.Instance.SaveSo.currentHandsGun;
+
+            Hands.WeaponChange();
+        }
         //PlayerSave.NowCoin = Manager.manager.ResourceManager.Coin;
     }
 
@@ -97,6 +107,7 @@ public class Player : Entity
 
     private void HandleDeath()
     {
+        GameManger.Instance.SaveSo = null;
         ChangeState(StateName.Dead);
     }
 
