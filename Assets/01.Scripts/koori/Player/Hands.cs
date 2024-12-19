@@ -13,10 +13,10 @@ public class Hands : MonoBehaviour, IEntityComponent
     private Entity _entity;
     [SerializeField] private Transform _handTransform, _handsTransform;
 
-    public WeaponType nowWeapon { get; private set; } = WeaponType.melee;
+    public WeaponType nowWeapon = WeaponType.melee;
     private Player _player;
-    public Gun currentHandGun { get; private set; }
-    public Gun currentHandsGun { get; private set; }
+    public Gun currentHandGun;
+    public Gun currentHandsGun; 
     private void Awake()
     {
         _player = GetComponentInParent<Player>();
