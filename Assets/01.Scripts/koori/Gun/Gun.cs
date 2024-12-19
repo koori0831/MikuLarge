@@ -101,6 +101,7 @@ public abstract class Gun : MonoBehaviour
 
         isReloading = true;
         _player.isReloading = true;
+        _player.ReLoadOb.SetActive(true);
         reloadCoroutine = StartCoroutine(Reload());
     }
 
@@ -110,6 +111,7 @@ public abstract class Gun : MonoBehaviour
         currentAmmo = ammo;
         isReloading = false;
         _player.isReloading = false;
+        _player.ReLoadOb.SetActive(false);
         Debug.Log("Reload complete!");
     }
 
