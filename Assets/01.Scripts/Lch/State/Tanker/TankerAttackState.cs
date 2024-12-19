@@ -18,9 +18,6 @@ public class TankerAttackState : EntityState
     {
         base.Enter();
         _mover.StopImmediately(false);
-        _targetDir = (_tanker.target.transform.position - _tanker.transform.position).normalized;
-        _mover._moveSpeed = 18f;
-        _mover.SetMovement(_targetDir.x);
         _tanker.AttackCompo.Attack();
     }
 
@@ -28,6 +25,9 @@ public class TankerAttackState : EntityState
     {
         base.Update();
         FacingToPlayer();
+        _targetDir = (_tanker.target.transform.position - _tanker.transform.position).normalized;
+        _mover._moveSpeed = 18f;
+        _mover.SetMovement(_targetDir.x);
         if (_tanker.CheckAttackToPlayerRadius() || _tanker.CheckObstacleInFront())
         {
             _mover.StopImmediately(true);
