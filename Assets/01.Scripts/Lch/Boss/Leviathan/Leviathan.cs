@@ -36,7 +36,7 @@ public class Leviathan : Enemy
 
     private void HandleHit(Entity dealer)
     {
-        if (IsDead) return;
+        if (IsDead || isPhaseing) return;
         target = dealer as Player;
         ChangeState(StateName.Hit);
     }

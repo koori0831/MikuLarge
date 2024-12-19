@@ -9,7 +9,8 @@ public class WaterBall : Entity
     private Rigidbody2D _rbCompo;
     //[SerializeField] private Animator _animator;
     //[SerializeField] private AnimParamSO _triggerParam;
-    private float _lifeTime = 3f; private Leviathan _leviathan;
+    private float _lifeTime = 3f;
+    private Leviathan _leviathan;
     private EntityRenderer _renderer;
 
     protected override void Awake()

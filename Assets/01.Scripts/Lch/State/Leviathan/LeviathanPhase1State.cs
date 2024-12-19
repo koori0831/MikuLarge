@@ -14,12 +14,12 @@ public class LeviathanPhase1State : EntityState
     {
         base.Enter();
         _leviathan.AttackCompo.Attack();
-        FacingToPlayer();
     }
 
     public override void Update()
     {
         base.Update();
+        FacingToPlayer();
         if (_isTriggerCall)
         {
             _leviathan.ChangeState(StateName.Idle);

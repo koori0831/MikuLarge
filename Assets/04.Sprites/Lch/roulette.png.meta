@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: faf341b89ad3dc940b3c6cd753f22e18
+guid: 5c5f507c04905d846ac3b6d7a9d97e13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7281562425652716138
-    second: Hit2_0
-  - first:
-      213: -3054853716382423002
-    second: Hit2_1
-  - first:
-      213: 5487866315494388361
-    second: Hit2_2
+      213: -4150405671746537351
+    second: roulette_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.28947368, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -78,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -106,67 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit2_0
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 199
-        width: 6
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a62acde527e4d0560800000000000000
-      internalID: 7281562425652716138
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hit2_1
+      name: roulette_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 152
-        height: 189
+        width: 204
+        height: 164
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6286e32fabafa95d0800000000000000
-      internalID: -3054853716382423002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hit2_2
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 183
-        width: 26
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 982ffd58651d82c40800000000000000
-      internalID: 5487866315494388361
+      spriteID: 978f7c5080cc666c0800000000000000
+      internalID: -4150405671746537351
       vertices: []
       indices: 
       edges: []
@@ -176,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hit2_0: 7281562425652716138
-      Hit2_1: -3054853716382423002
-      Hit2_2: 5487866315494388361
+      roulette_0: -4150405671746537351
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

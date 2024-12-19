@@ -1,49 +1,16 @@
 fileFormatVersion: 2
-guid: 31ff350ae661cbe4da58f81977c6eca5
+guid: 2a33366a24132144a91ccf435fe1773f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -102638867171773503
-    second: Chase_1-Sheet_0
+      213: 5056708967964772408
+    second: GreenHeart_1-Sheet_0
   - first:
-      213: -8813558607143432677
-    second: Chase_1-Sheet_1
+      213: -5683089217843501652
+    second: GreenHeart_1-Sheet_1
   - first:
-      213: -388245380312789238
-    second: Chase_1-Sheet_2
-  - first:
-      213: 8171875926701726706
-    second: Chase_1-Sheet_3
-  - first:
-      213: -6883184568489893689
-    second: Chase_1-Sheet_4
-  - first:
-      213: 7198074358637021557
-    second: Chase_1-Sheet_5
-  - first:
-      213: -1931447380022789990
-    second: Chase_1-Sheet_6
-  - first:
-      213: -2439321593499352839
-    second: Chase_1-Sheet_7
-  - first:
-      213: -4703838966235382541
-    second: Chase_1-Sheet_8
-  - first:
-      213: 2442692324136786929
-    second: Chase_1-Sheet_9
-  - first:
-      213: -3486761482423813196
-    second: Chase_1-Sheet_10
-  - first:
-      213: -8716283248595857166
-    second: Chase_1-Sheet_11
-  - first:
-      213: -2237841435048312147
-    second: Chase_1-Sheet_12
-  - first:
-      213: 5249759708234737938
-    second: Chase_1-Sheet_13
+      213: -3529617449674702324
+    second: GreenHeart_1-Sheet_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -111,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -139,89 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chase_1-Sheet_0
+      name: GreenHeart_1-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 152
-        height: 208
-      alignment: 9
-      pivot: {x: 0.28947368, y: 0}
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c3f31e7e7a539ef0800000000000000
-      internalID: -102638867171773503
+      spriteID: 8388218c30a0d2640800000000000000
+      internalID: 5056708967964772408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chase_1-Sheet_1
+      name: GreenHeart_1-Sheet_1
       rect:
         serializedVersion: 2
-        x: 152
+        x: 40
         y: 0
-        width: 152
-        height: 208
-      alignment: 9
-      pivot: {x: 0.28947368, y: 0.0019230769}
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1e012e9423ffa580800000000000000
-      internalID: -8813558607143432677
+      spriteID: ca5e597777c9121b0800000000000000
+      internalID: -5683089217843501652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chase_1-Sheet_2
+      name: GreenHeart_1-Sheet_2
       rect:
         serializedVersion: 2
-        x: 304
+        x: 80
         y: 0
-        width: 152
-        height: 208
-      alignment: 9
-      pivot: {x: 0.29605263, y: -0}
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0f05c432ecac9af0800000000000000
-      internalID: -388245380312789238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chase_1-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 456
-        y: 0
-        width: 152
-        height: 208
-      alignment: 9
-      pivot: {x: 0.26973686, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2fb5f9fdbd5586170800000000000000
-      internalID: 8171875926701726706
+      spriteID: c028e1751a7440fc0800000000000000
+      internalID: -3529617449674702324
       vertices: []
       indices: 
       edges: []
@@ -230,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 667b5d3c557d5104396411d726cc52bd
+    spriteID: 4df23dafc4b2f60418c8936e1dd5ef15
     internalID: 0
     vertices: []
     indices: 
@@ -240,10 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Chase_1-Sheet_0: -102638867171773503
-      Chase_1-Sheet_1: -8813558607143432677
-      Chase_1-Sheet_2: -388245380312789238
-      Chase_1-Sheet_3: 8171875926701726706
+      GreenHeart_1-Sheet_0: 5056708967964772408
+      GreenHeart_1-Sheet_1: -5683089217843501652
+      GreenHeart_1-Sheet_2: -3529617449674702324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

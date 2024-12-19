@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3842772457267148424
 Transform:
   m_ObjectHideFlags: 0
@@ -89,8 +89,10 @@ MonoBehaviour:
     m_Bits: 0
   _playercheckRadius: 10
   _attackRadius: 0
-  _damge: 0
+  _damge: 20
   _knockBackForce: {x: 5, y: 3}
+  DropCoin: {fileID: 0}
+  ItemList: {fileID: 0}
   _asmodeusFSM: {fileID: 11400000, guid: c58fc518cbc1d6147a6d0dab59eca34f, type: 2}
   AttackCompo: {fileID: 0}
   BossDeadEvnet: {fileID: 11400000, guid: 575ccd4780723d448a909c7c2f392b97, type: 2}
@@ -152,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bdfed7e36b67046baf2e023d274c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1000000
+  _maxHealth: 800
   _currentHealth: 0
   _knockBackTime: 0.5
 --- !u!1 &6258731006744249142
