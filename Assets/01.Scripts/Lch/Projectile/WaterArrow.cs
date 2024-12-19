@@ -3,7 +3,7 @@ using UnityEngine;
 public class WaterArrow : Entity
 {
     private Transform _target;
-    [SerializeField] private float _shotSpeed = 5;
+    [SerializeField] private float _shotSpeed = 6;
     [SerializeField] private Vector2 _knockBackForce = new Vector2(5f, 3f);
     [SerializeField] private float _damge;
     private Rigidbody2D _rbCompo;
@@ -62,7 +62,7 @@ public class WaterArrow : Entity
     private void FacingToPlayer()
     {
         float xDirection = _leviathan.target.transform.position.x - transform.position.x;
-        if (Mathf.Abs(xDirection) < 0.5f)
+        if (xDirection < 0f)
         {
             transform.Rotate(0, 180f, 0);
         }
