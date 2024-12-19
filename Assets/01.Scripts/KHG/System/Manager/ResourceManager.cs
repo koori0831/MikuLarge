@@ -6,5 +6,5 @@ public class ResourceManager : MonoBehaviour
     public int Health { get; set; } = 100;
     public int MaxHealth { get; set; } = 100;
 
-    public float SoulGauge { get; set; }
+    public float SoulGauge { get; set; } = 0;
 }
