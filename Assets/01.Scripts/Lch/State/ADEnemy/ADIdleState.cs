@@ -25,7 +25,8 @@ public class ADIdleState : EntityState
     {
         base.Update();
         FacingToPlayer();
-        if (_adEnemy.CheckAttackToPlayerRadius() && _adEnemy.AttackCompo.CanAttack() && _adEnemy.CheckPlayerInRadius())
+        if (_adEnemy.CheckAttackToPlayerRadius() && _adEnemy.AttackCompo.CanAttack() 
+            && _adEnemy.CheckPlayerInRadius() && Manager.manager.RoomManager.DoorStatus)
         {
             _adEnemy.ChangeState(StateName.Attack);
         }

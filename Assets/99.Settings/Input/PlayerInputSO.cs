@@ -7,7 +7,7 @@ public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
 {
     public event Action JumpEvent;
     public event Action InteractEvent;
-    public event Action AttackEvent;
+    public event Action ShotEvent;
     public event Action DashEvent;
     public event Action ReloadEvent;
     public event Action ChangeWeaponEvent;
@@ -37,10 +37,10 @@ public class PlayerInputSO : ScriptableObject, Controls.IPlayerActions
         InputDirection = context.ReadValue<Vector2>();
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnShot(InputAction.CallbackContext context)
     {
         if(context.performed) 
-            AttackEvent?.Invoke();
+            ShotEvent?.Invoke();
     }
 
     public void OnInteract(InputAction.CallbackContext context)
