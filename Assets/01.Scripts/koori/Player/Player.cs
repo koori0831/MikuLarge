@@ -101,7 +101,7 @@ public class Player : Entity
 
     private void HandleNailEvent()
     {
-        if (Manager.manager.ResourceManager.CanNeailUse)
+        if (!Manager.manager.ResourceManager.CanNeailUse)
             return;
         ChangeState(StateName.Nail);  
     }
