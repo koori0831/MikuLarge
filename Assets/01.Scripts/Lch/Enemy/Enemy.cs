@@ -35,20 +35,6 @@ public abstract class Enemy : Entity
         return _stateMachine.GetState(state.stateName);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Player player))
-        {
-            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
-            {
-                Vector2 atkDirection = gameObject.transform.right;
-                Vector2 knockBackForce = _knockBackForce;
-                knockBackForce.x *= atkDirection.x;
-                damageable.ApplyDamage(_damge, atkDirection, knockBackForce, this);
-            }
-        }
-    }
-
     protected virtual void Update()
     {
         _stateMachine.currentState.Update();
