@@ -20,6 +20,7 @@ public class EnemyDeadState : EntityState
         base.Update();
         if (_isTriggerCall)
         {
+            _enemy.IsDead = true;
             int DropCoinRange = Random.Range(0, 3);
             if (DropCoinRange == 1)
             {
