@@ -28,7 +28,7 @@ public class Hands : MonoBehaviour, IEntityComponent
 
     public void WeaponChange()
     {
-        if(_player.isReloading) return;
+        if(_player.isReloading || _player.isHit) return;
         nowWeapon = GetNext(nowWeapon);
         ImageChange();
     }

@@ -97,7 +97,7 @@ public abstract class Gun : MonoBehaviour
 
     private void StartReloading()
     {
-        if (isReloading||_player.isReloading) return;
+        if (isReloading||_player.isReloading ||_player.isHit) return;
 
         isReloading = true;
         _player.isReloading = true;
