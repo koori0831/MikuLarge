@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shotSpeed: 5
   _knockBackForce: {x: 5, y: 3}
-  _damge: 0
+  _damge: 20
 --- !u!95 &7323320932909007229
 Animator:
   serializedVersion: 7

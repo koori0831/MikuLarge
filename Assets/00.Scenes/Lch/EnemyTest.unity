@@ -131,10 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tanker
       objectReference: {fileID: 0}
-    - target: {fileID: 5283649696095793030, guid: 9cc4103304cdf1b4c9fec754e6bc309f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5829106816682203957, guid: 9cc4103304cdf1b4c9fec754e6bc309f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.91
@@ -1339,7 +1335,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1863295375
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 0ea06033d61484f43a85c6c0c15518ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1638,7 +1634,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2025026773
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6a26a1b842ef2264ca14bbe38f7ee0a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1919,6 +1915,7 @@ MonoBehaviour:
   MapManager_K: {fileID: 460221855}
   CameraManager_K: {fileID: 1871242852}
   ResourceManager: {fileID: 1798265363}
+  RoomManager: {fileID: 0}
   ResourceUI: {fileID: 1052544077}
   MinimapUI: {fileID: 1230621829}
   AnimationManager: {fileID: 390884833}
@@ -2141,10 +2138,6 @@ PrefabInstance:
     - target: {fileID: 1090963566695856224, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_Name
       value: Ghost
-      objectReference: {fileID: 0}
-    - target: {fileID: 1090963566695856224, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4548159758917878876, guid: 53fd534a26c10754eb99ac4f1ddc3a3d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3147,10 +3140,6 @@ PrefabInstance:
     - target: {fileID: 3088233501336665578, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
       propertyPath: m_Name
       value: ADEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3088233501336665578, guid: 7353026b7d5b9c14a8aa06263c1899b9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4720,10 +4709,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asmodeus
       objectReference: {fileID: 0}
-    - target: {fileID: 5745932871722101897, guid: 5554934bd695c1e438ca1ebb27359bc7, type: 3}
-      propertyPath: _itemList
-      value: 
-      objectReference: {fileID: 11400000, guid: d8da166a63e09d642887db7c14497455, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

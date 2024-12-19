@@ -24,11 +24,11 @@ public class WaterArrow : Entity
     {
         Vector2 targetDir = _target.position - transform.position;
         _rbCompo.linearVelocity = targetDir.normalized * _shotSpeed;
+        FacingToPlayer();
     }
     private void Update()
     {
 
-        FacingToPlayer();
 
         _lifeTime -= Time.deltaTime;
         if (_lifeTime <= 0)
@@ -62,6 +62,9 @@ public class WaterArrow : Entity
     private void FacingToPlayer()
     {
         float xDirection = _leviathan.target.transform.position.x - transform.position.x;
-        _renderer.FlipController(Mathf.Sign(xDirection));
+        if (Mathf.Abs(xDirection) < 0.5f)
+        {
+            transform.Rotate(0, 180f, 0);
+        }
     }
 }
