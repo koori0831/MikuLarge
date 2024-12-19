@@ -17,7 +17,6 @@ public class PlayerMoveState : EntityState
         float xInput = _player.PlayerInput.InputDirection.x;
 
         _mover.SetMovement(xInput);
-        _mover.IsPlayer();
 
         if (Mathf.Approximately(xInput, 0))
         {
