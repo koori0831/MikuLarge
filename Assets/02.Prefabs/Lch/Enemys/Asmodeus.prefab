@@ -120,6 +120,10 @@ MonoBehaviour:
   _asmodeusFSM: {fileID: 11400000, guid: c58fc518cbc1d6147a6d0dab59eca34f, type: 2}
   AttackCompo: {fileID: 0}
   DropPos: {fileID: 0}
+  BossMuisc:
+    ID: 0
+    _sourceAsset: {fileID: 0}
+    <DebugObject>k__BackingField: {fileID: 4593101305297070637}
 --- !u!61 &2334998124481943667
 BoxCollider2D:
   m_ObjectHideFlags: 0
