@@ -8,15 +8,6 @@ public class GameoverUI : MonoBehaviour
         _gameoverUI.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Manager.manager.UIManager.Gameover();
-        }
-    }
-
-
     public void GameOverUI()
     {
         _gameoverUI.SetActive(true);
