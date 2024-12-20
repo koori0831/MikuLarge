@@ -4,6 +4,7 @@ public class AsmodeusDeadState : EntityState
 {
     private Asmodeus _asmodeus;
     private int _spawnItemCount;
+    private readonly int _deadLayer = LayerMask.NameToLayer("DeadBoss");
     public AsmodeusDeadState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
     {
         _asmodeus = entity as Asmodeus;
@@ -13,6 +14,7 @@ public class AsmodeusDeadState : EntityState
     {
         base.Enter();
         _spawnItemCount = Random.Range(0, _asmodeus.ItemList.DropItemList.Count);
+        _asmodeus.gameObject.layer = _deadLayer;
     }
 
     public override void Update()
