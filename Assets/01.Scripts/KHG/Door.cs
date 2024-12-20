@@ -11,6 +11,7 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private ParticleSystem _brickParticle;
 
     [SerializeField] private VoidEventChannelSO _stageClearEvent;
+    [SerializeField] private string _targetScene;
 
     [SerializeField] private GameObject _stagePassUI;
 
@@ -54,7 +55,7 @@ public class Door : MonoBehaviour, IInteractable
     private IEnumerator StagePass()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene("Stage2");
+        SceneManager.LoadScene(_targetScene);
     }
 
 
