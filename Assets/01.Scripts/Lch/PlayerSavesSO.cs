@@ -4,9 +4,8 @@ using UnityEngine;
 public class PlayerSavesSO : ScriptableObject
 {
     public WeaponType nowWeaponType;
-    public Gun currentHandGun;
-    public Gun currentHandsGun;
+    public GameObject currentWeaponPrefab;
     public float CurrentHealth;
     public int NowCoin;
-    public int CurrentAmon;
+    public int CurrentAmmo;
 }

@@ -16,7 +16,8 @@ public class Hands : MonoBehaviour, IEntityComponent
     public WeaponType nowWeapon = WeaponType.melee;
     private Player _player;
     public Gun currentHandGun;
-    public Gun currentHandsGun; 
+    public Gun currentHandsGun;
+    public GameObject picked;
     private void Awake()
     {
         _player = GetComponentInParent<Player>();
@@ -103,26 +104,27 @@ public class Hands : MonoBehaviour, IEntityComponent
         return (T)array.GetValue(0);
     }
 
-    public void PickUpGun(GameObject Piked)
+    public void PickUpGun(GameObject Picked)
     {
          if (currentHandGun != null)
             Destroy(currentHandGun.gameObject);
          if(currentHandsGun != null)
             Destroy(currentHandsGun.gameObject);
+         picked = Picked;
 
-         Gun gunCompo = Piked.GetComponent<Gun>();
+         Gun gunCompo = Picked.GetComponent<Gun>();
 
 
         switch (gunCompo.type)
         {
             case WeaponType.handGun: 
-                GameObject HandGun = Instantiate(Piked, _handTransform);
-                HandGun.name = Piked.name;
+                GameObject HandGun = Instantiate(Picked, _handTransform);
+                HandGun.name = Picked.name;
                 currentHandGun = HandGun.GetComponent<Gun>(); ;
                 nowWeapon = WeaponType.handGun; ImageChange(); break;
             case WeaponType.handsGun: 
-                GameObject HandsGun = Instantiate(Piked, _handsTransform);
-                HandsGun.name = Piked.name;
+                GameObject HandsGun = Instantiate(Picked, _handsTransform);
+                HandsGun.name = Picked.name;
                 currentHandsGun = HandsGun.GetComponent<Gun>();
                 nowWeapon = WeaponType.handsGun; ImageChange(); break;
         }
