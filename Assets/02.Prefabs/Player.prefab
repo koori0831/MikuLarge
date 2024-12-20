@@ -152,13 +152,17 @@ MonoBehaviour:
     ID: 1073741847
     _sourceAsset: {fileID: 11400000, guid: 356316d8e7edda544946ecf4c0ccfcc9, type: 2}
     <DebugObject>k__BackingField: {fileID: 2235842860719263181}
-  shot:
-    ID: 1073741848
-    _sourceAsset: {fileID: 11400000, guid: 356316d8e7edda544946ecf4c0ccfcc9, type: 2}
-    <DebugObject>k__BackingField: {fileID: 2235842860719263181}
   hit:
     ID: 1073741838
     _sourceAsset: {fileID: 11400000, guid: b5a055b05f417e84f97f551468c08be5, type: 2}
+    <DebugObject>k__BackingField: {fileID: 2235842860719263181}
+  Shot:
+    ID: 1073741848
+    _sourceAsset: {fileID: 11400000, guid: 356316d8e7edda544946ecf4c0ccfcc9, type: 2}
+    <DebugObject>k__BackingField: {fileID: 2235842860719263181}
+  Reload:
+    ID: 1073741849
+    _sourceAsset: {fileID: 11400000, guid: 356316d8e7edda544946ecf4c0ccfcc9, type: 2}
     <DebugObject>k__BackingField: {fileID: 2235842860719263181}
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: a5c494b899c18b648a01988b6958eec5, type: 2}
   jumpPower: 6
@@ -307,6 +311,7 @@ MonoBehaviour:
   nowWeapon: 2
   currentHandGun: {fileID: 0}
   currentHandsGun: {fileID: 0}
+  picked: {fileID: 0}
 --- !u!1 &4254877495771719864
 GameObject:
   m_ObjectHideFlags: 0
