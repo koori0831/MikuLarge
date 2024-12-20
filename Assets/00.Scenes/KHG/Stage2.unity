@@ -4289,7 +4289,7 @@ MonoBehaviour:
   - {fileID: 7245285228004717251, guid: 31bcf447313ed18469513d1562317a9f, type: 3}
   - {fileID: 7245285228004717251, guid: 31bcf447313ed18469513d1562317a9f, type: 3}
   - {fileID: 7245285228004717251, guid: 31bcf447313ed18469513d1562317a9f, type: 3}
-  _currentBossMap: {fileID: 2655975522696199164, guid: 13cb10a18d91c174f8fc13623de06c4c, type: 3}
+  _currentBossMap: {fileID: 2655975522696199164, guid: e4ae0b8e27916cb4fa5ea59a98800e25, type: 3}
 --- !u!4 &1258084089
 Transform:
   m_ObjectHideFlags: 0
