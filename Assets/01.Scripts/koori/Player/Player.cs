@@ -9,8 +9,9 @@ public class Player : Entity
     [field :SerializeField] public PlayerSavesSO PlayerSave;
     [SerializeField] private PlayerSaveSoEventChannelSO _soEvent;
     [SerializeField] private SoundID melee;
-    [SerializeField] private SoundID shot;
     [SerializeField] private SoundID hit;
+    public SoundID Shot;
+    public SoundID Reload;
 
     [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
     public float jumpPower = 12f;
@@ -46,6 +47,24 @@ public class Player : Entity
 
     public EntityState CurrentState => _stateMachine.currentState;
 
+    private void OnEnable()
+    {
+        if (GameManger.Instance.SaveSo != null)
+        {
+            health._currentHealth = GameManger.Instance.SaveSo.CurrentHealth;
+            Hands.nowWeapon = GameManger.Instance.SaveSo.nowWeaponType;
+            Hands.PickUpGun(GameManger.Instance.SaveSo.currentWeaponPrefab);
+            switch (Hands.nowWeapon)
+            {
+                case WeaponType.handGun:Hands.currentHandGun.currentAmmo = GameManger.Instance.SaveSo.CurrentAmmo; break;
+                case WeaponType.handsGun:Hands.currentHandsGun.currentAmmo = GameManger.Instance.SaveSo.CurrentAmmo; break;
+            }
+        }
+        else
+        {
+            SaveData();
+        }
+    }
     protected override void AfterInitialize()
     {
         base.AfterInitialize();
@@ -73,21 +92,21 @@ public class Player : Entity
         _mover.IsPlayer();
 
         NailEvent.OnValueEvent += RevertInput;
+    }
+
+    private void SaveData()
+    {
         PlayerSave.CurrentHealth = health._currentHealth;
         PlayerSave.nowWeaponType = Hands.nowWeapon;
-        PlayerSave.currentHandGun = Hands.currentHandGun;
-        PlayerSave.currentHandsGun = Hands.currentHandsGun;
-
-        if (GameManger.Instance.SaveSo != null)
+        PlayerSave.currentWeaponPrefab = Hands.picked;
+        
+        switch (Hands.nowWeapon)
         {
-            health._currentHealth = GameManger.Instance.SaveSo.CurrentHealth;
-            Hands.nowWeapon = GameManger.Instance.SaveSo.nowWeaponType;
-            Hands.currentHandGun = GameManger.Instance.SaveSo.currentHandGun;
-            Hands.currentHandsGun = GameManger.Instance.SaveSo.currentHandsGun;
-
-            Hands.WeaponChange();
+            case WeaponType.handGun: PlayerSave.CurrentAmmo = Hands.currentHandGun.currentAmmo; break;
+            case WeaponType.handsGun: PlayerSave.CurrentAmmo = Hands.currentHandsGun.currentAmmo; break;
+            default: PlayerSave.CurrentAmmo = 0; break;
         }
-        //PlayerSave.NowCoin = Manager.manager.ResourceManager.Coin;
+        _soEvent.RaiseEvent(PlayerSave);
     }
 
     private void RevertInput(bool obj)
@@ -137,12 +156,8 @@ public class Player : Entity
         PlayerInput.NailEvent -= HandleNailEvent;
         health.OnHit -= HandleHit;
         health.OnDeath -= HandleDeath;
-        PlayerSave.CurrentHealth = health._currentHealth;
-        PlayerSave.nowWeaponType = Hands.nowWeapon;
-        PlayerSave.currentHandGun = Hands.currentHandGun;
-        PlayerSave.currentHandsGun = Hands.currentHandsGun;
-        PlayerSave.NowCoin = Manager.manager.ResourceManager.Coin;
-        _soEvent.RaiseEvent(PlayerSave);
+        SaveData();
+        GameManger.Instance.SaveSo.NowCoin = Manager.manager.ResourceManager.Coin;
     }
 
     protected void Start()
@@ -234,8 +249,8 @@ public class Player : Entity
         {
             switch (Hands.nowWeapon)
             {
-                case WeaponType.handGun:Hands.currentHandGun.Shot(); BroAudio.Play(shot);  break;
-                case WeaponType.handsGun: Hands.currentHandsGun.Shot(); BroAudio.Play(shot); break;
+                case WeaponType.handGun:Hands.currentHandGun.Shot();  break;
+                case WeaponType.handsGun: Hands.currentHandsGun.Shot(); break;
                 case WeaponType.melee: HandleAttackKeyEvent(); break;
             }
         }
