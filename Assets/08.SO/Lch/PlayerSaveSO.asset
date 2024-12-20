@@ -10,6 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9504383864eb384b8ec1fd4ff045e70, type: 3}
-  m_Name: PlayerCrruentGun
+  m_Name: PlayerSaveSO
   m_EditorClassIdentifier: 
-  weaponType: 0
+  nowWeaponType: 1
+  currentWeaponPrefab: {fileID: 682950465906302799, guid: e38f55f4d00b78643a3e0f9eb15b64bf, type: 3}
+  CurrentHealth: 100
+  NowCoin: 0
+  CurrentAmmo: 7

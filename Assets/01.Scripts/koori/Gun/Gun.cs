@@ -66,6 +66,7 @@ public abstract class Gun : MonoBehaviour
         currentAmmo--;
         nextShotTime = Time.time + shotWaitTime;
 
+        BroAudio.Play(_player.Shot);
         Manager.manager.CameraManager_K.ShakeCamera(0.1f, 0.1f);
 
         if (shotCount > 1)
@@ -102,6 +103,7 @@ public abstract class Gun : MonoBehaviour
     {
         if (isReloading||_player.isReloading ||_player.isHit) return;
 
+        BroAudio.Play(_player.Reload);
         isReloading = true;
         _player.isReloading = true;
         _player.ReLoadOb.SetActive(true);
