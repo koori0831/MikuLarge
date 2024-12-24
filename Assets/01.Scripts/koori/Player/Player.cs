@@ -49,15 +49,15 @@ public class Player : Entity
 
     private void OnEnable()
     {
-        if (GameManger.Instance.SaveSo != null)
+        if (GameManager.Instance.SaveSo != null)
         {
-            health._currentHealth = GameManger.Instance.SaveSo.CurrentHealth;
-            Hands.nowWeapon = GameManger.Instance.SaveSo.nowWeaponType;
-            Hands.PickUpGun(GameManger.Instance.SaveSo.currentWeaponPrefab);
+            health._currentHealth = GameManager.Instance.SaveSo.CurrentHealth;
+            Hands.nowWeapon = GameManager.Instance.SaveSo.nowWeaponType;
+            Hands.PickUpGun(GameManager.Instance.SaveSo.currentWeaponPrefab);
             switch (Hands.nowWeapon)
             {
-                case WeaponType.handGun:Hands.currentHandGun.currentAmmo = GameManger.Instance.SaveSo.CurrentAmmo; break;
-                case WeaponType.handsGun:Hands.currentHandsGun.currentAmmo = GameManger.Instance.SaveSo.CurrentAmmo; break;
+                case WeaponType.handGun:Hands.currentHandGun.currentAmmo = GameManager.Instance.SaveSo.CurrentAmmo; break;
+                case WeaponType.handsGun:Hands.currentHandsGun.currentAmmo = GameManager.Instance.SaveSo.CurrentAmmo; break;
             }
         }
         else
@@ -126,7 +126,7 @@ public class Player : Entity
 
     private void HandleDeath()
     {
-        GameManger.Instance.SaveSo = null;
+        
         ChangeState(StateName.Dead);
     }
 
@@ -156,8 +156,13 @@ public class Player : Entity
         PlayerInput.NailEvent -= HandleNailEvent;
         health.OnHit -= HandleHit;
         health.OnDeath -= HandleDeath;
-        SaveData();
-        GameManger.Instance.SaveSo.NowCoin = Manager.manager.ResourceManager.Coin;
+        if (IsDead)
+            GameManager.Instance.SaveSo = null;
+        else
+        {
+            SaveData();
+            GameManager.Instance.SaveSo.NowCoin = Manager.manager.ResourceManager.Coin;
+        }
     }
 
     protected void Start()
