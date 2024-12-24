@@ -167,7 +167,7 @@ MonoBehaviour:
       FadeIn: 0
       FadeOut: 0
       Weight: 0
-    <MasterVolume>k__BackingField: 1.6058589
+    <MasterVolume>k__BackingField: 5
     <Loop>k__BackingField: 0
     <SeamlessLoop>k__BackingField: 0
     <TransitionTime>k__BackingField: 0
@@ -181,6 +181,6 @@ MonoBehaviour:
     TransitionTempo:
       BPM: 0
       Beats: 0
-    SnapToFullVolume: 0
+    SnapToFullVolume: 1
   <AssetName>k__BackingField: Player
   _assetGUID: 356316d8e7edda544946ecf4c0ccfcc9
