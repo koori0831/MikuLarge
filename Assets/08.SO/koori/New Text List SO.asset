@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9504383864eb384b8ec1fd4ff045e70, type: 3}
-  m_Name: PlayerSaveSO
+  m_Script: {fileID: 11500000, guid: 05518b2574914234e8de0fe2bdc39144, type: 3}
+  m_Name: New Text List SO
   m_EditorClassIdentifier: 
-  nowWeaponType: 1
-  currentWeaponPrefab: {fileID: 1067673391516997652, guid: 891ea916898e670449dcdc8ffeb95f87, type: 3}
-  CurrentHealth: 180
-  NowCoin: 0
-  CurrentAmmo: 5
+  _textList: []

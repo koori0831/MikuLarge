@@ -8,7 +8,7 @@ public class ResourceManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameManger.Instance.SaveSo != null)
-            Coin = GameManger.Instance.SaveSo.NowCoin;
+        if (GameManager.Instance.SaveSo != null)
+            Coin = GameManager.Instance.SaveSo.NowCoin;
     }
 }
