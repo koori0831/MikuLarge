@@ -5,32 +5,21 @@ public class Tanker : Enemy
 {
     [SerializeField] private EntityFSMSO _tankerFsm;
     private EntityHealth _health;
+    public DamageCast Caster;
     public EnemyAttackCompo AttackCompo;
     public EntityState CurrentState => _stateMachine.currentState;
 
     protected override void AfterInitialize()
     {
         base.AfterInitialize();
+        Caster = GetComponentInChildren<DamageCast>();
+        Caster.InitCaster(this);
         _health = GetCompo<EntityHealth>();
         AttackCompo = GetCompo<EnemyAttackCompo>();
         _stateMachine = new StateMachine(_tankerFsm, this);
         GetCompo<EntityAnimator>(true).OnAnimationEnd += HandleAnimationEnd;
         _health.OnHit += HandleHit;
         _health.OnDeath += HandleDead;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Player player))
-        {
-            if (collision.gameObject.TryGetComponent(out IDamageable damageable))
-            {
-                Vector2 atkDirection = gameObject.transform.right;
-                Vector2 knockBackForce = _knockBackForce;
-                knockBackForce.x *= atkDirection.x;
-                damageable.ApplyDamage(_damge, atkDirection, knockBackForce, this);
-            }
-        }
     }
 
     private void HandleDead()
