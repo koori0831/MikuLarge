@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using System.Collections;
 
 public class TankerAttackState : EntityState
 {
@@ -6,6 +8,8 @@ public class TankerAttackState : EntityState
     private Tanker _tanker;
     private EntityMover _mover;
     private Vector2 _targetDir;
+    private float _attackStart;
+    private float _attackStopTime = 2.5f;
 
     public TankerAttackState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
     {
@@ -25,14 +29,23 @@ public class TankerAttackState : EntityState
     {
         base.Update();
         FacingToPlayer();
+        _tanker.StartCoroutine(CastDealy());
         _targetDir = (_tanker.target.transform.position - _tanker.transform.position).normalized;
-        _mover._moveSpeed = 18f;
+        _mover._moveSpeed = 9f;
         _mover.SetMovement(_targetDir.x);
-        if (_tanker.CheckAttackToPlayerRadius() || _tanker.CheckObstacleInFront())
+        _attackStart += Time.deltaTime;
+
+        if(_attackStart >= _attackStopTime)
         {
-            _mover.StopImmediately(true);
+            _mover.StopImmediately();
             _tanker.ChangeState(StateName.Idle);
         }
+    }
+
+    private IEnumerator CastDealy()
+    {
+        yield return new WaitForSeconds(0.2F);
+        _tanker.Caster.CastDamage();
     }
 
     private void FacingToPlayer()
