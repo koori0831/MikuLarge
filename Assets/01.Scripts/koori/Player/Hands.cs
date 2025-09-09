@@ -20,19 +20,24 @@ public class Hands : MonoBehaviour, IEntityComponent
     public GameObject picked;
     private void Awake()
     {
+        nowWeapon.Value = WeaponType.melee;
         _player = GetComponentInParent<Player>();
         _handRenderer = GetComponent<SpriteRenderer>();
         _player.PlayerInput.ChangeWeaponEvent += WeaponChange;
         ImageChange();
-        nowWeapon.Value = WeaponType.melee;
     }
 
 
     public void WeaponChange()
     {
         if(_player.isReloading || _player.isHit) return;
-        nowWeapon.Value = GetNext(nowWeapon.Value);
-        ImageChange();
+        
+        WeaponType nextWeapon = GetNextAvailableWeapon(nowWeapon.Value);
+        if (nextWeapon != nowWeapon.Value) // 실제로 변경될 무기가 있을 때만 변경
+        {
+            nowWeapon.Value = nextWeapon;
+            ImageChange();
+        }
     }
 
     private void FixedUpdate()
@@ -66,27 +71,21 @@ public class Hands : MonoBehaviour, IEntityComponent
     {
         switch (nowWeapon.Value)
         {
-            case WeaponType.handGun:if (currentHandGun == null)
-                {
-                    nowWeapon.Value = GetNext(nowWeapon.Value);
-                    ImageChange();
-                    break;
-                }
+            case WeaponType.handGun:
                 _handRenderer.sprite = _handGun;
                 _handTransform.gameObject.SetActive(true);
-                _handsTransform.gameObject.SetActive(false); break;
-            case WeaponType.handsGun:if (currentHandsGun == null)
-                {
-                    nowWeapon.Value = GetNext(nowWeapon.Value);
-                    ImageChange();
-                    break;
-                }
+                _handsTransform.gameObject.SetActive(false); 
+                break;
+            case WeaponType.handsGun:
                 _handRenderer.sprite = _handsGun;
                 _handTransform.gameObject.SetActive(false);
-                _handsTransform.gameObject.SetActive(true); break;
-            case WeaponType.melee:_handRenderer.sprite = _melee;
+                _handsTransform.gameObject.SetActive(true); 
+                break;
+            case WeaponType.melee:
+                _handRenderer.sprite = _melee;
                 _handTransform.gameObject.SetActive(false);
-                _handsTransform.gameObject.SetActive(false); break;
+                _handsTransform.gameObject.SetActive(false); 
+                break;
         }
     }
 
@@ -134,5 +133,38 @@ public class Hands : MonoBehaviour, IEntityComponent
     public void Initialize(Entity entity)
     {
         _entity = entity;
+    }
+
+    private WeaponType GetNextAvailableWeapon(WeaponType current)
+    {
+        WeaponType startType = current;
+        WeaponType nextType = GetNext(current);
+        
+        // 한 바퀴 돌 때까지 확인
+        do
+        {
+            if (IsWeaponAvailable(nextType))
+                return nextType;
+            
+            nextType = GetNext(nextType);
+        } while (nextType != startType);
+        
+        // 사용 가능한 무기가 없으면 현재 무기 유지
+        return current;
+    }
+
+    private bool IsWeaponAvailable(WeaponType type)
+    {
+        switch (type)
+        {
+            case WeaponType.handGun:
+                return currentHandGun != null;
+            case WeaponType.handsGun:
+                return currentHandsGun != null;
+            case WeaponType.melee:
+                return true; // 맨손은 항상 사용 가능
+            default:
+                return false;
+        }
     }
 }
