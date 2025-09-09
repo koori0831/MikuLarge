@@ -13,7 +13,7 @@ public class Hands : MonoBehaviour, IEntityComponent
     private Entity _entity;
     [SerializeField] private Transform _handTransform, _handsTransform;
 
-    public WeaponType nowWeapon = WeaponType.melee;
+    public NotifyValue<WeaponType> nowWeapon;
     private Player _player;
     public Gun currentHandGun;
     public Gun currentHandsGun;
@@ -24,19 +24,20 @@ public class Hands : MonoBehaviour, IEntityComponent
         _handRenderer = GetComponent<SpriteRenderer>();
         _player.PlayerInput.ChangeWeaponEvent += WeaponChange;
         ImageChange();
+        nowWeapon.Value = WeaponType.melee;
     }
 
 
     public void WeaponChange()
     {
         if(_player.isReloading || _player.isHit) return;
-        nowWeapon = GetNext(nowWeapon);
+        nowWeapon.Value = GetNext(nowWeapon.Value);
         ImageChange();
     }
 
     private void FixedUpdate()
     {
-        if (nowWeapon != WeaponType.melee)
+        if (nowWeapon.Value != WeaponType.melee)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = transform.position.z;
@@ -63,11 +64,11 @@ public class Hands : MonoBehaviour, IEntityComponent
 
     private void ImageChange()
     {
-        switch (nowWeapon)
+        switch (nowWeapon.Value)
         {
             case WeaponType.handGun:if (currentHandGun == null)
                 {
-                    nowWeapon = GetNext(nowWeapon);
+                    nowWeapon.Value = GetNext(nowWeapon.Value);
                     ImageChange();
                     break;
                 }
@@ -76,7 +77,7 @@ public class Hands : MonoBehaviour, IEntityComponent
                 _handsTransform.gameObject.SetActive(false); break;
             case WeaponType.handsGun:if (currentHandsGun == null)
                 {
-                    nowWeapon = GetNext(nowWeapon);
+                    nowWeapon.Value = GetNext(nowWeapon.Value);
                     ImageChange();
                     break;
                 }
@@ -121,12 +122,12 @@ public class Hands : MonoBehaviour, IEntityComponent
                 GameObject HandGun = Instantiate(Picked, _handTransform);
                 HandGun.name = Picked.name;
                 currentHandGun = HandGun.GetComponent<Gun>(); ;
-                nowWeapon = WeaponType.handGun; ImageChange(); break;
+                nowWeapon.Value = WeaponType.handGun; ImageChange(); break;
             case WeaponType.handsGun: 
                 GameObject HandsGun = Instantiate(Picked, _handsTransform);
                 HandsGun.name = Picked.name;
                 currentHandsGun = HandsGun.GetComponent<Gun>();
-                nowWeapon = WeaponType.handsGun; ImageChange(); break;
+                nowWeapon.Value = WeaponType.handsGun; ImageChange(); break;
         }
     }
 
