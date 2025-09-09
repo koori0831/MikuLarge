@@ -52,9 +52,9 @@ public class Player : Entity
         if (GameManager.Instance.SaveSo != null)
         {
             health._currentHealth = GameManager.Instance.SaveSo.CurrentHealth;
-            Hands.nowWeapon = GameManager.Instance.SaveSo.nowWeaponType;
+            Hands.nowWeapon.Value = GameManager.Instance.SaveSo.nowWeaponType;
             Hands.PickUpGun(GameManager.Instance.SaveSo.currentWeaponPrefab);
-            switch (Hands.nowWeapon)
+            switch (Hands.nowWeapon.Value)
             {
                 case WeaponType.handGun:Hands.currentHandGun.currentAmmo = GameManager.Instance.SaveSo.CurrentAmmo; break;
                 case WeaponType.handsGun:Hands.currentHandsGun.currentAmmo = GameManager.Instance.SaveSo.CurrentAmmo; break;
@@ -97,10 +97,10 @@ public class Player : Entity
     private void SaveData()
     {
         PlayerSave.CurrentHealth = health._currentHealth;
-        PlayerSave.nowWeaponType = Hands.nowWeapon;
+        PlayerSave.nowWeaponType = Hands.nowWeapon.Value;
         PlayerSave.currentWeaponPrefab = Hands.picked;
         
-        switch (Hands.nowWeapon)
+        switch (Hands.nowWeapon.Value)
         {
             case WeaponType.handGun: PlayerSave.CurrentAmmo = Hands.currentHandGun.currentAmmo; break;
             case WeaponType.handsGun: PlayerSave.CurrentAmmo = Hands.currentHandsGun.currentAmmo; break;
@@ -252,7 +252,7 @@ public class Player : Entity
     {
         if (_atkCompo.AttemptShot() && !isReloading && !isHit && !IsDead)
         {
-            switch (Hands.nowWeapon)
+            switch (Hands.nowWeapon.Value)
             {
                 case WeaponType.handGun:Hands.currentHandGun.Shot();  break;
                 case WeaponType.handsGun: Hands.currentHandsGun.Shot(); break;
@@ -262,7 +262,7 @@ public class Player : Entity
     }
     public void HidingGun(bool value)
     {
-        switch (Hands.nowWeapon)
+        switch (Hands.nowWeapon.Value)
         {
             case WeaponType.handGun:
                 Hands.currentHandGun.gameObject.GetComponent<SpriteRenderer>().enabled = value; break;

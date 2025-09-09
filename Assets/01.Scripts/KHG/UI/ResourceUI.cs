@@ -23,18 +23,51 @@ public class ResourceUI : MonoSingleton<ResourceUI>
     [SerializeField] private Player _player;
     private int _bulletCount;
 
+    private void OnEnable()
+    {
+        _player.Hands.nowWeapon.OnvalueChanged += SetGunInfo;
+    }
+
     private void Start()
     {
         SetCoin();
-      
+        SetGunInfo(WeaponType.melee, _player.Hands.nowWeapon.Value);
+
         SetHealth(Mathf.FloorToInt(_player.PlayerSave.CurrentHealth));
         SetNeail(0);
+    }
+
+    private void OnDestroy()
+    {
+        _player.Hands.nowWeapon.OnvalueChanged -= SetGunInfo;
     }
 
 
     private void Update()
     {
-        switch (_player.Hands.nowWeapon)    
+        if (_player.Hands.currentHandsGun != null)
+        {
+            SetBullet(_player.Hands.currentHandsGun.currentAmmo);
+        }
+
+        if (_player.Hands.currentHandGun != null)
+        {
+            SetBullet(_player.Hands.currentHandGun.currentAmmo);
+        }
+
+
+        SetHealth(Mathf.FloorToInt(_player.health._currentHealth));
+
+        if (newFillAmount >= 1)
+        {
+            Manager.manager.ResourceManager.CanNeailUse = true;
+            StartCoroutine(NeaerDown());
+        }
+    }
+
+    private void SetGunInfo(WeaponType prev, WeaponType next)
+    {
+        switch (next)
         {
             case WeaponType.handGun:
                 SetupGun(_player.Hands.currentHandGun.gameObject.name, _player.Hands.currentHandGun.ammo);
@@ -43,27 +76,8 @@ public class ResourceUI : MonoSingleton<ResourceUI>
                 SetupGun(_player.Hands.currentHandsGun.gameObject.name, _player.Hands.currentHandsGun.ammo);
                 break;
             case WeaponType.melee:
-                SetupGun("ÀåÂø ¾ÈÇÔ",0);
+                SetupGun("ÀåÂø ¾ÈÇÔ", 0);
                 break;
-        }
-        
-        if(_player.Hands.currentHandsGun != null)
-        {
-            SetBullet(_player.Hands.currentHandsGun.currentAmmo);
-        }
-
-        if(_player.Hands.currentHandGun != null)
-        {
-            SetBullet(_player.Hands.currentHandGun.currentAmmo);
-        }
-        
-
-        SetHealth(Mathf.FloorToInt(_player.health._currentHealth));
-
-        if(newFillAmount >= 1)
-        {
-            Manager.manager.ResourceManager.CanNeailUse = true;
-            StartCoroutine(NeaerDown());
         }
     }
 
