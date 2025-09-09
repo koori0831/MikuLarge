@@ -99,8 +99,8 @@ MonoBehaviour:
     _sourceAsset: {fileID: 11400000, guid: b5a055b05f417e84f97f551468c08be5, type: 2}
     <DebugObject>k__BackingField: {fileID: 4593101305297070637}
   AttakSound:
-    ID: 0
-    _sourceAsset: {fileID: 0}
+    ID: 1073741842
+    _sourceAsset: {fileID: 11400000, guid: 31e8d165c0136944a93626a0875cfc40, type: 2}
     <DebugObject>k__BackingField: {fileID: 4593101305297070637}
   Phase1Sound:
     ID: 1073741841
@@ -122,8 +122,8 @@ MonoBehaviour:
   AttackCompo: {fileID: 0}
   DropPos: {fileID: 4679009116826106433}
   BossMuisc:
-    ID: 0
-    _sourceAsset: {fileID: 0}
+    ID: 268435460
+    _sourceAsset: {fileID: 11400000, guid: 91b38b8f20f2f55489fd26d74f4b844c, type: 2}
     <DebugObject>k__BackingField: {fileID: 4593101305297070637}
 --- !u!61 &2334998124481943667
 BoxCollider2D:
@@ -491,6 +491,10 @@ PrefabInstance:
     - target: {fileID: 4204557341579167102, guid: 2305596fa6c782f4f9e24920af4ce797, type: 3}
       propertyPath: m_Name
       value: StageDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857635665353695806, guid: 2305596fa6c782f4f9e24920af4ce797, type: 3}
+      propertyPath: _targetPosition.x
+      value: 6.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
