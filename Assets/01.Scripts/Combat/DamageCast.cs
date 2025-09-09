@@ -16,7 +16,7 @@ public class DamageCast : MonoBehaviour
         _colliders = new Collider2D[_maxAvailableCount];
     }
 
-    public void CastDamage()
+    public bool CastDamage()
     {
         Vector2 start = (Vector2)transform.position - _castSize * 0.5f;
         Vector2 end = start + _castSize;
@@ -30,8 +30,11 @@ public class DamageCast : MonoBehaviour
             if (_colliders[i].TryGetComponent(out IDamageable damageable))
             {
                 damageable.ApplyDamage(_damage, atkDirection, knockBackForce, _owner);
+                return true;
             }
         }
+
+        return false;
     }
 
 #if UNITY_EDITOR

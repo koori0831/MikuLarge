@@ -9,7 +9,8 @@ public class TankerAttackState : EntityState
     private EntityMover _mover;
     private Vector2 _targetDir;
     private float _attackStart;
-    private float _attackStopTime = 2.5f;
+    private float _attackStopTime = 1f;
+    private float _attackCount = 0f;
 
     public TankerAttackState(Entity entity, AnimParamSO animParam) : base(entity, animParam)
     {
@@ -21,7 +22,10 @@ public class TankerAttackState : EntityState
     public override void Enter()
     {
         base.Enter();
-        _mover.StopImmediately(false);
+        _targetDir = (_tanker.target.transform.position - _tanker.transform.position).normalized;
+        _mover._moveSpeed = 9f;
+        _mover.SetMovement(_targetDir.x);
+        _attackCount = 0;
         _tanker.AttackCompo.Attack();
     }
 
@@ -29,10 +33,12 @@ public class TankerAttackState : EntityState
     {
         base.Update();
         FacingToPlayer();
-        _tanker.StartCoroutine(CastDealy());
-        _targetDir = (_tanker.target.transform.position - _tanker.transform.position).normalized;
-        _mover._moveSpeed = 9f;
-        _mover.SetMovement(_targetDir.x);
+        if(_tanker.Caster.CastDamage() && _attackCount == 0)
+        {
+            _tanker.ChangeState(StateName.Idle);
+            _attackCount++;
+        }
+
         _attackStart += Time.deltaTime;
 
         if(_attackStart >= _attackStopTime)
@@ -40,12 +46,6 @@ public class TankerAttackState : EntityState
             _mover.StopImmediately();
             _tanker.ChangeState(StateName.Idle);
         }
-    }
-
-    private IEnumerator CastDealy()
-    {
-        yield return new WaitForSeconds(0.2F);
-        _tanker.Caster.CastDamage();
     }
 
     private void FacingToPlayer()
