@@ -33,7 +33,7 @@ public class Door : MonoBehaviour, IInteractable
 
     public void DoorRise()
     {
-        transform.DOMove(_targetPosition, 1.5f).SetEase(Ease.InExpo).OnComplete(() =>
+        transform.DOLocalMove(_targetPosition, 1.5f).SetEase(Ease.InExpo).OnComplete(() =>
         {
             _enterable = true;
             _brickParticle.Play();
